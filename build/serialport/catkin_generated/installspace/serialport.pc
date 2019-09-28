@@ -1,0 +1,8 @@
+prefix=/home/sanghongrui/catkin_ws/install
+
+Name: serialport
+Description: Description of serialport
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/sanghongrui/catkin_ws/install/lib 
+Requires: 

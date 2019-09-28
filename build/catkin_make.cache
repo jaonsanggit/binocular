@@ -1,0 +1,2 @@
+serialport
+-DCATKIN_DEVEL_PREFIX=/home/sanghongrui/catkin_ws/devel -DCMAKE_INSTALL_PREFIX=/home/sanghongrui/catkin_ws/install -G Unix Makefiles
