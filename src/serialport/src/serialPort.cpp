@@ -10,7 +10,7 @@ SCSCL sc;   //  declara servor obj
 int main (int argc, char** argv) 
 { 
       //初始化节点 
-      ros::init(argc, argv, "serial_port"); 
+      ros::init(argc, argv, "serialport"); 
       //声明节点句柄 
       ros::NodeHandle nh; 
 
@@ -18,7 +18,8 @@ int main (int argc, char** argv)
       { 
       //设置串口属性，并打开串口 
             ser.setPort("/dev/ttyUSB0"); 
-            ser.setBaudrate(115200); 
+            //ser.setBaudrate(115200); 
+            ser.setBaudrate(1000000); 
             serial::Timeout to = serial::Timeout::simpleTimeout(1000); 
             ser.setTimeout(to); 
             ser.open(); 
@@ -44,7 +45,7 @@ int main (int argc, char** argv)
       while(ros::ok()) 
       { 
         //ROS_INFO("Write name.\n\n");
-        sc.WritePos(1, 1023, 2000);//舵机(ID1),运行至1023位置,运行时间T=2000ms
+        sc.WritePos(1, 1000, 2000);//舵机(ID1),运行至1023位置,运行时间T=2000ms
 
         size_t n = ser.available();
         if(n!=0)

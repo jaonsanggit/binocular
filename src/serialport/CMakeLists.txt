@@ -198,6 +198,8 @@ include_directories(
 ## Add folders to be run by python nosetests
 # catkin_add_nosetests(test)
 
+## Generate added messages and services
+#generate_messages(DEPENDENCIES std_msgs)
 
 add_library(scservo 
   src/SCS.cpp 
@@ -211,3 +213,7 @@ add_executable(serialport
 add_dependencies(scservo ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 target_link_libraries(serialport scservo ${catkin_LIBRARIES})
+
+add_executable(eyes src/eyes.cpp)
+target_link_libraries(eyes ${catkin_LIBRARIES})
+add_dependencies(eyes ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
