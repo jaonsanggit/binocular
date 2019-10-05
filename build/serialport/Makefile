@@ -291,6 +291,33 @@ src/SCSerail.cpp.s:
 	cd /home/sanghongrui/catkin_ws/build && $(MAKE) -f serialport/CMakeFiles/scservo.dir/build.make serialport/CMakeFiles/scservo.dir/src/SCSerail.cpp.s
 .PHONY : src/SCSerail.cpp.s
 
+src/SMSCL.o: src/SMSCL.cpp.o
+
+.PHONY : src/SMSCL.o
+
+# target to build an object file
+src/SMSCL.cpp.o:
+	cd /home/sanghongrui/catkin_ws/build && $(MAKE) -f serialport/CMakeFiles/scservo.dir/build.make serialport/CMakeFiles/scservo.dir/src/SMSCL.cpp.o
+.PHONY : src/SMSCL.cpp.o
+
+src/SMSCL.i: src/SMSCL.cpp.i
+
+.PHONY : src/SMSCL.i
+
+# target to preprocess a source file
+src/SMSCL.cpp.i:
+	cd /home/sanghongrui/catkin_ws/build && $(MAKE) -f serialport/CMakeFiles/scservo.dir/build.make serialport/CMakeFiles/scservo.dir/src/SMSCL.cpp.i
+.PHONY : src/SMSCL.cpp.i
+
+src/SMSCL.s: src/SMSCL.cpp.s
+
+.PHONY : src/SMSCL.s
+
+# target to generate assembly for a file
+src/SMSCL.cpp.s:
+	cd /home/sanghongrui/catkin_ws/build && $(MAKE) -f serialport/CMakeFiles/scservo.dir/build.make serialport/CMakeFiles/scservo.dir/src/SMSCL.cpp.s
+.PHONY : src/SMSCL.cpp.s
+
 src/eyes.o: src/eyes.cpp.o
 
 .PHONY : src/eyes.o
@@ -370,6 +397,9 @@ help:
 	@echo "... src/SCSerail.o"
 	@echo "... src/SCSerail.i"
 	@echo "... src/SCSerail.s"
+	@echo "... src/SMSCL.o"
+	@echo "... src/SMSCL.i"
+	@echo "... src/SMSCL.s"
 	@echo "... src/eyes.o"
 	@echo "... src/eyes.i"
 	@echo "... src/eyes.s"

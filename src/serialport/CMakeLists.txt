@@ -207,6 +207,7 @@ add_library(scservo
   src/SCS.cpp 
   src/SCSCL.cpp 
   src/SCSerail.cpp
+  src/SMSCL.cpp
   )
 add_executable(serialport 
   src/serialPort.cpp

@@ -23,8 +23,14 @@ serial/serial.h
 -
 
 /home/sanghongrui/catkin_ws/src/serialport/include/serialport/SCServo.h
+serialport/SMSCL.h
+/home/sanghongrui/catkin_ws/src/serialport/include/serialport/serialport/SMSCL.h
 serialport/SCSCL.h
 /home/sanghongrui/catkin_ws/src/serialport/include/serialport/serialport/SCSCL.h
+
+/home/sanghongrui/catkin_ws/src/serialport/include/serialport/SMSCL.h
+serialport/SCSerail.h
+/home/sanghongrui/catkin_ws/src/serialport/include/serialport/serialport/SCSerail.h
 
 /home/sanghongrui/catkin_ws/src/serialport/src/serialPort.cpp
 ros/ros.h

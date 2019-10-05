@@ -6,9 +6,19 @@
 
 serial::Serial ser; //声明串口对象
 SCSCL sc;   //  declara servor obj
-void eyes_init(const std::vector<int> & vec);
+SMSCL sm;
+void eyes_init(const std::map<int, std::pair<std::string, int>> & m);
 
-const std::vector<int> servo_init_vec = {590, 675, 670, 785, 336};
+//const std::map<int, pair<std::string,> servo_init_vec = {590, 675, 670, 785, 336};
+const std::map<int, std::pair<std::string, int>> servo_init_vec = {
+      {1, {"SCS", 590}},
+      {2, {"SCS", 675}},
+      {3, {"SCS", 670}},
+      {4, {"SCS", 785}},
+      {5, {"SCS", 336}},
+      {6, {"SMCL", 1500}},
+      {7, {"SMCL", 3140}}     //2100
+};
 
 int main (int argc, char** argv) 
 { 
@@ -43,6 +53,7 @@ int main (int argc, char** argv)
       } 
 
       sc.pSerial = &ser;
+      sm.pSerial = &ser;
 
       eyes_init(servo_init_vec);
       //指定循环的频率 
@@ -75,14 +86,17 @@ int main (int argc, char** argv)
       return 0;
 } 
 
-void eyes_init(const std::vector<int> & vec)
+void eyes_init(const std::map<int, std::pair<std::string, int>> &m)
 {
       ROS_INFO("Servo Init...");
 
-      int i = 0;
-      for (auto v : vec)
-            sc.RegWritePos(++i,v, 100, 100);//舵机(ID),运行至 位置 ,运行时间 , 速度 .
+      for (auto c : m)
+            if (c.second.first == "SCS")
+                  sc.RegWritePos(c.first,c.second.second, 100, 100);//舵机(ID),运行至 位置 ,运行时间 , 速度 .
+            else 
+                  sm.RegWritePos(c.first, c.second.second, 100, 100);
       sc.RegWriteAction(); 
-
+      sm.RegWriteAction();
+      
       ROS_INFO("Servo Init complte.");
 }

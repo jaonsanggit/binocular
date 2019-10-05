@@ -6,6 +6,7 @@ serialport/CMakeFiles/serialport.dir/src/serialPort.cpp.o: /home/sanghongrui/cat
 serialport/CMakeFiles/serialport.dir/src/serialPort.cpp.o: /home/sanghongrui/catkin_ws/src/serialport/include/serialport/SCSCL.h
 serialport/CMakeFiles/serialport.dir/src/serialPort.cpp.o: /home/sanghongrui/catkin_ws/src/serialport/include/serialport/SCSerail.h
 serialport/CMakeFiles/serialport.dir/src/serialPort.cpp.o: /home/sanghongrui/catkin_ws/src/serialport/include/serialport/SCServo.h
+serialport/CMakeFiles/serialport.dir/src/serialPort.cpp.o: /home/sanghongrui/catkin_ws/src/serialport/include/serialport/SMSCL.h
 serialport/CMakeFiles/serialport.dir/src/serialPort.cpp.o: /home/sanghongrui/catkin_ws/src/serialport/src/serialPort.cpp
 serialport/CMakeFiles/serialport.dir/src/serialPort.cpp.o: /opt/ros/kinetic/include/ros/advertise_options.h
 serialport/CMakeFiles/serialport.dir/src/serialPort.cpp.o: /opt/ros/kinetic/include/ros/advertise_service_options.h

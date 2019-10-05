@@ -7,6 +7,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/sanghongrui/catkin_ws/src/serialport/src/SCS.cpp" "/home/sanghongrui/catkin_ws/build/serialport/CMakeFiles/scservo.dir/src/SCS.cpp.o"
   "/home/sanghongrui/catkin_ws/src/serialport/src/SCSCL.cpp" "/home/sanghongrui/catkin_ws/build/serialport/CMakeFiles/scservo.dir/src/SCSCL.cpp.o"
   "/home/sanghongrui/catkin_ws/src/serialport/src/SCSerail.cpp" "/home/sanghongrui/catkin_ws/build/serialport/CMakeFiles/scservo.dir/src/SCSerail.cpp.o"
+  "/home/sanghongrui/catkin_ws/src/serialport/src/SMSCL.cpp" "/home/sanghongrui/catkin_ws/build/serialport/CMakeFiles/scservo.dir/src/SMSCL.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

@@ -2,6 +2,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/scservo.dir/src/SCS.cpp.o"
   "CMakeFiles/scservo.dir/src/SCSCL.cpp.o"
   "CMakeFiles/scservo.dir/src/SCSerail.cpp.o"
+  "CMakeFiles/scservo.dir/src/SMSCL.cpp.o"
   "/home/sanghongrui/catkin_ws/devel/lib/libscservo.pdb"
   "/home/sanghongrui/catkin_ws/devel/lib/libscservo.so"
 )

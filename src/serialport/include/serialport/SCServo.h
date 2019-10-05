@@ -9,7 +9,7 @@
 #define _SCSERVO_H
 
 // #include "SMSBL.h"
-// #include "SMSCL.h"
+#include "serialport/SMSCL.h"
 #include "serialport/SCSCL.h"
 
 // #define SERVO_INIT_1 590

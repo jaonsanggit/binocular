@@ -10,6 +10,7 @@ serialport/CMakeFiles/scservo.dir/src/SCSCL.cpp.o: /home/sanghongrui/catkin_ws/s
 serialport/CMakeFiles/scservo.dir/src/SCSCL.cpp.o: /home/sanghongrui/catkin_ws/src/serialport/include/serialport/SCSCL.h
 serialport/CMakeFiles/scservo.dir/src/SCSCL.cpp.o: /home/sanghongrui/catkin_ws/src/serialport/include/serialport/SCSerail.h
 serialport/CMakeFiles/scservo.dir/src/SCSCL.cpp.o: /home/sanghongrui/catkin_ws/src/serialport/include/serialport/SCServo.h
+serialport/CMakeFiles/scservo.dir/src/SCSCL.cpp.o: /home/sanghongrui/catkin_ws/src/serialport/include/serialport/SMSCL.h
 serialport/CMakeFiles/scservo.dir/src/SCSCL.cpp.o: /home/sanghongrui/catkin_ws/src/serialport/src/SCSCL.cpp
 serialport/CMakeFiles/scservo.dir/src/SCSCL.cpp.o: /opt/ros/kinetic/include/serial/serial.h
 serialport/CMakeFiles/scservo.dir/src/SCSCL.cpp.o: /opt/ros/kinetic/include/serial/v8stdint.h
@@ -20,4 +21,14 @@ serialport/CMakeFiles/scservo.dir/src/SCSerail.cpp.o: /home/sanghongrui/catkin_w
 serialport/CMakeFiles/scservo.dir/src/SCSerail.cpp.o: /home/sanghongrui/catkin_ws/src/serialport/src/SCSerail.cpp
 serialport/CMakeFiles/scservo.dir/src/SCSerail.cpp.o: /opt/ros/kinetic/include/serial/serial.h
 serialport/CMakeFiles/scservo.dir/src/SCSerail.cpp.o: /opt/ros/kinetic/include/serial/v8stdint.h
+
+serialport/CMakeFiles/scservo.dir/src/SMSCL.cpp.o: /home/sanghongrui/catkin_ws/src/serialport/include/serialport/INST.h
+serialport/CMakeFiles/scservo.dir/src/SMSCL.cpp.o: /home/sanghongrui/catkin_ws/src/serialport/include/serialport/SCS.h
+serialport/CMakeFiles/scservo.dir/src/SMSCL.cpp.o: /home/sanghongrui/catkin_ws/src/serialport/include/serialport/SCSCL.h
+serialport/CMakeFiles/scservo.dir/src/SMSCL.cpp.o: /home/sanghongrui/catkin_ws/src/serialport/include/serialport/SCSerail.h
+serialport/CMakeFiles/scservo.dir/src/SMSCL.cpp.o: /home/sanghongrui/catkin_ws/src/serialport/include/serialport/SCServo.h
+serialport/CMakeFiles/scservo.dir/src/SMSCL.cpp.o: /home/sanghongrui/catkin_ws/src/serialport/include/serialport/SMSCL.h
+serialport/CMakeFiles/scservo.dir/src/SMSCL.cpp.o: /home/sanghongrui/catkin_ws/src/serialport/src/SMSCL.cpp
+serialport/CMakeFiles/scservo.dir/src/SMSCL.cpp.o: /opt/ros/kinetic/include/serial/serial.h
+serialport/CMakeFiles/scservo.dir/src/SMSCL.cpp.o: /opt/ros/kinetic/include/serial/v8stdint.h
 
