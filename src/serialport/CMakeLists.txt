@@ -201,6 +201,8 @@ include_directories(
 ## Generate added messages and services
 #generate_messages(DEPENDENCIES std_msgs)
 
+add_compile_options(-std=c++11)
+
 add_library(scservo 
   src/SCS.cpp 
   src/SCSCL.cpp 

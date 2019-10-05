@@ -27,7 +27,7 @@ int SCSCL::EnableTorque(u8 ID, u8 Enable)
 
 int SCSCL::writePos(u8 ID, u16 Position, u16 Time, u16 Speed, u8 Fun)
 {
-	//flushSCS();
+	flushSCS();
 	u8 buf[6];
 	Host2SCS(buf+0, buf+1, Position);
 	Host2SCS(buf+2, buf+3, Time);

@@ -6,6 +6,9 @@
 
 serial::Serial ser; //声明串口对象
 SCSCL sc;   //  declara servor obj
+void eyes_init(const std::vector<int> & vec);
+
+const std::vector<int> servo_init_vec = {590, 675, 670, 785, 336};
 
 int main (int argc, char** argv) 
 { 
@@ -18,8 +21,8 @@ int main (int argc, char** argv)
       { 
       //设置串口属性，并打开串口 
             ser.setPort("/dev/ttyUSB0"); 
-            //ser.setBaudrate(115200); 
-            ser.setBaudrate(1000000); 
+            ser.setBaudrate(115200); 
+            //ser.setBaudrate(1000000); 
             serial::Timeout to = serial::Timeout::simpleTimeout(1000); 
             ser.setTimeout(to); 
             ser.open(); 
@@ -40,12 +43,14 @@ int main (int argc, char** argv)
       } 
 
       sc.pSerial = &ser;
+
+      eyes_init(servo_init_vec);
       //指定循环的频率 
       ros::Rate loop_rate(1); 
       while(ros::ok()) 
       { 
         //ROS_INFO("Write name.\n\n");
-        sc.WritePos(1, 1000, 2000);//舵机(ID1),运行至1023位置,运行时间T=2000ms
+        //sc.WritePos(2, 580, 2000);//舵机(ID1),运行至1023位置,运行时间T=2000ms
 
         size_t n = ser.available();
         if(n!=0)
@@ -69,3 +74,15 @@ int main (int argc, char** argv)
       ser.close();
       return 0;
 } 
+
+void eyes_init(const std::vector<int> & vec)
+{
+      ROS_INFO("Servo Init...");
+
+      int i = 0;
+      for (auto v : vec)
+            sc.RegWritePos(++i,v, 100, 100);//舵机(ID),运行至 位置 ,运行时间 , 速度 .
+      sc.RegWriteAction(); 
+
+      ROS_INFO("Servo Init complte.");
+}

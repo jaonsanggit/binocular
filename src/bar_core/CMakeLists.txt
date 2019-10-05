@@ -199,6 +199,7 @@ include_directories(
 # catkin_add_nosetests(test)
 
 
+add_compile_options(-std=c++11)
 ## Build talker and listener
 include_directories(include ${catkin_INCLUDE_DIRS})
 
