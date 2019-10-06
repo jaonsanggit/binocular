@@ -1,6 +1,6 @@
 #include <ros/ros.h> 
 #include <std_msgs/String.h> 
-#include <std_msgs/Empty.h> 
+#include <std_msgs/Empty.h>
 
 void coreCallback(const std_msgs::String::ConstPtr& msg)
 {

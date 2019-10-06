@@ -1,13 +1,18 @@
 #include <ros/ros.h> 
+#include <string>
+#include <iostream>
+#include <fstream>
+#include <sstream>
 #include <serial/serial.h>  //ROS已经内置了的串口包 
 #include <std_msgs/String.h> 
 #include <std_msgs/Empty.h> 
 #include <serialport/SCServo.h>
+#include "serialport/CJsonObject.hpp"
 
 serial::Serial ser; //声明串口对象
 SCSCL sc;   //  declara servor obj
 SMSCL sm;
-void eyes_init(const std::map<int, std::pair<std::string, int>> & m);
+void eyes_init(const std::map<u8, std::pair<std::string, u16>> & m);
 
 //const std::map<int, pair<std::string,> servo_init_vec = {590, 675, 670, 785, 336};
 const std::map<int, std::pair<std::string, int>> servo_init_vec = {
@@ -26,6 +31,22 @@ int main (int argc, char** argv)
       ros::init(argc, argv, "serialport"); 
       //声明节点句柄 
       ros::NodeHandle nh; 
+
+      std::string path("/home/sanghongrui/catkin_ws/src/serialport/src/face.json");
+      std::ifstream t(path); //读文件ifstream,写文件ofstream，可读可写fstream
+      if(!t) ROS_ERROR_STREAM("Unable to open JSON file"); 
+      std::stringstream buffer;
+      buffer << t.rdbuf();
+      std::string str_json = buffer.str();
+
+      neb::CJsonObject oJson(str_json);
+      int fTestValue = 0;
+      std::cout << "location: ";
+      for (int i = 0; i < oJson[0]["location"].GetArraySize(); ++i)
+      {
+            oJson[0]["location"].Get(i, fTestValue);
+            std::cout <<  fTestValue << '\t';
+      }
 
       try 
       { 
@@ -55,7 +76,7 @@ int main (int argc, char** argv)
       sc.pSerial = &ser;
       sm.pSerial = &ser;
 
-      eyes_init(servo_init_vec);
+      //eyes_init(servo_init_vec);
       //指定循环的频率 
       ros::Rate loop_rate(1); 
       while(ros::ok()) 

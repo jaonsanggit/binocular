@@ -210,6 +210,33 @@ eyes/fast:
 	cd /home/sanghongrui/catkin_ws/build && $(MAKE) -f serialport/CMakeFiles/eyes.dir/build.make serialport/CMakeFiles/eyes.dir/build
 .PHONY : eyes/fast
 
+src/CJsonObject.o: src/CJsonObject.cpp.o
+
+.PHONY : src/CJsonObject.o
+
+# target to build an object file
+src/CJsonObject.cpp.o:
+	cd /home/sanghongrui/catkin_ws/build && $(MAKE) -f serialport/CMakeFiles/scservo.dir/build.make serialport/CMakeFiles/scservo.dir/src/CJsonObject.cpp.o
+.PHONY : src/CJsonObject.cpp.o
+
+src/CJsonObject.i: src/CJsonObject.cpp.i
+
+.PHONY : src/CJsonObject.i
+
+# target to preprocess a source file
+src/CJsonObject.cpp.i:
+	cd /home/sanghongrui/catkin_ws/build && $(MAKE) -f serialport/CMakeFiles/scservo.dir/build.make serialport/CMakeFiles/scservo.dir/src/CJsonObject.cpp.i
+.PHONY : src/CJsonObject.cpp.i
+
+src/CJsonObject.s: src/CJsonObject.cpp.s
+
+.PHONY : src/CJsonObject.s
+
+# target to generate assembly for a file
+src/CJsonObject.cpp.s:
+	cd /home/sanghongrui/catkin_ws/build && $(MAKE) -f serialport/CMakeFiles/scservo.dir/build.make serialport/CMakeFiles/scservo.dir/src/CJsonObject.cpp.s
+.PHONY : src/CJsonObject.cpp.s
+
 src/SCS.o: src/SCS.cpp.o
 
 .PHONY : src/SCS.o
@@ -318,6 +345,33 @@ src/SMSCL.cpp.s:
 	cd /home/sanghongrui/catkin_ws/build && $(MAKE) -f serialport/CMakeFiles/scservo.dir/build.make serialport/CMakeFiles/scservo.dir/src/SMSCL.cpp.s
 .PHONY : src/SMSCL.cpp.s
 
+src/cJSON.o: src/cJSON.c.o
+
+.PHONY : src/cJSON.o
+
+# target to build an object file
+src/cJSON.c.o:
+	cd /home/sanghongrui/catkin_ws/build && $(MAKE) -f serialport/CMakeFiles/scservo.dir/build.make serialport/CMakeFiles/scservo.dir/src/cJSON.c.o
+.PHONY : src/cJSON.c.o
+
+src/cJSON.i: src/cJSON.c.i
+
+.PHONY : src/cJSON.i
+
+# target to preprocess a source file
+src/cJSON.c.i:
+	cd /home/sanghongrui/catkin_ws/build && $(MAKE) -f serialport/CMakeFiles/scservo.dir/build.make serialport/CMakeFiles/scservo.dir/src/cJSON.c.i
+.PHONY : src/cJSON.c.i
+
+src/cJSON.s: src/cJSON.c.s
+
+.PHONY : src/cJSON.s
+
+# target to generate assembly for a file
+src/cJSON.c.s:
+	cd /home/sanghongrui/catkin_ws/build && $(MAKE) -f serialport/CMakeFiles/scservo.dir/build.make serialport/CMakeFiles/scservo.dir/src/cJSON.c.s
+.PHONY : src/cJSON.c.s
+
 src/eyes.o: src/eyes.cpp.o
 
 .PHONY : src/eyes.o
@@ -388,6 +442,9 @@ help:
 	@echo "... eyes"
 	@echo "... install/local"
 	@echo "... install/strip"
+	@echo "... src/CJsonObject.o"
+	@echo "... src/CJsonObject.i"
+	@echo "... src/CJsonObject.s"
 	@echo "... src/SCS.o"
 	@echo "... src/SCS.i"
 	@echo "... src/SCS.s"
@@ -400,6 +457,9 @@ help:
 	@echo "... src/SMSCL.o"
 	@echo "... src/SMSCL.i"
 	@echo "... src/SMSCL.s"
+	@echo "... src/cJSON.o"
+	@echo "... src/cJSON.i"
+	@echo "... src/cJSON.s"
 	@echo "... src/eyes.o"
 	@echo "... src/eyes.i"
 	@echo "... src/eyes.s"

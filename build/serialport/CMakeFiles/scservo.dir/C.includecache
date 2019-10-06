@@ -1,0 +1,28 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/sanghongrui/catkin_ws/src/serialport/include/serialport/cJSON.h
+
+/home/sanghongrui/catkin_ws/src/serialport/src/cJSON.c
+string.h
+-
+stdio.h
+-
+math.h
+-
+stdlib.h
+-
+float.h
+-
+limits.h
+-
+ctype.h
+-
+serialport/cJSON.h
+/home/sanghongrui/catkin_ws/src/serialport/src/serialport/cJSON.h
+

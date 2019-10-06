@@ -208,7 +208,10 @@ add_library(scservo
   src/SCSCL.cpp 
   src/SCSerail.cpp
   src/SMSCL.cpp
+  src/cJSON.c
+  src/CJsonObject.cpp
   )
+  
 add_executable(serialport 
   src/serialPort.cpp
   )
@@ -217,6 +220,8 @@ add_dependencies(scservo ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_T
 
 target_link_libraries(serialport scservo ${catkin_LIBRARIES})
 
-add_executable(eyes src/eyes.cpp)
+add_executable(eyes 
+  src/eyes.cpp
+)
 target_link_libraries(eyes ${catkin_LIBRARIES})
 add_dependencies(eyes ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})

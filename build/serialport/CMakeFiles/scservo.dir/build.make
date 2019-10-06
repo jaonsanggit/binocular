@@ -153,12 +153,62 @@ serialport/CMakeFiles/scservo.dir/src/SMSCL.cpp.o.provides: serialport/CMakeFile
 serialport/CMakeFiles/scservo.dir/src/SMSCL.cpp.o.provides.build: serialport/CMakeFiles/scservo.dir/src/SMSCL.cpp.o
 
 
+serialport/CMakeFiles/scservo.dir/src/cJSON.c.o: serialport/CMakeFiles/scservo.dir/flags.make
+serialport/CMakeFiles/scservo.dir/src/cJSON.c.o: /home/sanghongrui/catkin_ws/src/serialport/src/cJSON.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sanghongrui/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object serialport/CMakeFiles/scservo.dir/src/cJSON.c.o"
+	cd /home/sanghongrui/catkin_ws/build/serialport && /usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/scservo.dir/src/cJSON.c.o   -c /home/sanghongrui/catkin_ws/src/serialport/src/cJSON.c
+
+serialport/CMakeFiles/scservo.dir/src/cJSON.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/scservo.dir/src/cJSON.c.i"
+	cd /home/sanghongrui/catkin_ws/build/serialport && /usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/sanghongrui/catkin_ws/src/serialport/src/cJSON.c > CMakeFiles/scservo.dir/src/cJSON.c.i
+
+serialport/CMakeFiles/scservo.dir/src/cJSON.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/scservo.dir/src/cJSON.c.s"
+	cd /home/sanghongrui/catkin_ws/build/serialport && /usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/sanghongrui/catkin_ws/src/serialport/src/cJSON.c -o CMakeFiles/scservo.dir/src/cJSON.c.s
+
+serialport/CMakeFiles/scservo.dir/src/cJSON.c.o.requires:
+
+.PHONY : serialport/CMakeFiles/scservo.dir/src/cJSON.c.o.requires
+
+serialport/CMakeFiles/scservo.dir/src/cJSON.c.o.provides: serialport/CMakeFiles/scservo.dir/src/cJSON.c.o.requires
+	$(MAKE) -f serialport/CMakeFiles/scservo.dir/build.make serialport/CMakeFiles/scservo.dir/src/cJSON.c.o.provides.build
+.PHONY : serialport/CMakeFiles/scservo.dir/src/cJSON.c.o.provides
+
+serialport/CMakeFiles/scservo.dir/src/cJSON.c.o.provides.build: serialport/CMakeFiles/scservo.dir/src/cJSON.c.o
+
+
+serialport/CMakeFiles/scservo.dir/src/CJsonObject.cpp.o: serialport/CMakeFiles/scservo.dir/flags.make
+serialport/CMakeFiles/scservo.dir/src/CJsonObject.cpp.o: /home/sanghongrui/catkin_ws/src/serialport/src/CJsonObject.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sanghongrui/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object serialport/CMakeFiles/scservo.dir/src/CJsonObject.cpp.o"
+	cd /home/sanghongrui/catkin_ws/build/serialport && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/scservo.dir/src/CJsonObject.cpp.o -c /home/sanghongrui/catkin_ws/src/serialport/src/CJsonObject.cpp
+
+serialport/CMakeFiles/scservo.dir/src/CJsonObject.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/scservo.dir/src/CJsonObject.cpp.i"
+	cd /home/sanghongrui/catkin_ws/build/serialport && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/sanghongrui/catkin_ws/src/serialport/src/CJsonObject.cpp > CMakeFiles/scservo.dir/src/CJsonObject.cpp.i
+
+serialport/CMakeFiles/scservo.dir/src/CJsonObject.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/scservo.dir/src/CJsonObject.cpp.s"
+	cd /home/sanghongrui/catkin_ws/build/serialport && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sanghongrui/catkin_ws/src/serialport/src/CJsonObject.cpp -o CMakeFiles/scservo.dir/src/CJsonObject.cpp.s
+
+serialport/CMakeFiles/scservo.dir/src/CJsonObject.cpp.o.requires:
+
+.PHONY : serialport/CMakeFiles/scservo.dir/src/CJsonObject.cpp.o.requires
+
+serialport/CMakeFiles/scservo.dir/src/CJsonObject.cpp.o.provides: serialport/CMakeFiles/scservo.dir/src/CJsonObject.cpp.o.requires
+	$(MAKE) -f serialport/CMakeFiles/scservo.dir/build.make serialport/CMakeFiles/scservo.dir/src/CJsonObject.cpp.o.provides.build
+.PHONY : serialport/CMakeFiles/scservo.dir/src/CJsonObject.cpp.o.provides
+
+serialport/CMakeFiles/scservo.dir/src/CJsonObject.cpp.o.provides.build: serialport/CMakeFiles/scservo.dir/src/CJsonObject.cpp.o
+
+
 # Object files for target scservo
 scservo_OBJECTS = \
 "CMakeFiles/scservo.dir/src/SCS.cpp.o" \
 "CMakeFiles/scservo.dir/src/SCSCL.cpp.o" \
 "CMakeFiles/scservo.dir/src/SCSerail.cpp.o" \
-"CMakeFiles/scservo.dir/src/SMSCL.cpp.o"
+"CMakeFiles/scservo.dir/src/SMSCL.cpp.o" \
+"CMakeFiles/scservo.dir/src/cJSON.c.o" \
+"CMakeFiles/scservo.dir/src/CJsonObject.cpp.o"
 
 # External object files for target scservo
 scservo_EXTERNAL_OBJECTS =
@@ -167,9 +217,11 @@ scservo_EXTERNAL_OBJECTS =
 /home/sanghongrui/catkin_ws/devel/lib/libscservo.so: serialport/CMakeFiles/scservo.dir/src/SCSCL.cpp.o
 /home/sanghongrui/catkin_ws/devel/lib/libscservo.so: serialport/CMakeFiles/scservo.dir/src/SCSerail.cpp.o
 /home/sanghongrui/catkin_ws/devel/lib/libscservo.so: serialport/CMakeFiles/scservo.dir/src/SMSCL.cpp.o
+/home/sanghongrui/catkin_ws/devel/lib/libscservo.so: serialport/CMakeFiles/scservo.dir/src/cJSON.c.o
+/home/sanghongrui/catkin_ws/devel/lib/libscservo.so: serialport/CMakeFiles/scservo.dir/src/CJsonObject.cpp.o
 /home/sanghongrui/catkin_ws/devel/lib/libscservo.so: serialport/CMakeFiles/scservo.dir/build.make
 /home/sanghongrui/catkin_ws/devel/lib/libscservo.so: serialport/CMakeFiles/scservo.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/sanghongrui/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX shared library /home/sanghongrui/catkin_ws/devel/lib/libscservo.so"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/sanghongrui/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX shared library /home/sanghongrui/catkin_ws/devel/lib/libscservo.so"
 	cd /home/sanghongrui/catkin_ws/build/serialport && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/scservo.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -181,6 +233,8 @@ serialport/CMakeFiles/scservo.dir/requires: serialport/CMakeFiles/scservo.dir/sr
 serialport/CMakeFiles/scservo.dir/requires: serialport/CMakeFiles/scservo.dir/src/SCSCL.cpp.o.requires
 serialport/CMakeFiles/scservo.dir/requires: serialport/CMakeFiles/scservo.dir/src/SCSerail.cpp.o.requires
 serialport/CMakeFiles/scservo.dir/requires: serialport/CMakeFiles/scservo.dir/src/SMSCL.cpp.o.requires
+serialport/CMakeFiles/scservo.dir/requires: serialport/CMakeFiles/scservo.dir/src/cJSON.c.o.requires
+serialport/CMakeFiles/scservo.dir/requires: serialport/CMakeFiles/scservo.dir/src/CJsonObject.cpp.o.requires
 
 .PHONY : serialport/CMakeFiles/scservo.dir/requires
 
