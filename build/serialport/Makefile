@@ -399,6 +399,33 @@ src/eyes.cpp.s:
 	cd /home/sanghongrui/catkin_ws/build && $(MAKE) -f serialport/CMakeFiles/eyes.dir/build.make serialport/CMakeFiles/eyes.dir/src/eyes.cpp.s
 .PHONY : src/eyes.cpp.s
 
+src/robot.o: src/robot.cpp.o
+
+.PHONY : src/robot.o
+
+# target to build an object file
+src/robot.cpp.o:
+	cd /home/sanghongrui/catkin_ws/build && $(MAKE) -f serialport/CMakeFiles/scservo.dir/build.make serialport/CMakeFiles/scservo.dir/src/robot.cpp.o
+.PHONY : src/robot.cpp.o
+
+src/robot.i: src/robot.cpp.i
+
+.PHONY : src/robot.i
+
+# target to preprocess a source file
+src/robot.cpp.i:
+	cd /home/sanghongrui/catkin_ws/build && $(MAKE) -f serialport/CMakeFiles/scservo.dir/build.make serialport/CMakeFiles/scservo.dir/src/robot.cpp.i
+.PHONY : src/robot.cpp.i
+
+src/robot.s: src/robot.cpp.s
+
+.PHONY : src/robot.s
+
+# target to generate assembly for a file
+src/robot.cpp.s:
+	cd /home/sanghongrui/catkin_ws/build && $(MAKE) -f serialport/CMakeFiles/scservo.dir/build.make serialport/CMakeFiles/scservo.dir/src/robot.cpp.s
+.PHONY : src/robot.cpp.s
+
 src/serialPort.o: src/serialPort.cpp.o
 
 .PHONY : src/serialPort.o
@@ -463,6 +490,9 @@ help:
 	@echo "... src/eyes.o"
 	@echo "... src/eyes.i"
 	@echo "... src/eyes.s"
+	@echo "... src/robot.o"
+	@echo "... src/robot.i"
+	@echo "... src/robot.s"
 	@echo "... src/serialPort.o"
 	@echo "... src/serialPort.i"
 	@echo "... src/serialPort.s"

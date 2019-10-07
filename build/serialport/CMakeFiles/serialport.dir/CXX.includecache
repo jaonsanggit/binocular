@@ -56,6 +56,14 @@ serialport/SCSerail.h
 
 /home/sanghongrui/catkin_ws/src/serialport/include/serialport/cJSON.h
 
+/home/sanghongrui/catkin_ws/src/serialport/include/serialport/robot.h
+ros/ros.h
+-
+serial/serial.h
+-
+serialport/SCServo.h
+-
+
 /home/sanghongrui/catkin_ws/src/serialport/src/serialPort.cpp
 ros/ros.h
 -
@@ -67,16 +75,14 @@ fstream
 -
 sstream
 -
-serial/serial.h
--
 std_msgs/String.h
 -
 std_msgs/Empty.h
 -
-serialport/SCServo.h
--
 serialport/CJsonObject.hpp
 /home/sanghongrui/catkin_ws/src/serialport/src/serialport/CJsonObject.hpp
+serialport/robot.h
+/home/sanghongrui/catkin_ws/src/serialport/src/serialport/robot.h
 
 /opt/ros/kinetic/include/ros/advertise_options.h
 ros/forwards.h

@@ -210,6 +210,7 @@ add_library(scservo
   src/SMSCL.cpp
   src/cJSON.c
   src/CJsonObject.cpp
+  src/robot.cpp
   )
   
 add_executable(serialport 
