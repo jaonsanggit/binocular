@@ -6,4 +6,5 @@
 # testing this directory and lists subdirectories to be tested as well.
 subdirs(gtest)
 subdirs(bar_core)
+subdirs(ros_cv_proxy)
 subdirs(serialport)

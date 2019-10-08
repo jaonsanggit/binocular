@@ -31,26 +31,26 @@ ROBOTEYES::ROBOTEYES()
 
 ROBOTEYES::~ROBOTEYES()
 {
+  eyes_init(servo_init_vec);
   ser.close();
 }
 
 
-void ROBOTEYES::Turn(const std::pair<int, int> & faceLocation)
+void ROBOTEYES::Turn(int w, int h)
 {
-  int delta_w = faceLocation.first - IMAGECenter_W;
-  int delta_h = faceLocation.second - IMAGECenter_H;
+  int w1 = 0, w3 = 0;
+  int h2 = 0, h4 = 0;
+  tranform(w, h, w1, w3, h2, h4);
 
-  tranform(delta_w, delta_h);
-
-  TurnEyes(delta_w, delta_h);
+  TurnEyes(w1, w3, h2, h4);
 }
 
-void ROBOTEYES::TurnEyes(const int delta_w, const int delata_h)
+void ROBOTEYES::TurnEyes(int w1, int w3 , int h2, int h4)
 {
-  spinServo(1, delta_w);
-  spinServo(3, delta_w);
-  spinServo(2, delata_h);
-  spinServo(4, delata_h);
+  spinServo(1, w1);
+  spinServo(3, w3);
+  spinServo(2, h2);
+  spinServo(4, h4);
   spinServoAction();
 }
 
@@ -102,17 +102,17 @@ void ROBOTEYES::eyes_init(const std::map<u8, std::pair<std::string, uint32_t>> &
       ROS_INFO("Eyes Init complte.");
 }
 
-void ROBOTEYES::spinServo(u8 id, int offset)
+void ROBOTEYES::spinServo(u8 id, int pos)
 {
 
   if (servo_init_vec.at(id).first =="SCS")
   {
-    int currentPos = sc.ReadPos(id);
-    sc.RegWritePos(id, currentPos+offset, SERVO_TIME, SERVO_SPEED);
+    std::cout << int(id) << ": " << pos << std::endl;
+    sc.RegWritePos(id, pos, SERVO_TIME, SERVO_SPEED);
   }else
   {
-    int currentPos = sm.ReadPos(id);
-    sm.RegWritePos(id, currentPos+offset, SERVO_TIME, SERVO_SPEED);
+    std::cout << int(id) << ": " << pos << std::endl;
+    sm.RegWritePos(id, pos, SERVO_TIME, SERVO_SPEED);
   }
 
 }
@@ -123,8 +123,10 @@ void ROBOTEYES::spinServoAction(void)
   sm.RegWriteAction();
 }
 
-void ROBOTEYES::tranform(int &w, int &h)
+void ROBOTEYES::tranform(int w, int h, int & w1, int & w3 , int & h2, int & h4)
 {
-  w = w * 330 / 480;
-  h = h * 295 / 540;
+  w1 = int(0.36f*w) + 419;
+  w3 = int(0.31f*w) + 520;
+  h2 = int(-0.00015f*h*h - 0.13f*h) + 787;
+  h4 = int(0.000114883f*h*h + 0.13241f*h) + 680;
 }

@@ -10,6 +10,7 @@ project(serialport)
 find_package(catkin REQUIRED COMPONENTS
   roscpp
   serial
+  ros_cv_proxy
   std_msgs
 )
 

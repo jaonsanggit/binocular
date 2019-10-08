@@ -5,8 +5,19 @@
 #include <sstream>
 #include <std_msgs/String.h> 
 #include <std_msgs/Empty.h> 
+#include <ros_cv_proxy/FaceTarget.h>
 #include "serialport/CJsonObject.hpp"
 #include "serialport/robot.h"
+
+static ROBOTEYES robot;  // open port & initialize robot;
+static int target_w = 480;
+static int target_h = 560;
+void coreCallback(const ros_cv_proxy::FaceTarget::ConstPtr& msg)
+{
+      target_w = int(msg->target.x);
+      target_h = int(msg->target.y);
+      robot.Turn(target_w, target_h);
+}
 
 int main (int argc, char** argv) 
 { 
@@ -15,30 +26,30 @@ int main (int argc, char** argv)
       //声明节点句柄 
       ros::NodeHandle nh; 
 
-      std::string path("/home/sanghongrui/catkin_ws/src/serialport/src/face.json");
-      std::ifstream t(path); //读文件ifstream,写文件ofstream，可读可写fstream
-      if(!t) ROS_ERROR_STREAM("Unable to open JSON file"); 
-      std::stringstream buffer;
-      buffer << t.rdbuf();
-      std::string str_json = buffer.str();
+      ros::Subscriber sub = nh.subscribe("core", 100, coreCallback);
 
-      neb::CJsonObject oJson(str_json);
-      int fTestValue = 0;
-      std::cout << "location: ";
-      for (int i = 0; i < oJson[0]["location"].GetArraySize(); ++i)
-      {
-            oJson[0]["location"].Get(i, fTestValue);
-            std::cout <<  fTestValue << '\t';
-      }
-      std::cout << std::endl;
+      // std::string path("/home/sanghongrui/catkin_ws/src/serialport/src/face.json");
+      // std::ifstream t(path); //读文件ifstream,写文件ofstream，可读可写fstream
+      // if(!t) ROS_ERROR_STREAM("Unable to open JSON file"); 
+      // std::stringstream buffer;
+      // buffer << t.rdbuf();
+      // std::string str_json = buffer.str();
 
-      ROBOTEYES robot;  // open port & initialize robot;
+      // neb::CJsonObject oJson(str_json);
+      // int fTestValue = 0;
+      // std::cout << "location: ";
+      // for (int i = 0; i < oJson[0]["location"].GetArraySize(); ++i)
+      // {
+      //       oJson[0]["location"].Get(i, fTestValue);
+      //       std::cout <<  fTestValue << '\t';
+      // }
+      // std::cout << std::endl;
 
       ros::Rate loop_rate(1); 
       while(ros::ok()) 
       { 
-        ros::spinOnce(); 
-        loop_rate.sleep(); 
+            ros::spinOnce(); 
+            loop_rate.sleep(); 
       } 
 
       return 0;

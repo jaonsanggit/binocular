@@ -1,2 +1,2 @@
-bar_core:serialport
+bar_core:ros_cv_proxy:serialport
 -DCATKIN_DEVEL_PREFIX=/home/sanghongrui/catkin_ws/devel -DCMAKE_INSTALL_PREFIX=/home/sanghongrui/catkin_ws/install -G Unix Makefiles

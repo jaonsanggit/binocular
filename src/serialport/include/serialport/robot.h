@@ -17,8 +17,8 @@ class ROBOTEYES
 public:
   ROBOTEYES();
   
-  void Turn(const std::pair<int, int> & faceLocation);
-  void TurnEyes(int w, int h);
+  void Turn(int w, int h);
+  void TurnEyes(int w1, int w3 , int h2, int h4);
   void TurnNecks(int w, int h);
 
   ~ROBOTEYES();
@@ -26,7 +26,7 @@ public:
 private:
     enum DIRATION { Right, Left, UP, Down}; // right, up -> if offset > 0;
     enum {IMAGECenter_W = 480, IMAGECenter_H = 540};
-    enum {SERVO_SPEED = 100, SERVO_TIME = 100};
+    enum {SERVO_SPEED = 300, SERVO_TIME = 100};
   
   serial::Serial ser;  // declare serial obj
   SCSCL sc;   //  declare SCS  servo obj
@@ -34,9 +34,9 @@ private:
 
   void openSerial(const std::string & port, uint32_t  baudrate, uint32_t timeout=1000);
   void eyes_init(const std::map<u8, std::pair<std::string, uint32_t>> & m);
-  void spinServo(u8 id, int offset);
+  void spinServo(u8 id, int pos);
   void spinServoAction(void);
-  void tranform(int &h, int &w);
+  void tranform(int h, int w, int & w1, int & w3 , int & h2, int & h4);
 };
 
 #endif
