@@ -26,7 +26,7 @@ int main (int argc, char** argv)
       //声明节点句柄 
       ros::NodeHandle nh; 
 
-      ros::Subscriber sub = nh.subscribe("core", 100, coreCallback);
+      ros::Subscriber sub = nh.subscribe("custom_chatter", 100, coreCallback);
 
       // std::string path("/home/sanghongrui/catkin_ws/src/serialport/src/face.json");
       // std::ifstream t(path); //读文件ifstream,写文件ofstream，可读可写fstream

@@ -38,25 +38,36 @@ ROBOTEYES::~ROBOTEYES()
 
 void ROBOTEYES::Turn(int w, int h)
 {
-  int w1 = 0, w3 = 0;
-  int h2 = 0, h4 = 0;
-  tranform(w, h, w1, w3, h2, h4);
+  std::vector<int> servoPos(7,0);
+  tranform(w, h, servoPos);
 
-  TurnEyes(w1, w3, h2, h4);
+  TurnLR(servoPos);
+  TurnUD(servoPos);
+//  TurnShake(servoPos);
+for (auto v : servoPos)
+    std::cout <<  v << '\t';
+std::cout << '\n';
+
+  TurnAction();
 }
 
-void ROBOTEYES::TurnEyes(int w1, int w3 , int h2, int h4)
+void ROBOTEYES::TurnLR(const std::vector<int> &s)
 {
-  spinServo(1, w1);
-  spinServo(3, w3);
-  spinServo(2, h2);
-  spinServo(4, h4);
-  spinServoAction();
+  spinServo(1, s[1]);
+  spinServo(3, s[3]);
+  spinServo(5, s[5]);
 }
 
-void ROBOTEYES::TurnNecks(int w, int h)
+void ROBOTEYES::TurnUD(const std::vector<int> &s)
 {
+  spinServo(2, s[2]);
+  spinServo(4, s[4]);
+  spinServo(7, s[7]);
+}
 
+void ROBOTEYES::TurnShake(const std::vector<int> &s)
+{
+  spinServo(6, s[6]);
 }
 
 void ROBOTEYES::openSerial(const std::string & port, uint32_t  baudrate, uint32_t timeout)
@@ -93,9 +104,9 @@ void ROBOTEYES::eyes_init(const std::map<u8, std::pair<std::string, uint32_t>> &
 
       for (auto c : m)
             if (c.second.first == "SCS")
-                  sc.RegWritePos(c.first,c.second.second, 100, 100);//舵机(ID),运行至 位置 ,运行时间 , 速度 .
+                  sc.RegWritePos(c.first,c.second.second, SERVO_TIME, SERVO_SPEED);//舵机(ID),运行至 位置 ,运行时间 , 速度 .
             else 
-                  sm.RegWritePos(c.first, c.second.second, 100, 100);
+                  sm.RegWritePos(c.first, c.second.second, SERVO_TIME, SERVO_SPEED);
       sc.RegWriteAction(); 
       sm.RegWriteAction();
       
@@ -107,26 +118,33 @@ void ROBOTEYES::spinServo(u8 id, int pos)
 
   if (servo_init_vec.at(id).first =="SCS")
   {
-    std::cout << int(id) << ": " << pos << std::endl;
     sc.RegWritePos(id, pos, SERVO_TIME, SERVO_SPEED);
   }else
   {
-    std::cout << int(id) << ": " << pos << std::endl;
     sm.RegWritePos(id, pos, SERVO_TIME, SERVO_SPEED);
   }
 
 }
 
-void ROBOTEYES::spinServoAction(void)
+void ROBOTEYES::TurnAction(void)
 {
   sc.RegWriteAction(); 
   sm.RegWriteAction();
 }
 
-void ROBOTEYES::tranform(int w, int h, int & w1, int & w3 , int & h2, int & h4)
+void ROBOTEYES::tranform(int w, int h, std::vector<int> & s)
 {
-  w1 = int(0.36f*w) + 419;
-  w3 = int(0.31f*w) + 520;
-  h2 = int(-0.00015f*h*h - 0.13f*h) + 787;
-  h4 = int(0.000114883f*h*h + 0.13241f*h) + 680;
+  int delta_max_1_3 = 60;
+  int delta_max_5 = 40;
+  s[1] = int(delta_max_1_3*w/IMAGECenter_W) + servo_init_vec.at(1).second-delta_max_1_3;
+  s[3] = int(delta_max_1_3*w/IMAGECenter_W) + servo_init_vec.at(3).second-delta_max_1_3;
+  s[5] = int(delta_max_5*w/IMAGECenter_W) + servo_init_vec.at(5).second-delta_max_5;
+
+  int delta_max_2_4 = 50;
+  int delta_max_7 = 0;  // to do
+  s[2] = int(-delta_max_2_4*h/IMAGECenter_H) + servo_init_vec.at(2).second+delta_max_2_4;
+  s[4] = int(delta_max_2_4*h/IMAGECenter_H) + servo_init_vec.at(4).second-delta_max_2_4;
+  s[7] = servo_init_vec.at(7).second;
+
+  s[6] = servo_init_vec.at(6).second;
 }

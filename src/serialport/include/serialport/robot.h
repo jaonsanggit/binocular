@@ -18,8 +18,9 @@ public:
   ROBOTEYES();
   
   void Turn(int w, int h);
-  void TurnEyes(int w1, int w3 , int h2, int h4);
-  void TurnNecks(int w, int h);
+  void TurnLR(const std::vector<int> &s);
+  void TurnUD(const std::vector<int> &s);
+  void TurnShake(const std::vector<int> &s);
 
   ~ROBOTEYES();
   
@@ -35,8 +36,8 @@ private:
   void openSerial(const std::string & port, uint32_t  baudrate, uint32_t timeout=1000);
   void eyes_init(const std::map<u8, std::pair<std::string, uint32_t>> & m);
   void spinServo(u8 id, int pos);
-  void spinServoAction(void);
-  void tranform(int h, int w, int & w1, int & w3 , int & h2, int & h4);
+  void TurnAction(void);
+  void tranform(int h, int w, std::vector<int> & s);
 };
 
 #endif
