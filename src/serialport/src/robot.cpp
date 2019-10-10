@@ -6,6 +6,7 @@
  */
 
 
+#include<time.h>
 #include <serialport/robot.h>
 
 //const std::map<int, pair<std::string,> servo_init_vec = {590, 675, 670, 785, 336};
@@ -38,17 +39,24 @@ ROBOTEYES::~ROBOTEYES()
 
 void ROBOTEYES::Turn(int w, int h)
 {
-  std::vector<int> servoPos(7,0);
+  clock_t start, stop; //clock_t为clock()函数返回的变量类型
+  start=clock();
+
+  std::vector<int> servoPos(8,0);
   tranform(w, h, servoPos);
 
   TurnLR(servoPos);
   TurnUD(servoPos);
 //  TurnShake(servoPos);
-for (auto v : servoPos)
-    std::cout <<  v << '\t';
-std::cout << '\n';
+// for (auto v : servoPos)
+//     std::cout <<  v << '\t';
+// std::cout << '\n';
 
   TurnAction();
+  
+  stop=clock();
+
+  ROS_INFO("time duration: %ld",stop - start);
 }
 
 void ROBOTEYES::TurnLR(const std::vector<int> &s)
@@ -134,11 +142,12 @@ void ROBOTEYES::TurnAction(void)
 
 void ROBOTEYES::tranform(int w, int h, std::vector<int> & s)
 {
-  int delta_max_1_3 = 60;
-  int delta_max_5 = 40;
+  int delta_max_1_3 = 120;
+  int delta_max_5 = 80;
   s[1] = int(delta_max_1_3*w/IMAGECenter_W) + servo_init_vec.at(1).second-delta_max_1_3;
   s[3] = int(delta_max_1_3*w/IMAGECenter_W) + servo_init_vec.at(3).second-delta_max_1_3;
-  s[5] = int(delta_max_5*w/IMAGECenter_W) + servo_init_vec.at(5).second-delta_max_5;
+  // s[5] = int(delta_max_5*w/IMAGECenter_W) + servo_init_vec.at(5).second-delta_max_5;
+  s[5] = servo_init_vec.at(5).second;
 
   int delta_max_2_4 = 50;
   int delta_max_7 = 0;  // to do

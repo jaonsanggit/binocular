@@ -10,13 +10,14 @@
 #include "serialport/robot.h"
 
 static ROBOTEYES robot;  // open port & initialize robot;
-static int target_w = 480;
-static int target_h = 560;
+static int target_w = 960;
+static int target_h = 540;
 void coreCallback(const ros_cv_proxy::FaceTarget::ConstPtr& msg)
 {
       target_w = int(msg->target.x);
       target_h = int(msg->target.y);
       robot.Turn(target_w, target_h);
+      // std::cout << target_w << ' ' << target_h << std::endl;
 }
 
 int main (int argc, char** argv) 
@@ -26,7 +27,7 @@ int main (int argc, char** argv)
       //声明节点句柄 
       ros::NodeHandle nh; 
 
-      ros::Subscriber sub = nh.subscribe("custom_chatter", 100, coreCallback);
+      ros::Subscriber sub = nh.subscribe("custom_chatter", 2, coreCallback);
 
       // std::string path("/home/sanghongrui/catkin_ws/src/serialport/src/face.json");
       // std::ifstream t(path); //读文件ifstream,写文件ofstream，可读可写fstream
@@ -45,7 +46,7 @@ int main (int argc, char** argv)
       // }
       // std::cout << std::endl;
 
-      ros::Rate loop_rate(1); 
+      ros::Rate loop_rate(100); 
       while(ros::ok()) 
       { 
             ros::spinOnce(); 

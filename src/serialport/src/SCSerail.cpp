@@ -59,7 +59,7 @@ int SCSerail::writeSCS(unsigned char *nDat, int nLen)
 	if(nDat==NULL){
 		return 0;
 	}
-	return pSerial->write(nDat, nLen);
+ return pSerial->write(nDat, nLen);
 }
 
 int SCSerail::writeSCS(unsigned char bDat)

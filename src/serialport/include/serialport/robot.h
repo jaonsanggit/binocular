@@ -26,7 +26,7 @@ public:
   
 private:
     enum DIRATION { Right, Left, UP, Down}; // right, up -> if offset > 0;
-    enum {IMAGECenter_W = 480, IMAGECenter_H = 540};
+    enum {IMAGECenter_W = 960, IMAGECenter_H = 540};
     enum {SERVO_SPEED = 300, SERVO_TIME = 100};
   
   serial::Serial ser;  // declare serial obj

@@ -38,7 +38,9 @@ int SMSCL::writePos(u8 ID, s16 Position, u16 Time, u16 Speed, u8 Fun)
 	Host2SCS(buf+2, buf+3, Time);
 	Host2SCS(buf+4, buf+5, Speed);
 	writeBuf(ID, SMSCL_GOAL_POSITION_L, buf, 6, Fun);
-	return Ack(ID);
+	
+	return 0;
+	//return Ack(ID);
 }
 
 //–¥Œª÷√÷∏¡Ó
