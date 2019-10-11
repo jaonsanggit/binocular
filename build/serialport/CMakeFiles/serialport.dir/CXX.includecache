@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/sanghongrui/catkin_ws/devel/include/ros_cv_proxy/FaceTarget.h
+/home/sanghongrui/catkin_ws/devel/include/msgfile/FaceTarget.h
 string
 -
 vector
@@ -99,7 +99,7 @@ std_msgs/String.h
 -
 std_msgs/Empty.h
 -
-ros_cv_proxy/FaceTarget.h
+msgfile/FaceTarget.h
 -
 serialport/CJsonObject.hpp
 /home/sanghongrui/catkin_ws/src/serialport/src/serialport/CJsonObject.hpp

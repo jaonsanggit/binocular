@@ -246,12 +246,6 @@ _CATKIN_GTEST_INCLUDE:FILEPATH=/usr/include/gtest/gtest.h
 //Path to a file.
 _CATKIN_GTEST_SRC:FILEPATH=/usr/src/gtest/src/gtest.cc
 
-//Value Computed by CMake
-bar_core_BINARY_DIR:STATIC=/home/sanghongrui/catkin_ws/build/bar_core
-
-//Value Computed by CMake
-bar_core_SOURCE_DIR:STATIC=/home/sanghongrui/catkin_ws/src/bar_core
-
 //The directory containing a CMake configuration file for catkin.
 catkin_DIR:PATH=/opt/ros/kinetic/share/catkin/cmake
 
@@ -314,13 +308,16 @@ message_generation_DIR:PATH=/opt/ros/kinetic/share/message_generation/cmake
 message_runtime_DIR:PATH=/opt/ros/kinetic/share/message_runtime/cmake
 
 //Value Computed by CMake
-ros_cv_proxy_BINARY_DIR:STATIC=/home/sanghongrui/catkin_ws/build/ros_cv_proxy
+msgfile_BINARY_DIR:STATIC=/home/sanghongrui/catkin_ws/build/msgfile
 
-//The directory containing a CMake configuration file for ros_cv_proxy.
-ros_cv_proxy_DIR:PATH=/home/sanghongrui/catkin_ws/devel/share/ros_cv_proxy/cmake
+//The directory containing a CMake configuration file for msgfile.
+msgfile_DIR:PATH=/home/sanghongrui/catkin_ws/devel/share/msgfile/cmake
 
 //Value Computed by CMake
-ros_cv_proxy_SOURCE_DIR:STATIC=/home/sanghongrui/catkin_ws/src/ros_cv_proxy
+msgfile_SOURCE_DIR:STATIC=/home/sanghongrui/catkin_ws/src/msgfile
+
+//The directory containing a CMake configuration file for ros_cv_proxy.
+ros_cv_proxy_DIR:PATH=ros_cv_proxy_DIR-NOTFOUND
 
 //The directory containing a CMake configuration file for rosconsole.
 rosconsole_DIR:PATH=/opt/ros/kinetic/share/rosconsole/cmake
@@ -354,9 +351,6 @@ serialport_BINARY_DIR:STATIC=/home/sanghongrui/catkin_ws/build/serialport
 
 //Value Computed by CMake
 serialport_SOURCE_DIR:STATIC=/home/sanghongrui/catkin_ws/src/serialport
-
-//The directory containing a CMake configuration file for std_mags.
-std_mags_DIR:PATH=std_mags_DIR-NOTFOUND
 
 //The directory containing a CMake configuration file for std_msgs.
 std_msgs_DIR:PATH=/opt/ros/kinetic/share/std_msgs/cmake
@@ -466,7 +460,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=5
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=4
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP

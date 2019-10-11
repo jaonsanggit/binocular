@@ -1,8 +1,0 @@
-prefix=/home/sanghongrui/catkin_ws/install
-
-Name: ros_cv_proxy
-Description: Description of ros_cv_proxy
-Version: 0.0.0
-Cflags: -I/home/sanghongrui/catkin_ws/install/include
-Libs: -L/home/sanghongrui/catkin_ws/install/lib 
-Requires: message_runtime

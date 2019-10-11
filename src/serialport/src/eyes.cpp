@@ -1,10 +1,11 @@
 #include <ros/ros.h> 
 #include <std_msgs/String.h> 
 #include <std_msgs/Empty.h>
+#include <msgfile/VoiceOrder.h>
 
-void coreCallback(const std_msgs::String::ConstPtr& msg)
+void coreCallback(const msgfile::VoiceOrder::ConstPtr& msg)
 {
-  ROS_INFO("eyes heard [%s] from core.", msg->data.c_str());
+  ROS_INFO("eyes heard [%s] from core.", msg->cmd.c_str());
 }
 
 int main(int argc, char **argv) {
@@ -15,7 +16,7 @@ int main(int argc, char **argv) {
 
   ros::Publisher chatter_pub = n.advertise<std_msgs::String>("eyes", 1000);
 
-  ros::Subscriber sub = n.subscribe("core", 1000, coreCallback);
+  ros::Subscriber sub = n.subscribe("VoicePub", 1000, coreCallback);
 
   ros::Rate loop_rate(1);
 

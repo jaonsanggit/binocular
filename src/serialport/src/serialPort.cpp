@@ -5,15 +5,17 @@
 #include <sstream>
 #include <std_msgs/String.h> 
 #include <std_msgs/Empty.h> 
-#include <ros_cv_proxy/FaceTarget.h>
+#include <msgfile/FaceTarget.h>
 #include "serialport/CJsonObject.hpp"
 #include "serialport/robot.h"
 
 static ROBOTEYES robot;  // open port & initialize robot;
 static int target_w = 960;
 static int target_h = 540;
-void coreCallback(const ros_cv_proxy::FaceTarget::ConstPtr& msg)
+void coreCallback(const msgfile::FaceTarget::ConstPtr& msg)
 {
+      if (msg->header.frame_id != "core") return ;
+      
       target_w = int(msg->target.x);
       target_h = int(msg->target.y);
       robot.Turn(target_w, target_h);
@@ -27,7 +29,7 @@ int main (int argc, char** argv)
       //声明节点句柄 
       ros::NodeHandle nh; 
 
-      ros::Subscriber sub = nh.subscribe("custom_chatter", 2, coreCallback);
+      ros::Subscriber sub = nh.subscribe("core_out", 10, coreCallback);
 
       // std::string path("/home/sanghongrui/catkin_ws/src/serialport/src/face.json");
       // std::ifstream t(path); //读文件ifstream,写文件ofstream，可读可写fstream

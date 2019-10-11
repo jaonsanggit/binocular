@@ -1,8 +1,0 @@
-prefix=/home/sanghongrui/catkin_ws/install
-
-Name: bar_core
-Description: Description of bar_core
-Version: 0.0.0
-Cflags: 
-Libs: -L/home/sanghongrui/catkin_ws/install/lib 
-Requires: 
