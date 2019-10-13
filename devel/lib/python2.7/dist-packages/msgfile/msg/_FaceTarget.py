@@ -9,13 +9,13 @@ import geometry_msgs.msg
 import std_msgs.msg
 
 class FaceTarget(genpy.Message):
-  _md5sum = "04a005a5867c4d41196138f92451713b"
+  _md5sum = "186dafabee260d116e60117f4b2c786e"
   _type = "msgfile/FaceTarget"
   _has_header = True #flag to mark the presence of a Header object
   _full_text = """Header header
 string  cmd
 geometry_msgs/Point target
-
+string name
 ================================================================================
 MSG: std_msgs/Header
 # Standard metadata for higher-level stamped data types.
@@ -41,8 +41,8 @@ float64 x
 float64 y
 float64 z
 """
-  __slots__ = ['header','cmd','target']
-  _slot_types = ['std_msgs/Header','string','geometry_msgs/Point']
+  __slots__ = ['header','cmd','target','name']
+  _slot_types = ['std_msgs/Header','string','geometry_msgs/Point','string']
 
   def __init__(self, *args, **kwds):
     """
@@ -52,7 +52,7 @@ float64 z
     changes.  You cannot mix in-order arguments and keyword arguments.
 
     The available fields are:
-       header,cmd,target
+       header,cmd,target,name
 
     :param args: complete set of field values, in .msg order
     :param kwds: use keyword arguments corresponding to message field names
@@ -67,10 +67,13 @@ float64 z
         self.cmd = ''
       if self.target is None:
         self.target = geometry_msgs.msg.Point()
+      if self.name is None:
+        self.name = ''
     else:
       self.header = std_msgs.msg.Header()
       self.cmd = ''
       self.target = geometry_msgs.msg.Point()
+      self.name = ''
 
   def _get_types(self):
     """
@@ -100,6 +103,12 @@ float64 z
       buff.write(struct.pack('<I%ss'%length, length, _x))
       _x = self
       buff.write(_get_struct_3d().pack(_x.target.x, _x.target.y, _x.target.z))
+      _x = self.name
+      length = len(_x)
+      if python3 or type(_x) == unicode:
+        _x = _x.encode('utf-8')
+        length = len(_x)
+      buff.write(struct.pack('<I%ss'%length, length, _x))
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
@@ -140,6 +149,15 @@ float64 z
       start = end
       end += 24
       (_x.target.x, _x.target.y, _x.target.z,) = _get_struct_3d().unpack(str[start:end])
+      start = end
+      end += 4
+      (length,) = _struct_I.unpack(str[start:end])
+      start = end
+      end += length
+      if python3:
+        self.name = str[start:end].decode('utf-8')
+      else:
+        self.name = str[start:end]
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e) #most likely buffer underfill
@@ -168,6 +186,12 @@ float64 z
       buff.write(struct.pack('<I%ss'%length, length, _x))
       _x = self
       buff.write(_get_struct_3d().pack(_x.target.x, _x.target.y, _x.target.z))
+      _x = self.name
+      length = len(_x)
+      if python3 or type(_x) == unicode:
+        _x = _x.encode('utf-8')
+        length = len(_x)
+      buff.write(struct.pack('<I%ss'%length, length, _x))
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
@@ -209,6 +233,15 @@ float64 z
       start = end
       end += 24
       (_x.target.x, _x.target.y, _x.target.z,) = _get_struct_3d().unpack(str[start:end])
+      start = end
+      end += 4
+      (length,) = _struct_I.unpack(str[start:end])
+      start = end
+      end += length
+      if python3:
+        self.name = str[start:end].decode('utf-8')
+      else:
+        self.name = str[start:end]
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e) #most likely buffer underfill

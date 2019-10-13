@@ -26,28 +26,6 @@ std_msgs/Header.h
 geometry_msgs/Point.h
 -
 
-/home/sanghongrui/catkin_ws/src/serialport/include/serialport/CJsonObject.hpp
-stdio.h
--
-stddef.h
--
-malloc.h
--
-errno.h
--
-limits.h
--
-math.h
--
-string
--
-map
--
-list
--
-serialport/cJSON.h
-/home/sanghongrui/catkin_ws/src/serialport/include/serialport/serialport/cJSON.h
-
 /home/sanghongrui/catkin_ws/src/serialport/include/serialport/INST.h
 
 /home/sanghongrui/catkin_ws/src/serialport/include/serialport/SCS.h
@@ -74,8 +52,6 @@ serialport/SCSCL.h
 serialport/SCSerail.h
 /home/sanghongrui/catkin_ws/src/serialport/include/serialport/serialport/SCSerail.h
 
-/home/sanghongrui/catkin_ws/src/serialport/include/serialport/cJSON.h
-
 /home/sanghongrui/catkin_ws/src/serialport/include/serialport/robot.h
 ros/ros.h
 -
@@ -91,9 +67,9 @@ string
 -
 iostream
 -
-fstream
+sys/time.h
 -
-sstream
+unistd.h
 -
 std_msgs/String.h
 -
@@ -101,8 +77,6 @@ std_msgs/Empty.h
 -
 msgfile/FaceTarget.h
 -
-serialport/CJsonObject.hpp
-/home/sanghongrui/catkin_ws/src/serialport/src/serialport/CJsonObject.hpp
 serialport/robot.h
 /home/sanghongrui/catkin_ws/src/serialport/src/serialport/robot.h
 

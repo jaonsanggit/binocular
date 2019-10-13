@@ -21,13 +21,14 @@ public:
   void TurnLR(const std::vector<int> &s);
   void TurnUD(const std::vector<int> &s);
   void TurnShake(const std::vector<int> &s);
+  void idleActInit(void);
 
   ~ROBOTEYES();
   
 private:
     enum DIRATION { Right, Left, UP, Down}; // right, up -> if offset > 0;
     enum {IMAGECenter_W = 960, IMAGECenter_H = 540};
-    enum {SERVO_SPEED = 300, SERVO_TIME = 100};
+    enum {SERVO_SPEED = 400, SERVO_TIME = 100};
   
   serial::Serial ser;  // declare serial obj
   SCSCL sc;   //  declare SCS  servo obj
@@ -37,7 +38,8 @@ private:
   void eyes_init(const std::map<u8, std::pair<std::string, uint32_t>> & m);
   void spinServo(u8 id, int pos);
   void TurnAction(void);
-  void tranform(int h, int w, std::vector<int> & s);
+  void tranform(int w, int h, std::vector<int> & s);
+  void Filter(int &w, int &h);
 };
 
 #endif

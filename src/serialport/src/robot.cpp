@@ -7,7 +7,9 @@
 
 
 #include<time.h>
+#include <cmath>
 #include <serialport/robot.h>
+#include <queue>
 
 //const std::map<int, pair<std::string,> servo_init_vec = {590, 675, 670, 785, 336};
 const std::map<u8, std::pair<std::string, uint32_t>> servo_init_vec = {
@@ -27,20 +29,30 @@ ROBOTEYES::ROBOTEYES()
   openSerial(port, baudrate);
   sc.pSerial = &ser;
   sm.pSerial = &ser;
+  
+  ROS_INFO("Eyes Init...");
   eyes_init(servo_init_vec);
+  ROS_INFO("Eyes Init complte.");
 }
 
 ROBOTEYES::~ROBOTEYES()
 {
   eyes_init(servo_init_vec);
+  ROS_INFO("Eyes Shut Down...");
+
   ser.close();
 }
 
 
+void ROBOTEYES::idleActInit(void)
+{
+  eyes_init(servo_init_vec);
+}
+
 void ROBOTEYES::Turn(int w, int h)
 {
-  clock_t start, stop; //clock_t为clock()函数返回的变量类型
-  start=clock();
+  // clock_t start, stop; //clock_t为clock()函数返回的变量类型
+  // start=clock();
 
   std::vector<int> servoPos(8,0);
   tranform(w, h, servoPos);
@@ -54,9 +66,9 @@ void ROBOTEYES::Turn(int w, int h)
 
   TurnAction();
   
-  stop=clock();
+  // stop=clock();
 
-  ROS_INFO("time duration: %ld",stop - start);
+  // ROS_INFO("time duration: %ld",stop - start);
 }
 
 void ROBOTEYES::TurnLR(const std::vector<int> &s)
@@ -108,17 +120,13 @@ void ROBOTEYES::openSerial(const std::string & port, uint32_t  baudrate, uint32_
 
 void ROBOTEYES::eyes_init(const std::map<u8, std::pair<std::string, uint32_t>> &m)
 {
-      ROS_INFO("Eyes Init...");
-
       for (auto c : m)
             if (c.second.first == "SCS")
                   sc.RegWritePos(c.first,c.second.second, SERVO_TIME, SERVO_SPEED);//舵机(ID),运行至 位置 ,运行时间 , 速度 .
             else 
                   sm.RegWritePos(c.first, c.second.second, SERVO_TIME, SERVO_SPEED);
       sc.RegWriteAction(); 
-      sm.RegWriteAction();
-      
-      ROS_INFO("Eyes Init complte.");
+      sm.RegWriteAction();     
 }
 
 void ROBOTEYES::spinServo(u8 id, int pos)
@@ -140,20 +148,32 @@ void ROBOTEYES::TurnAction(void)
   sm.RegWriteAction();
 }
 
+
+
 void ROBOTEYES::tranform(int w, int h, std::vector<int> & s)
 {
-  int delta_max_1_3 = 120;
-  int delta_max_5 = 80;
-  s[1] = int(delta_max_1_3*w/IMAGECenter_W) + servo_init_vec.at(1).second-delta_max_1_3;
-  s[3] = int(delta_max_1_3*w/IMAGECenter_W) + servo_init_vec.at(3).second-delta_max_1_3;
+  int delta_max_1_3 = 120;  // <= 160
+  int delta_max_5 = 80;     // <= 75
+
+  float ratio = 1.5f;
+  // if (std::abs(w - IMAGECenter_W) < 200)
+  //   ratio = 1.5f;
+
+  s[1] = int(delta_max_1_3*w/IMAGECenter_W*ratio) + servo_init_vec.at(1).second-delta_max_1_3;
+  s[3] = int(delta_max_1_3*w/IMAGECenter_W*ratio) + servo_init_vec.at(3).second-delta_max_1_3;
   // s[5] = int(delta_max_5*w/IMAGECenter_W) + servo_init_vec.at(5).second-delta_max_5;
   s[5] = servo_init_vec.at(5).second;
 
-  int delta_max_2_4 = 50;
+  int delta_max_2_4 = 50;       // d:105 U:170
   int delta_max_7 = 0;  // to do
   s[2] = int(-delta_max_2_4*h/IMAGECenter_H) + servo_init_vec.at(2).second+delta_max_2_4;
   s[4] = int(delta_max_2_4*h/IMAGECenter_H) + servo_init_vec.at(4).second-delta_max_2_4;
   s[7] = servo_init_vec.at(7).second;
 
   s[6] = servo_init_vec.at(6).second;
+}
+
+void ROBOTEYES::Filter(int &w, int &h)
+{
+  
 }

@@ -3,14 +3,12 @@
 
 serialport/CMakeFiles/serialport.dir/src/serialPort.cpp.o
  /home/sanghongrui/catkin_ws/devel/include/msgfile/FaceTarget.h
- /home/sanghongrui/catkin_ws/src/serialport/include/serialport/CJsonObject.hpp
  /home/sanghongrui/catkin_ws/src/serialport/include/serialport/INST.h
  /home/sanghongrui/catkin_ws/src/serialport/include/serialport/SCS.h
  /home/sanghongrui/catkin_ws/src/serialport/include/serialport/SCSCL.h
  /home/sanghongrui/catkin_ws/src/serialport/include/serialport/SCSerail.h
  /home/sanghongrui/catkin_ws/src/serialport/include/serialport/SCServo.h
  /home/sanghongrui/catkin_ws/src/serialport/include/serialport/SMSCL.h
- /home/sanghongrui/catkin_ws/src/serialport/include/serialport/cJSON.h
  /home/sanghongrui/catkin_ws/src/serialport/include/serialport/robot.h
  /home/sanghongrui/catkin_ws/src/serialport/src/serialPort.cpp
  /opt/ros/kinetic/include/geometry_msgs/Point.h

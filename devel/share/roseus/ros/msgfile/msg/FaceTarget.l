@@ -18,7 +18,7 @@
 
 (defclass msgfile::FaceTarget
   :super ros::object
-  :slots (_header _cmd _target ))
+  :slots (_header _cmd _target _name ))
 
 (defmethod msgfile::FaceTarget
   (:init
@@ -26,11 +26,13 @@
     ((:header __header) (instance std_msgs::Header :init))
     ((:cmd __cmd) "")
     ((:target __target) (instance geometry_msgs::Point :init))
+    ((:name __name) "")
     )
    (send-super :init)
    (setq _header __header)
    (setq _cmd (string __cmd))
    (setq _target __target)
+   (setq _name (string __name))
    self)
   (:header
    (&rest __header)
@@ -49,6 +51,9 @@
      (progn
        (if __target (setq _target (car __target)))
        _target)))
+  (:name
+   (&optional __name)
+   (if __name (setq _name __name)) _name)
   (:serialization-length
    ()
    (+
@@ -58,6 +63,8 @@
     4 (length _cmd)
     ;; geometry_msgs/Point _target
     (send _target :serialization-length)
+    ;; string _name
+    4 (length _name)
     ))
   (:serialize
    (&optional strm)
@@ -69,6 +76,8 @@
        (write-long (length _cmd) s) (princ _cmd s)
      ;; geometry_msgs/Point _target
        (send _target :serialize s)
+     ;; string _name
+       (write-long (length _name) s) (princ _name s)
      ;;
      (if (null strm) (get-output-stream-string s))))
   (:deserialize
@@ -79,17 +88,19 @@
      (let (n) (setq n (sys::peek buf ptr- :integer)) (incf ptr- 4) (setq _cmd (subseq buf ptr- (+ ptr- n))) (incf ptr- n))
    ;; geometry_msgs/Point _target
      (send _target :deserialize buf ptr-) (incf ptr- (send _target :serialization-length))
+   ;; string _name
+     (let (n) (setq n (sys::peek buf ptr- :integer)) (incf ptr- 4) (setq _name (subseq buf ptr- (+ ptr- n))) (incf ptr- n))
    ;;
    self)
   )
 
-(setf (get msgfile::FaceTarget :md5sum-) "04a005a5867c4d41196138f92451713b")
+(setf (get msgfile::FaceTarget :md5sum-) "186dafabee260d116e60117f4b2c786e")
 (setf (get msgfile::FaceTarget :datatype-) "msgfile/FaceTarget")
 (setf (get msgfile::FaceTarget :definition-)
       "Header header
 string  cmd
 geometry_msgs/Point target
-
+string name
 ================================================================================
 MSG: std_msgs/Header
 # Standard metadata for higher-level stamped data types.
@@ -119,6 +130,6 @@ float64 z
 
 
 
-(provide :msgfile/FaceTarget "04a005a5867c4d41196138f92451713b")
+(provide :msgfile/FaceTarget "186dafabee260d116e60117f4b2c786e")
 
 

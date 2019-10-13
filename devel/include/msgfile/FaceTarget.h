@@ -28,12 +28,14 @@ struct FaceTarget_
   FaceTarget_()
     : header()
     , cmd()
-    , target()  {
+    , target()
+    , name()  {
     }
   FaceTarget_(const ContainerAllocator& _alloc)
     : header(_alloc)
     , cmd(_alloc)
-    , target(_alloc)  {
+    , target(_alloc)
+    , name(_alloc)  {
   (void)_alloc;
     }
 
@@ -47,6 +49,9 @@ struct FaceTarget_
 
    typedef  ::geometry_msgs::Point_<ContainerAllocator>  _target_type;
   _target_type target;
+
+   typedef std::basic_string<char, std::char_traits<char>, typename ContainerAllocator::template rebind<char>::other >  _name_type;
+  _name_type name;
 
 
 
@@ -125,12 +130,12 @@ struct MD5Sum< ::msgfile::FaceTarget_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "04a005a5867c4d41196138f92451713b";
+    return "186dafabee260d116e60117f4b2c786e";
   }
 
   static const char* value(const ::msgfile::FaceTarget_<ContainerAllocator>&) { return value(); }
-  static const uint64_t static_value1 = 0x04a005a5867c4d41ULL;
-  static const uint64_t static_value2 = 0x196138f92451713bULL;
+  static const uint64_t static_value1 = 0x186dafabee260d11ULL;
+  static const uint64_t static_value2 = 0x6e60117f4b2c786eULL;
 };
 
 template<class ContainerAllocator>
@@ -152,7 +157,7 @@ struct Definition< ::msgfile::FaceTarget_<ContainerAllocator> >
     return "Header header\n\
 string  cmd\n\
 geometry_msgs/Point target\n\
-\n\
+string name\n\
 ================================================================================\n\
 MSG: std_msgs/Header\n\
 # Standard metadata for higher-level stamped data types.\n\
@@ -198,6 +203,7 @@ namespace serialization
       stream.next(m.header);
       stream.next(m.cmd);
       stream.next(m.target);
+      stream.next(m.name);
     }
 
     ROS_DECLARE_ALLINONE_SERIALIZER
@@ -224,6 +230,8 @@ struct Printer< ::msgfile::FaceTarget_<ContainerAllocator> >
     s << indent << "target: ";
     s << std::endl;
     Printer< ::geometry_msgs::Point_<ContainerAllocator> >::stream(s, indent + "  ", v.target);
+    s << indent << "name: ";
+    Printer<std::basic_string<char, std::char_traits<char>, typename ContainerAllocator::template rebind<char>::other > >::stream(s, indent + "  ", v.name);
   }
 };
 

@@ -93,7 +93,11 @@ serialport/SCServo.h
 /home/sanghongrui/catkin_ws/src/serialport/src/robot.cpp
 time.h
 -
+cmath
+-
 serialport/robot.h
+-
+queue
 -
 
 /opt/ros/kinetic/include/ros/advertise_options.h

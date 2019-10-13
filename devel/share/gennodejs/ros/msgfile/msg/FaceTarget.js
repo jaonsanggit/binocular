@@ -23,6 +23,7 @@ class FaceTarget {
       this.header = null;
       this.cmd = null;
       this.target = null;
+      this.name = null;
     }
     else {
       if (initObj.hasOwnProperty('header')) {
@@ -43,6 +44,12 @@ class FaceTarget {
       else {
         this.target = new geometry_msgs.msg.Point();
       }
+      if (initObj.hasOwnProperty('name')) {
+        this.name = initObj.name
+      }
+      else {
+        this.name = '';
+      }
     }
   }
 
@@ -54,6 +61,8 @@ class FaceTarget {
     bufferOffset = _serializer.string(obj.cmd, buffer, bufferOffset);
     // Serialize message field [target]
     bufferOffset = geometry_msgs.msg.Point.serialize(obj.target, buffer, bufferOffset);
+    // Serialize message field [name]
+    bufferOffset = _serializer.string(obj.name, buffer, bufferOffset);
     return bufferOffset;
   }
 
@@ -67,6 +76,8 @@ class FaceTarget {
     data.cmd = _deserializer.string(buffer, bufferOffset);
     // Deserialize message field [target]
     data.target = geometry_msgs.msg.Point.deserialize(buffer, bufferOffset);
+    // Deserialize message field [name]
+    data.name = _deserializer.string(buffer, bufferOffset);
     return data;
   }
 
@@ -74,7 +85,8 @@ class FaceTarget {
     let length = 0;
     length += std_msgs.msg.Header.getMessageSize(object.header);
     length += object.cmd.length;
-    return length + 28;
+    length += object.name.length;
+    return length + 32;
   }
 
   static datatype() {
@@ -84,7 +96,7 @@ class FaceTarget {
 
   static md5sum() {
     //Returns md5sum for a message object
-    return '04a005a5867c4d41196138f92451713b';
+    return '186dafabee260d116e60117f4b2c786e';
   }
 
   static messageDefinition() {
@@ -93,7 +105,7 @@ class FaceTarget {
     Header header
     string  cmd
     geometry_msgs/Point target
-    
+    string name
     ================================================================================
     MSG: std_msgs/Header
     # Standard metadata for higher-level stamped data types.
@@ -147,6 +159,13 @@ class FaceTarget {
     }
     else {
       resolved.target = new geometry_msgs.msg.Point()
+    }
+
+    if (msg.name !== undefined) {
+      resolved.name = msg.name;
+    }
+    else {
+      resolved.name = ''
     }
 
     return resolved;
