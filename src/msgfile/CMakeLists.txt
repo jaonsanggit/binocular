@@ -55,6 +55,7 @@ add_message_files(
 #   Message2.msg
     FaceTarget.msg
     VoiceOrder.msg
+    Core2Voice.msg
 )
 
 ## Generate services in the 'srv' folder

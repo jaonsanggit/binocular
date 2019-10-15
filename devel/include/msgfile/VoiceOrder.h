@@ -26,17 +26,19 @@ struct VoiceOrder_
 
   VoiceOrder_()
     : header()
-    , cmd()
     , emotion()
-    , drinking()
-    , is_complete(false)  {
+    , DrinkName()
+    , CupNum()
+    , Temp()
+    , OrderFinish(false)  {
     }
   VoiceOrder_(const ContainerAllocator& _alloc)
     : header(_alloc)
-    , cmd(_alloc)
     , emotion(_alloc)
-    , drinking(_alloc)
-    , is_complete(false)  {
+    , DrinkName(_alloc)
+    , CupNum(_alloc)
+    , Temp(_alloc)
+    , OrderFinish(false)  {
   (void)_alloc;
     }
 
@@ -45,17 +47,20 @@ struct VoiceOrder_
    typedef  ::std_msgs::Header_<ContainerAllocator>  _header_type;
   _header_type header;
 
-   typedef std::basic_string<char, std::char_traits<char>, typename ContainerAllocator::template rebind<char>::other >  _cmd_type;
-  _cmd_type cmd;
-
    typedef std::basic_string<char, std::char_traits<char>, typename ContainerAllocator::template rebind<char>::other >  _emotion_type;
   _emotion_type emotion;
 
-   typedef std::basic_string<char, std::char_traits<char>, typename ContainerAllocator::template rebind<char>::other >  _drinking_type;
-  _drinking_type drinking;
+   typedef std::basic_string<char, std::char_traits<char>, typename ContainerAllocator::template rebind<char>::other >  _DrinkName_type;
+  _DrinkName_type DrinkName;
 
-   typedef uint8_t _is_complete_type;
-  _is_complete_type is_complete;
+   typedef std::basic_string<char, std::char_traits<char>, typename ContainerAllocator::template rebind<char>::other >  _CupNum_type;
+  _CupNum_type CupNum;
+
+   typedef std::basic_string<char, std::char_traits<char>, typename ContainerAllocator::template rebind<char>::other >  _Temp_type;
+  _Temp_type Temp;
+
+   typedef uint8_t _OrderFinish_type;
+  _OrderFinish_type OrderFinish;
 
 
 
@@ -134,12 +139,12 @@ struct MD5Sum< ::msgfile::VoiceOrder_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "c37634b59ea8bc295354a8112cf7bc4e";
+    return "665c610b7c2ad0cdb9e8600f1fe3adc6";
   }
 
   static const char* value(const ::msgfile::VoiceOrder_<ContainerAllocator>&) { return value(); }
-  static const uint64_t static_value1 = 0xc37634b59ea8bc29ULL;
-  static const uint64_t static_value2 = 0x5354a8112cf7bc4eULL;
+  static const uint64_t static_value1 = 0x665c610b7c2ad0cdULL;
+  static const uint64_t static_value2 = 0xb9e8600f1fe3adc6ULL;
 };
 
 template<class ContainerAllocator>
@@ -159,10 +164,11 @@ struct Definition< ::msgfile::VoiceOrder_<ContainerAllocator> >
   static const char* value()
   {
     return "Header header\n\
-string  cmd\n\
 string  emotion\n\
-string  drinking\n\
-bool    is_complete\n\
+string  DrinkName\n\
+string  CupNum\n\
+string  Temp\n\
+bool    OrderFinish\n\
 ================================================================================\n\
 MSG: std_msgs/Header\n\
 # Standard metadata for higher-level stamped data types.\n\
@@ -199,10 +205,11 @@ namespace serialization
     template<typename Stream, typename T> inline static void allInOne(Stream& stream, T m)
     {
       stream.next(m.header);
-      stream.next(m.cmd);
       stream.next(m.emotion);
-      stream.next(m.drinking);
-      stream.next(m.is_complete);
+      stream.next(m.DrinkName);
+      stream.next(m.CupNum);
+      stream.next(m.Temp);
+      stream.next(m.OrderFinish);
     }
 
     ROS_DECLARE_ALLINONE_SERIALIZER
@@ -224,14 +231,16 @@ struct Printer< ::msgfile::VoiceOrder_<ContainerAllocator> >
     s << indent << "header: ";
     s << std::endl;
     Printer< ::std_msgs::Header_<ContainerAllocator> >::stream(s, indent + "  ", v.header);
-    s << indent << "cmd: ";
-    Printer<std::basic_string<char, std::char_traits<char>, typename ContainerAllocator::template rebind<char>::other > >::stream(s, indent + "  ", v.cmd);
     s << indent << "emotion: ";
     Printer<std::basic_string<char, std::char_traits<char>, typename ContainerAllocator::template rebind<char>::other > >::stream(s, indent + "  ", v.emotion);
-    s << indent << "drinking: ";
-    Printer<std::basic_string<char, std::char_traits<char>, typename ContainerAllocator::template rebind<char>::other > >::stream(s, indent + "  ", v.drinking);
-    s << indent << "is_complete: ";
-    Printer<uint8_t>::stream(s, indent + "  ", v.is_complete);
+    s << indent << "DrinkName: ";
+    Printer<std::basic_string<char, std::char_traits<char>, typename ContainerAllocator::template rebind<char>::other > >::stream(s, indent + "  ", v.DrinkName);
+    s << indent << "CupNum: ";
+    Printer<std::basic_string<char, std::char_traits<char>, typename ContainerAllocator::template rebind<char>::other > >::stream(s, indent + "  ", v.CupNum);
+    s << indent << "Temp: ";
+    Printer<std::basic_string<char, std::char_traits<char>, typename ContainerAllocator::template rebind<char>::other > >::stream(s, indent + "  ", v.Temp);
+    s << indent << "OrderFinish: ";
+    Printer<uint8_t>::stream(s, indent + "  ", v.OrderFinish);
   }
 };
 

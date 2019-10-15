@@ -348,6 +348,19 @@ _msgfile_generate_messages_check_deps_FaceTarget/fast:
 .PHONY : _msgfile_generate_messages_check_deps_FaceTarget/fast
 
 #=============================================================================
+# Target rules for targets named _msgfile_generate_messages_check_deps_Core2Voice
+
+# Build rule for target.
+_msgfile_generate_messages_check_deps_Core2Voice: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 _msgfile_generate_messages_check_deps_Core2Voice
+.PHONY : _msgfile_generate_messages_check_deps_Core2Voice
+
+# fast build rule for target.
+_msgfile_generate_messages_check_deps_Core2Voice/fast:
+	$(MAKE) -f msgfile/CMakeFiles/_msgfile_generate_messages_check_deps_Core2Voice.dir/build.make msgfile/CMakeFiles/_msgfile_generate_messages_check_deps_Core2Voice.dir/build
+.PHONY : _msgfile_generate_messages_check_deps_Core2Voice/fast
+
+#=============================================================================
 # Target rules for targets named geometry_msgs_generate_messages_cpp
 
 # Build rule for target.
@@ -751,6 +764,7 @@ help:
 	@echo "... msgfile_gencpp"
 	@echo "... msgfile_generate_messages_cpp"
 	@echo "... _msgfile_generate_messages_check_deps_FaceTarget"
+	@echo "... _msgfile_generate_messages_check_deps_Core2Voice"
 	@echo "... geometry_msgs_generate_messages_cpp"
 	@echo "... roscpp_generate_messages_cpp"
 	@echo "... geometry_msgs_generate_messages_eus"

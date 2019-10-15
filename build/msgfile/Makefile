@@ -111,17 +111,6 @@ test/fast: test
 
 .PHONY : test/fast
 
-# Special rule for the target install/local
-install/local: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-.PHONY : install/local
-
-# Special rule for the target install/local
-install/local/fast: install/local
-
-.PHONY : install/local/fast
-
 # Special rule for the target install/strip
 install/strip: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
@@ -132,6 +121,17 @@ install/strip: preinstall
 install/strip/fast: install/strip
 
 .PHONY : install/strip/fast
+
+# Special rule for the target install/local
+install/local: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local
+
+# Special rule for the target install/local
+install/local/fast: install/local
+
+.PHONY : install/local/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -269,6 +269,21 @@ _msgfile_generate_messages_check_deps_FaceTarget: msgfile/CMakeFiles/_msgfile_ge
 _msgfile_generate_messages_check_deps_FaceTarget/fast:
 	cd /home/sanghongrui/catkin_ws/build && $(MAKE) -f msgfile/CMakeFiles/_msgfile_generate_messages_check_deps_FaceTarget.dir/build.make msgfile/CMakeFiles/_msgfile_generate_messages_check_deps_FaceTarget.dir/build
 .PHONY : _msgfile_generate_messages_check_deps_FaceTarget/fast
+
+# Convenience name for target.
+msgfile/CMakeFiles/_msgfile_generate_messages_check_deps_Core2Voice.dir/rule:
+	cd /home/sanghongrui/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 msgfile/CMakeFiles/_msgfile_generate_messages_check_deps_Core2Voice.dir/rule
+.PHONY : msgfile/CMakeFiles/_msgfile_generate_messages_check_deps_Core2Voice.dir/rule
+
+# Convenience name for target.
+_msgfile_generate_messages_check_deps_Core2Voice: msgfile/CMakeFiles/_msgfile_generate_messages_check_deps_Core2Voice.dir/rule
+
+.PHONY : _msgfile_generate_messages_check_deps_Core2Voice
+
+# fast build rule for target.
+_msgfile_generate_messages_check_deps_Core2Voice/fast:
+	cd /home/sanghongrui/catkin_ws/build && $(MAKE) -f msgfile/CMakeFiles/_msgfile_generate_messages_check_deps_Core2Voice.dir/build.make msgfile/CMakeFiles/_msgfile_generate_messages_check_deps_Core2Voice.dir/build
+.PHONY : _msgfile_generate_messages_check_deps_Core2Voice/fast
 
 # Convenience name for target.
 msgfile/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule:
@@ -671,7 +686,6 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... test"
-	@echo "... install/local"
 	@echo "... install/strip"
 	@echo "... msgfile_genpy"
 	@echo "... msgfile_generate_messages_py"
@@ -680,6 +694,8 @@ help:
 	@echo "... msgfile_gencpp"
 	@echo "... msgfile_generate_messages_cpp"
 	@echo "... _msgfile_generate_messages_check_deps_FaceTarget"
+	@echo "... install/local"
+	@echo "... _msgfile_generate_messages_check_deps_Core2Voice"
 	@echo "... geometry_msgs_generate_messages_cpp"
 	@echo "... roscpp_generate_messages_cpp"
 	@echo "... geometry_msgs_generate_messages_eus"

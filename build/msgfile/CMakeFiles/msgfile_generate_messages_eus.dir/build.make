@@ -54,6 +54,7 @@ CMAKE_BINARY_DIR = /home/sanghongrui/catkin_ws/build
 include msgfile/CMakeFiles/msgfile_generate_messages_eus.dir/progress.make
 
 msgfile/CMakeFiles/msgfile_generate_messages_eus: /home/sanghongrui/catkin_ws/devel/share/roseus/ros/msgfile/msg/VoiceOrder.l
+msgfile/CMakeFiles/msgfile_generate_messages_eus: /home/sanghongrui/catkin_ws/devel/share/roseus/ros/msgfile/msg/Core2Voice.l
 msgfile/CMakeFiles/msgfile_generate_messages_eus: /home/sanghongrui/catkin_ws/devel/share/roseus/ros/msgfile/msg/FaceTarget.l
 msgfile/CMakeFiles/msgfile_generate_messages_eus: /home/sanghongrui/catkin_ws/devel/share/roseus/ros/msgfile/manifest.l
 
@@ -64,19 +65,26 @@ msgfile/CMakeFiles/msgfile_generate_messages_eus: /home/sanghongrui/catkin_ws/de
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/sanghongrui/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating EusLisp code from msgfile/VoiceOrder.msg"
 	cd /home/sanghongrui/catkin_ws/build/msgfile && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/sanghongrui/catkin_ws/src/msgfile/msg/VoiceOrder.msg -Imsgfile:/home/sanghongrui/catkin_ws/src/msgfile/msg -Igeometry_msgs:/opt/ros/kinetic/share/geometry_msgs/cmake/../msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p msgfile -o /home/sanghongrui/catkin_ws/devel/share/roseus/ros/msgfile/msg
 
+/home/sanghongrui/catkin_ws/devel/share/roseus/ros/msgfile/msg/Core2Voice.l: /opt/ros/kinetic/lib/geneus/gen_eus.py
+/home/sanghongrui/catkin_ws/devel/share/roseus/ros/msgfile/msg/Core2Voice.l: /home/sanghongrui/catkin_ws/src/msgfile/msg/Core2Voice.msg
+/home/sanghongrui/catkin_ws/devel/share/roseus/ros/msgfile/msg/Core2Voice.l: /opt/ros/kinetic/share/std_msgs/msg/Header.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/sanghongrui/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating EusLisp code from msgfile/Core2Voice.msg"
+	cd /home/sanghongrui/catkin_ws/build/msgfile && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/sanghongrui/catkin_ws/src/msgfile/msg/Core2Voice.msg -Imsgfile:/home/sanghongrui/catkin_ws/src/msgfile/msg -Igeometry_msgs:/opt/ros/kinetic/share/geometry_msgs/cmake/../msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p msgfile -o /home/sanghongrui/catkin_ws/devel/share/roseus/ros/msgfile/msg
+
 /home/sanghongrui/catkin_ws/devel/share/roseus/ros/msgfile/msg/FaceTarget.l: /opt/ros/kinetic/lib/geneus/gen_eus.py
 /home/sanghongrui/catkin_ws/devel/share/roseus/ros/msgfile/msg/FaceTarget.l: /home/sanghongrui/catkin_ws/src/msgfile/msg/FaceTarget.msg
 /home/sanghongrui/catkin_ws/devel/share/roseus/ros/msgfile/msg/FaceTarget.l: /opt/ros/kinetic/share/std_msgs/msg/Header.msg
 /home/sanghongrui/catkin_ws/devel/share/roseus/ros/msgfile/msg/FaceTarget.l: /opt/ros/kinetic/share/geometry_msgs/msg/Point.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/sanghongrui/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating EusLisp code from msgfile/FaceTarget.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/sanghongrui/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating EusLisp code from msgfile/FaceTarget.msg"
 	cd /home/sanghongrui/catkin_ws/build/msgfile && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/sanghongrui/catkin_ws/src/msgfile/msg/FaceTarget.msg -Imsgfile:/home/sanghongrui/catkin_ws/src/msgfile/msg -Igeometry_msgs:/opt/ros/kinetic/share/geometry_msgs/cmake/../msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p msgfile -o /home/sanghongrui/catkin_ws/devel/share/roseus/ros/msgfile/msg
 
 /home/sanghongrui/catkin_ws/devel/share/roseus/ros/msgfile/manifest.l: /opt/ros/kinetic/lib/geneus/gen_eus.py
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/sanghongrui/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating EusLisp manifest code for msgfile"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/sanghongrui/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Generating EusLisp manifest code for msgfile"
 	cd /home/sanghongrui/catkin_ws/build/msgfile && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py -m -o /home/sanghongrui/catkin_ws/devel/share/roseus/ros/msgfile msgfile geometry_msgs std_msgs
 
 msgfile_generate_messages_eus: msgfile/CMakeFiles/msgfile_generate_messages_eus
 msgfile_generate_messages_eus: /home/sanghongrui/catkin_ws/devel/share/roseus/ros/msgfile/msg/VoiceOrder.l
+msgfile_generate_messages_eus: /home/sanghongrui/catkin_ws/devel/share/roseus/ros/msgfile/msg/Core2Voice.l
 msgfile_generate_messages_eus: /home/sanghongrui/catkin_ws/devel/share/roseus/ros/msgfile/msg/FaceTarget.l
 msgfile_generate_messages_eus: /home/sanghongrui/catkin_ws/devel/share/roseus/ros/msgfile/manifest.l
 msgfile_generate_messages_eus: msgfile/CMakeFiles/msgfile_generate_messages_eus.dir/build.make

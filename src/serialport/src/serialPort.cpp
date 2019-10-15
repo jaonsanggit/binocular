@@ -14,14 +14,12 @@
 static ROBOTEYES robot;  // open port & initialize robot;
 static int target_w = 960;
 static int target_h = 540;
+static u16 target_s = 400;
 
 static struct timeval start = {0, 0};
 
 void coreCallback(const msgfile::FaceTarget::ConstPtr& msg)
 {
-      static std::vector<std::pair<int,int>> target_vec;
-      static struct timeval initTime = {0, 0};
-
       gettimeofday(&start,NULL); 
 
       if (msg->cmd == "idle") {
@@ -39,31 +37,26 @@ void coreCallback(const msgfile::FaceTarget::ConstPtr& msg)
       }
 
       else if (msg->cmd == "init") {
-            ROS_INFO("------------INIT--------------------");
+            ROS_INFO("\n------------INIT--------------------");
       }
 
-      // if (!target_vec.empty()) {
-      //       init_Action(target_vec, 500);
-      //       target_w = target_vec.front().first;
-      //       target_h = target_vec.front().second;
-      //       target_vec          
-      // }
       else {
             // std::vector<uint8_t> name = msg->user_name;
-            ROS_INFO("--------------WORKING------------------"); 
+            ROS_INFO("\n--------------WORKING------------------"); 
       }
 
       target_w = int(msg->target.x);
       target_h = int(msg->target.y);
-      std::cout << "  frame_id: " << msg->header.frame_id << std::endl;
-      setlocale(LC_CTYPE, "zh_CN.utf8");
-      std::cout << "  user_name: " << msg->name << std::endl;
+      target_s = u16(msg->target.z);
+      std::cout << "  frame_id:" << msg->header.frame_id << std::endl;
+      // setlocale(LC_CTYPE, "zh_CN.utf8");
+      // std::cout << "  user_name: " << msg->name << std::endl;
       std::cout << "  target_w: " << target_w << '\t' 
-                << "  target_h: " << target_h 
+                << "  target_h: " << target_h << '\t' 
+                << "  target_s: " << target_s
                 << std::endl << std::endl; 
 
-      robot.Turn(target_w, target_h);
-      // std::cout << target_w << ' ' << target_h << std::endl;
+      robot.Turn(target_w, target_h, target_s);
 }
 
 int main (int argc, char** argv) 
@@ -73,7 +66,7 @@ int main (int argc, char** argv)
       //声明节点句柄 
       ros::NodeHandle nh; 
 
-      ros::Subscriber sub = nh.subscribe("core_out", 10, coreCallback);
+      ros::Subscriber sub = nh.subscribe("core_eyes", 10, coreCallback);
 
       // std::string path("/home/sanghongrui/catkin_ws/src/serialport/src/face.json");
       // std::ifstream t(path); //读文件ifstream,写文件ofstream，可读可写fstream
@@ -112,10 +105,5 @@ int main (int argc, char** argv)
       } 
 
       return 0;
-}
-
-void init_Action(std::vector<std::pair<int,int>> & target_vec, unsigned int tv_msec)
-{
-
 }
 

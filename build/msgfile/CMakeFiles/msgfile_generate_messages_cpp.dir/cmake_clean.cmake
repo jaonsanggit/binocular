@@ -1,6 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/msgfile_generate_messages_cpp"
   "/home/sanghongrui/catkin_ws/devel/include/msgfile/VoiceOrder.h"
+  "/home/sanghongrui/catkin_ws/devel/include/msgfile/Core2Voice.h"
   "/home/sanghongrui/catkin_ws/devel/include/msgfile/FaceTarget.h"
 )
 

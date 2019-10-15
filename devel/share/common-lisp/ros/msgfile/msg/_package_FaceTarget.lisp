@@ -5,6 +5,4 @@
           CMD
           TARGET-VAL
           TARGET
-          NAME-VAL
-          NAME
 ))

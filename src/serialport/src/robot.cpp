@@ -49,7 +49,7 @@ void ROBOTEYES::idleActInit(void)
   eyes_init(servo_init_vec);
 }
 
-void ROBOTEYES::Turn(int w, int h)
+void ROBOTEYES::Turn(int w, int h, u16 speed)
 {
   // clock_t start, stop; //clock_t为clock()函数返回的变量类型
   // start=clock();
@@ -57,8 +57,8 @@ void ROBOTEYES::Turn(int w, int h)
   std::vector<int> servoPos(8,0);
   tranform(w, h, servoPos);
 
-  TurnLR(servoPos);
-  TurnUD(servoPos);
+  TurnLR(servoPos, speed);
+  TurnUD(servoPos, speed);
 //  TurnShake(servoPos);
 // for (auto v : servoPos)
 //     std::cout <<  v << '\t';
@@ -71,23 +71,23 @@ void ROBOTEYES::Turn(int w, int h)
   // ROS_INFO("time duration: %ld",stop - start);
 }
 
-void ROBOTEYES::TurnLR(const std::vector<int> &s)
+void ROBOTEYES::TurnLR(const std::vector<int> &s, u16 speed )
 {
-  spinServo(1, s[1]);
-  spinServo(3, s[3]);
-  spinServo(5, s[5]);
+  spinServo(1, s[1], speed);
+  spinServo(3, s[3], speed);
+  spinServo(5, s[5], speed);
 }
 
-void ROBOTEYES::TurnUD(const std::vector<int> &s)
+void ROBOTEYES::TurnUD(const std::vector<int> &s, u16 speed)
 {
-  spinServo(2, s[2]);
-  spinServo(4, s[4]);
-  spinServo(7, s[7]);
+  spinServo(2, s[2], speed);
+  spinServo(4, s[4], speed);
+  spinServo(7, s[7], speed);
 }
 
-void ROBOTEYES::TurnShake(const std::vector<int> &s)
+void ROBOTEYES::TurnShake(const std::vector<int> &s, u16 speed)
 {
-  spinServo(6, s[6]);
+  spinServo(6, s[6], speed);
 }
 
 void ROBOTEYES::openSerial(const std::string & port, uint32_t  baudrate, uint32_t timeout)
@@ -129,15 +129,15 @@ void ROBOTEYES::eyes_init(const std::map<u8, std::pair<std::string, uint32_t>> &
       sm.RegWriteAction();     
 }
 
-void ROBOTEYES::spinServo(u8 id, int pos)
+void ROBOTEYES::spinServo(u8 id, int pos, u16 speed)
 {
 
   if (servo_init_vec.at(id).first =="SCS")
   {
-    sc.RegWritePos(id, pos, SERVO_TIME, SERVO_SPEED);
+    sc.RegWritePos(id, pos, SERVO_TIME, speed);
   }else
   {
-    sm.RegWritePos(id, pos, SERVO_TIME, SERVO_SPEED);
+    sm.RegWritePos(id, pos, SERVO_TIME, speed);
   }
 
 }

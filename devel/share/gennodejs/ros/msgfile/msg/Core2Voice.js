@@ -11,18 +11,19 @@ const _deserializer = _ros_msg_utils.Deserialize;
 const _arrayDeserializer = _deserializer.Array;
 const _finder = _ros_msg_utils.Find;
 const _getByteLength = _ros_msg_utils.getByteLength;
-let geometry_msgs = _finder('geometry_msgs');
 let std_msgs = _finder('std_msgs');
 
 //-----------------------------------------------------------
 
-class FaceTarget {
+class Core2Voice {
   constructor(initObj={}) {
     if (initObj === null) {
       // initObj === null is a special case for deserialization where we don't initialize fields
       this.header = null;
       this.cmd = null;
-      this.target = null;
+      this.name = null;
+      this.gender = null;
+      this.age = null;
     }
     else {
       if (initObj.hasOwnProperty('header')) {
@@ -37,36 +38,56 @@ class FaceTarget {
       else {
         this.cmd = '';
       }
-      if (initObj.hasOwnProperty('target')) {
-        this.target = initObj.target
+      if (initObj.hasOwnProperty('name')) {
+        this.name = initObj.name
       }
       else {
-        this.target = new geometry_msgs.msg.Point();
+        this.name = '';
+      }
+      if (initObj.hasOwnProperty('gender')) {
+        this.gender = initObj.gender
+      }
+      else {
+        this.gender = '';
+      }
+      if (initObj.hasOwnProperty('age')) {
+        this.age = initObj.age
+      }
+      else {
+        this.age = 0;
       }
     }
   }
 
   static serialize(obj, buffer, bufferOffset) {
-    // Serializes a message object of type FaceTarget
+    // Serializes a message object of type Core2Voice
     // Serialize message field [header]
     bufferOffset = std_msgs.msg.Header.serialize(obj.header, buffer, bufferOffset);
     // Serialize message field [cmd]
     bufferOffset = _serializer.string(obj.cmd, buffer, bufferOffset);
-    // Serialize message field [target]
-    bufferOffset = geometry_msgs.msg.Point.serialize(obj.target, buffer, bufferOffset);
+    // Serialize message field [name]
+    bufferOffset = _serializer.string(obj.name, buffer, bufferOffset);
+    // Serialize message field [gender]
+    bufferOffset = _serializer.string(obj.gender, buffer, bufferOffset);
+    // Serialize message field [age]
+    bufferOffset = _serializer.uint16(obj.age, buffer, bufferOffset);
     return bufferOffset;
   }
 
   static deserialize(buffer, bufferOffset=[0]) {
-    //deserializes a message object of type FaceTarget
+    //deserializes a message object of type Core2Voice
     let len;
-    let data = new FaceTarget(null);
+    let data = new Core2Voice(null);
     // Deserialize message field [header]
     data.header = std_msgs.msg.Header.deserialize(buffer, bufferOffset);
     // Deserialize message field [cmd]
     data.cmd = _deserializer.string(buffer, bufferOffset);
-    // Deserialize message field [target]
-    data.target = geometry_msgs.msg.Point.deserialize(buffer, bufferOffset);
+    // Deserialize message field [name]
+    data.name = _deserializer.string(buffer, bufferOffset);
+    // Deserialize message field [gender]
+    data.gender = _deserializer.string(buffer, bufferOffset);
+    // Deserialize message field [age]
+    data.age = _deserializer.uint16(buffer, bufferOffset);
     return data;
   }
 
@@ -74,25 +95,29 @@ class FaceTarget {
     let length = 0;
     length += std_msgs.msg.Header.getMessageSize(object.header);
     length += object.cmd.length;
-    return length + 28;
+    length += object.name.length;
+    length += object.gender.length;
+    return length + 14;
   }
 
   static datatype() {
     // Returns string type for a message object
-    return 'msgfile/FaceTarget';
+    return 'msgfile/Core2Voice';
   }
 
   static md5sum() {
     //Returns md5sum for a message object
-    return '04a005a5867c4d41196138f92451713b';
+    return 'c1551c43ce95816519cdce6766a6a75b';
   }
 
   static messageDefinition() {
     // Returns full string definition for message
     return `
     Header header
-    string  cmd
-    geometry_msgs/Point target
+    string cmd
+    string name
+    string gender
+    uint16 age 
     ================================================================================
     MSG: std_msgs/Header
     # Standard metadata for higher-level stamped data types.
@@ -111,13 +136,6 @@ class FaceTarget {
     # 1: global frame
     string frame_id
     
-    ================================================================================
-    MSG: geometry_msgs/Point
-    # This contains the position of a point in free space
-    float64 x
-    float64 y
-    float64 z
-    
     `;
   }
 
@@ -126,7 +144,7 @@ class FaceTarget {
     if (typeof msg !== 'object' || msg === null) {
       msg = {};
     }
-    const resolved = new FaceTarget(null);
+    const resolved = new Core2Voice(null);
     if (msg.header !== undefined) {
       resolved.header = std_msgs.msg.Header.Resolve(msg.header)
     }
@@ -141,15 +159,29 @@ class FaceTarget {
       resolved.cmd = ''
     }
 
-    if (msg.target !== undefined) {
-      resolved.target = geometry_msgs.msg.Point.Resolve(msg.target)
+    if (msg.name !== undefined) {
+      resolved.name = msg.name;
     }
     else {
-      resolved.target = new geometry_msgs.msg.Point()
+      resolved.name = ''
+    }
+
+    if (msg.gender !== undefined) {
+      resolved.gender = msg.gender;
+    }
+    else {
+      resolved.gender = ''
+    }
+
+    if (msg.age !== undefined) {
+      resolved.age = msg.age;
+    }
+    else {
+      resolved.age = 0
     }
 
     return resolved;
     }
 };
 
-module.exports = FaceTarget;
+module.exports = Core2Voice;

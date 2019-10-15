@@ -36,6 +36,7 @@ if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspeci
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/msgfile/msg" TYPE FILE FILES
     "/home/sanghongrui/catkin_ws/src/msgfile/msg/FaceTarget.msg"
     "/home/sanghongrui/catkin_ws/src/msgfile/msg/VoiceOrder.msg"
+    "/home/sanghongrui/catkin_ws/src/msgfile/msg/Core2Voice.msg"
     )
 endif()
 

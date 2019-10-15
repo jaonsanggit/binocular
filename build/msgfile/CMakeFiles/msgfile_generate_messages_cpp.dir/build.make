@@ -54,6 +54,7 @@ CMAKE_BINARY_DIR = /home/sanghongrui/catkin_ws/build
 include msgfile/CMakeFiles/msgfile_generate_messages_cpp.dir/progress.make
 
 msgfile/CMakeFiles/msgfile_generate_messages_cpp: /home/sanghongrui/catkin_ws/devel/include/msgfile/VoiceOrder.h
+msgfile/CMakeFiles/msgfile_generate_messages_cpp: /home/sanghongrui/catkin_ws/devel/include/msgfile/Core2Voice.h
 msgfile/CMakeFiles/msgfile_generate_messages_cpp: /home/sanghongrui/catkin_ws/devel/include/msgfile/FaceTarget.h
 
 
@@ -64,16 +65,24 @@ msgfile/CMakeFiles/msgfile_generate_messages_cpp: /home/sanghongrui/catkin_ws/de
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/sanghongrui/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating C++ code from msgfile/VoiceOrder.msg"
 	cd /home/sanghongrui/catkin_ws/build/msgfile && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/sanghongrui/catkin_ws/src/msgfile/msg/VoiceOrder.msg -Imsgfile:/home/sanghongrui/catkin_ws/src/msgfile/msg -Igeometry_msgs:/opt/ros/kinetic/share/geometry_msgs/cmake/../msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p msgfile -o /home/sanghongrui/catkin_ws/devel/include/msgfile -e /opt/ros/kinetic/share/gencpp/cmake/..
 
+/home/sanghongrui/catkin_ws/devel/include/msgfile/Core2Voice.h: /opt/ros/kinetic/lib/gencpp/gen_cpp.py
+/home/sanghongrui/catkin_ws/devel/include/msgfile/Core2Voice.h: /home/sanghongrui/catkin_ws/src/msgfile/msg/Core2Voice.msg
+/home/sanghongrui/catkin_ws/devel/include/msgfile/Core2Voice.h: /opt/ros/kinetic/share/std_msgs/msg/Header.msg
+/home/sanghongrui/catkin_ws/devel/include/msgfile/Core2Voice.h: /opt/ros/kinetic/share/gencpp/msg.h.template
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/sanghongrui/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating C++ code from msgfile/Core2Voice.msg"
+	cd /home/sanghongrui/catkin_ws/build/msgfile && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/sanghongrui/catkin_ws/src/msgfile/msg/Core2Voice.msg -Imsgfile:/home/sanghongrui/catkin_ws/src/msgfile/msg -Igeometry_msgs:/opt/ros/kinetic/share/geometry_msgs/cmake/../msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p msgfile -o /home/sanghongrui/catkin_ws/devel/include/msgfile -e /opt/ros/kinetic/share/gencpp/cmake/..
+
 /home/sanghongrui/catkin_ws/devel/include/msgfile/FaceTarget.h: /opt/ros/kinetic/lib/gencpp/gen_cpp.py
 /home/sanghongrui/catkin_ws/devel/include/msgfile/FaceTarget.h: /home/sanghongrui/catkin_ws/src/msgfile/msg/FaceTarget.msg
 /home/sanghongrui/catkin_ws/devel/include/msgfile/FaceTarget.h: /opt/ros/kinetic/share/std_msgs/msg/Header.msg
 /home/sanghongrui/catkin_ws/devel/include/msgfile/FaceTarget.h: /opt/ros/kinetic/share/geometry_msgs/msg/Point.msg
 /home/sanghongrui/catkin_ws/devel/include/msgfile/FaceTarget.h: /opt/ros/kinetic/share/gencpp/msg.h.template
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/sanghongrui/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating C++ code from msgfile/FaceTarget.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/sanghongrui/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating C++ code from msgfile/FaceTarget.msg"
 	cd /home/sanghongrui/catkin_ws/build/msgfile && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/sanghongrui/catkin_ws/src/msgfile/msg/FaceTarget.msg -Imsgfile:/home/sanghongrui/catkin_ws/src/msgfile/msg -Igeometry_msgs:/opt/ros/kinetic/share/geometry_msgs/cmake/../msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p msgfile -o /home/sanghongrui/catkin_ws/devel/include/msgfile -e /opt/ros/kinetic/share/gencpp/cmake/..
 
 msgfile_generate_messages_cpp: msgfile/CMakeFiles/msgfile_generate_messages_cpp
 msgfile_generate_messages_cpp: /home/sanghongrui/catkin_ws/devel/include/msgfile/VoiceOrder.h
+msgfile_generate_messages_cpp: /home/sanghongrui/catkin_ws/devel/include/msgfile/Core2Voice.h
 msgfile_generate_messages_cpp: /home/sanghongrui/catkin_ws/devel/include/msgfile/FaceTarget.h
 msgfile_generate_messages_cpp: msgfile/CMakeFiles/msgfile_generate_messages_cpp.dir/build.make
 

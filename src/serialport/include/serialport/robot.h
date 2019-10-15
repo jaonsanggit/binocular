@@ -17,10 +17,10 @@ class ROBOTEYES
 public:
   ROBOTEYES();
   
-  void Turn(int w, int h);
-  void TurnLR(const std::vector<int> &s);
-  void TurnUD(const std::vector<int> &s);
-  void TurnShake(const std::vector<int> &s);
+  void Turn(int w, int h, u16 speed);
+  void TurnLR(const std::vector<int> &s, u16 speed);
+  void TurnUD(const std::vector<int> &s, u16 speed);
+  void TurnShake(const std::vector<int> &s, u16 speed);
   void idleActInit(void);
 
   ~ROBOTEYES();
@@ -36,7 +36,7 @@ private:
 
   void openSerial(const std::string & port, uint32_t  baudrate, uint32_t timeout=1000);
   void eyes_init(const std::map<u8, std::pair<std::string, uint32_t>> & m);
-  void spinServo(u8 id, int pos);
+  void spinServo(u8 id, int pos, u16 speed);
   void TurnAction(void);
   void tranform(int w, int h, std::vector<int> & s);
   void Filter(int &w, int &h);

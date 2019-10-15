@@ -1,5 +1,6 @@
 Header header
-string  cmd
 string  emotion
-string  drinking
-bool    is_complete
+string  DrinkName
+string  CupNum
+string  Temp
+bool    OrderFinish

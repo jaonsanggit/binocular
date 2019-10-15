@@ -1,17 +1,23 @@
 # Hashes of file build rules.
+f975afbe87a38bdc14f98379b625ed77 /home/sanghongrui/catkin_ws/devel/include/msgfile/Core2Voice.h
 a43befaee6bafe7551248f0c121adbc4 /home/sanghongrui/catkin_ws/devel/include/msgfile/FaceTarget.h
 8e4fd57d02fdac4f6a88960b80a0d668 /home/sanghongrui/catkin_ws/devel/include/msgfile/VoiceOrder.h
+6f7ae6e6cda99c961bd075acda8deaf5 /home/sanghongrui/catkin_ws/devel/lib/python2.7/dist-packages/msgfile/msg/_Core2Voice.py
 9fbb85ce5a1f1aef96512a18c43062cd /home/sanghongrui/catkin_ws/devel/lib/python2.7/dist-packages/msgfile/msg/_FaceTarget.py
 955ef4c51d783c11159aad6ad257e7bb /home/sanghongrui/catkin_ws/devel/lib/python2.7/dist-packages/msgfile/msg/_VoiceOrder.py
 dd2f489acc1fcd4a85363061a9a614eb /home/sanghongrui/catkin_ws/devel/lib/python2.7/dist-packages/msgfile/msg/__init__.py
+1294208c24ee8017387e968234911387 /home/sanghongrui/catkin_ws/devel/share/common-lisp/ros/msgfile/msg/Core2Voice.lisp
 ebad3b99859fde55e2c1c7dd1dc22bce /home/sanghongrui/catkin_ws/devel/share/common-lisp/ros/msgfile/msg/FaceTarget.lisp
 7120261ad36628a30cd2e4425898ac65 /home/sanghongrui/catkin_ws/devel/share/common-lisp/ros/msgfile/msg/VoiceOrder.lisp
+ac3dfa22ec3d609d85e237b9c8160b43 /home/sanghongrui/catkin_ws/devel/share/gennodejs/ros/msgfile/msg/Core2Voice.js
 f60a6a9fb5b455ac0c109c9d7a49c311 /home/sanghongrui/catkin_ws/devel/share/gennodejs/ros/msgfile/msg/FaceTarget.js
 f68b1976d433db15c88dda52c12f47ac /home/sanghongrui/catkin_ws/devel/share/gennodejs/ros/msgfile/msg/VoiceOrder.js
 b9058b046050442d0b0829df91ad0206 /home/sanghongrui/catkin_ws/devel/share/roseus/ros/msgfile/manifest.l
+6fce9e2976f235ca8d2b8fa9d366cd9e /home/sanghongrui/catkin_ws/devel/share/roseus/ros/msgfile/msg/Core2Voice.l
 8ad4146276486e5150792083223d27b0 /home/sanghongrui/catkin_ws/devel/share/roseus/ros/msgfile/msg/FaceTarget.l
 ffe8e6fc7218f74bfeff58be31fbb727 /home/sanghongrui/catkin_ws/devel/share/roseus/ros/msgfile/msg/VoiceOrder.l
 b9d1bf4d12e384f9e4e14c02740bad28 CMakeFiles/clean_test_results
+3cbed2e3275aa512dc0d51343c467b94 msgfile/CMakeFiles/_msgfile_generate_messages_check_deps_Core2Voice
 6746727e6efe7495bece7cfda1f1952f msgfile/CMakeFiles/_msgfile_generate_messages_check_deps_FaceTarget
 624566232ab91421eaec4721b2a63261 msgfile/CMakeFiles/_msgfile_generate_messages_check_deps_VoiceOrder
 567f54e3f2c4b9541820be332fb67634 msgfile/CMakeFiles/msgfile_generate_messages_cpp

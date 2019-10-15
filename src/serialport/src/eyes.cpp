@@ -5,7 +5,7 @@
 
 void coreCallback(const msgfile::VoiceOrder::ConstPtr& msg)
 {
-  ROS_INFO("eyes heard [%s] from core.", msg->cmd.c_str());
+  ROS_INFO("eyes heard [%s] from core.", msg->emotion.c_str());
 }
 
 int main(int argc, char **argv) {

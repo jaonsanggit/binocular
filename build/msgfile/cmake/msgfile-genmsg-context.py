@@ -1,6 +1,6 @@
 # generated from genmsg/cmake/pkg-genmsg.context.in
 
-messages_str = "/home/sanghongrui/catkin_ws/src/msgfile/msg/FaceTarget.msg;/home/sanghongrui/catkin_ws/src/msgfile/msg/VoiceOrder.msg"
+messages_str = "/home/sanghongrui/catkin_ws/src/msgfile/msg/FaceTarget.msg;/home/sanghongrui/catkin_ws/src/msgfile/msg/VoiceOrder.msg;/home/sanghongrui/catkin_ws/src/msgfile/msg/Core2Voice.msg"
 services_str = ""
 pkg_name = "msgfile"
 dependencies_str = "geometry_msgs;std_msgs"

@@ -54,6 +54,7 @@ CMAKE_BINARY_DIR = /home/sanghongrui/catkin_ws/build
 include msgfile/CMakeFiles/msgfile_generate_messages_lisp.dir/progress.make
 
 msgfile/CMakeFiles/msgfile_generate_messages_lisp: /home/sanghongrui/catkin_ws/devel/share/common-lisp/ros/msgfile/msg/VoiceOrder.lisp
+msgfile/CMakeFiles/msgfile_generate_messages_lisp: /home/sanghongrui/catkin_ws/devel/share/common-lisp/ros/msgfile/msg/Core2Voice.lisp
 msgfile/CMakeFiles/msgfile_generate_messages_lisp: /home/sanghongrui/catkin_ws/devel/share/common-lisp/ros/msgfile/msg/FaceTarget.lisp
 
 
@@ -63,15 +64,22 @@ msgfile/CMakeFiles/msgfile_generate_messages_lisp: /home/sanghongrui/catkin_ws/d
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/sanghongrui/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating Lisp code from msgfile/VoiceOrder.msg"
 	cd /home/sanghongrui/catkin_ws/build/msgfile && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py /home/sanghongrui/catkin_ws/src/msgfile/msg/VoiceOrder.msg -Imsgfile:/home/sanghongrui/catkin_ws/src/msgfile/msg -Igeometry_msgs:/opt/ros/kinetic/share/geometry_msgs/cmake/../msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p msgfile -o /home/sanghongrui/catkin_ws/devel/share/common-lisp/ros/msgfile/msg
 
+/home/sanghongrui/catkin_ws/devel/share/common-lisp/ros/msgfile/msg/Core2Voice.lisp: /opt/ros/kinetic/lib/genlisp/gen_lisp.py
+/home/sanghongrui/catkin_ws/devel/share/common-lisp/ros/msgfile/msg/Core2Voice.lisp: /home/sanghongrui/catkin_ws/src/msgfile/msg/Core2Voice.msg
+/home/sanghongrui/catkin_ws/devel/share/common-lisp/ros/msgfile/msg/Core2Voice.lisp: /opt/ros/kinetic/share/std_msgs/msg/Header.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/sanghongrui/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating Lisp code from msgfile/Core2Voice.msg"
+	cd /home/sanghongrui/catkin_ws/build/msgfile && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py /home/sanghongrui/catkin_ws/src/msgfile/msg/Core2Voice.msg -Imsgfile:/home/sanghongrui/catkin_ws/src/msgfile/msg -Igeometry_msgs:/opt/ros/kinetic/share/geometry_msgs/cmake/../msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p msgfile -o /home/sanghongrui/catkin_ws/devel/share/common-lisp/ros/msgfile/msg
+
 /home/sanghongrui/catkin_ws/devel/share/common-lisp/ros/msgfile/msg/FaceTarget.lisp: /opt/ros/kinetic/lib/genlisp/gen_lisp.py
 /home/sanghongrui/catkin_ws/devel/share/common-lisp/ros/msgfile/msg/FaceTarget.lisp: /home/sanghongrui/catkin_ws/src/msgfile/msg/FaceTarget.msg
 /home/sanghongrui/catkin_ws/devel/share/common-lisp/ros/msgfile/msg/FaceTarget.lisp: /opt/ros/kinetic/share/std_msgs/msg/Header.msg
 /home/sanghongrui/catkin_ws/devel/share/common-lisp/ros/msgfile/msg/FaceTarget.lisp: /opt/ros/kinetic/share/geometry_msgs/msg/Point.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/sanghongrui/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating Lisp code from msgfile/FaceTarget.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/sanghongrui/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating Lisp code from msgfile/FaceTarget.msg"
 	cd /home/sanghongrui/catkin_ws/build/msgfile && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py /home/sanghongrui/catkin_ws/src/msgfile/msg/FaceTarget.msg -Imsgfile:/home/sanghongrui/catkin_ws/src/msgfile/msg -Igeometry_msgs:/opt/ros/kinetic/share/geometry_msgs/cmake/../msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p msgfile -o /home/sanghongrui/catkin_ws/devel/share/common-lisp/ros/msgfile/msg
 
 msgfile_generate_messages_lisp: msgfile/CMakeFiles/msgfile_generate_messages_lisp
 msgfile_generate_messages_lisp: /home/sanghongrui/catkin_ws/devel/share/common-lisp/ros/msgfile/msg/VoiceOrder.lisp
+msgfile_generate_messages_lisp: /home/sanghongrui/catkin_ws/devel/share/common-lisp/ros/msgfile/msg/Core2Voice.lisp
 msgfile_generate_messages_lisp: /home/sanghongrui/catkin_ws/devel/share/common-lisp/ros/msgfile/msg/FaceTarget.lisp
 msgfile_generate_messages_lisp: msgfile/CMakeFiles/msgfile_generate_messages_lisp.dir/build.make
 

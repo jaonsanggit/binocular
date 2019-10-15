@@ -6,6 +6,8 @@
                :std_msgs-msg
 )
   :components ((:file "_package")
+    (:file "Core2Voice" :depends-on ("_package_Core2Voice"))
+    (:file "_package_Core2Voice" :depends-on ("_package"))
     (:file "FaceTarget" :depends-on ("_package_FaceTarget"))
     (:file "_package_FaceTarget" :depends-on ("_package"))
     (:file "VoiceOrder" :depends-on ("_package_VoiceOrder"))
