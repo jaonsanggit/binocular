@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# -*- coding:UTF-8 -*-
 import rospy
 from msgfile.msg import FaceTarget
 from msgfile.msg import VoiceOrder
@@ -79,6 +80,9 @@ def Status_Machine(face_msg):
 
     context['ts'] = time.time()
 
+    #更新服务过的name
+    name_list = list(filter(lambda x: x['ts'] - time.time() < 10, name_list))
+
 #滤除4000以外的目标
     # print(face_msg)
     face_msg = list(filter(lambda x: x['depth'] < 4000, face_msg))
@@ -141,12 +145,24 @@ def Status_Machine(face_msg):
             name_dict = sorted(name_dict.items(),key=lambda d : d[1],reverse=True) 
             print(11111111, name_dict)
             
-            name = name_dict[0][0] 
+            done_names = []
+            for n in name_list:
+                done_names.append(n['name'])
+
+        #如果有没服务过的 选择, 如果都服务过 执行 depth first tracking
+            for n in name_dict:
+                if done_names.count(n[0]) != 0:
+                    name = "unknown"
+                else :
+                    name = n[0]
+                    break
+
+            # name = name_dict[0][0]
 
             if (name == "unknown"):
-                context['user_name'] = ""
+                context['user_name'] = ''
             else :
-                name_list.append(dict(ts=time.time(), name=name))
+                # name_list.append(dict(ts=time.time(), name=name))
                 context['user_name'] = name
 
             context['mode'] = 'working'
@@ -199,9 +215,13 @@ def Status_Machine(face_msg):
 #VoiceOrder Callback
 def callback(data):
     global OrderFinish
+    global name_list
+
     rospy.loginfo(rospy.get_caller_id() + "I heard: ")
     print(data)
     if data.OrderFinish :
+        if context['user_name'] != '':
+            name_list.append(dict(ts=time.time(), name=context['user_name']))
         OrderFinish = True
         
 
