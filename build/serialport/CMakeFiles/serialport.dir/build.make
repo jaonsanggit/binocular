@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/sanghongrui/catkin_ws/src
+CMAKE_SOURCE_DIR = /home/aibar/catkin_ws/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/sanghongrui/catkin_ws/build
+CMAKE_BINARY_DIR = /home/aibar/catkin_ws/build
 
 # Include any dependencies generated for this target.
 include serialport/CMakeFiles/serialport.dir/depend.make
@@ -58,17 +58,17 @@ include serialport/CMakeFiles/serialport.dir/progress.make
 include serialport/CMakeFiles/serialport.dir/flags.make
 
 serialport/CMakeFiles/serialport.dir/src/serialPort.cpp.o: serialport/CMakeFiles/serialport.dir/flags.make
-serialport/CMakeFiles/serialport.dir/src/serialPort.cpp.o: /home/sanghongrui/catkin_ws/src/serialport/src/serialPort.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sanghongrui/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object serialport/CMakeFiles/serialport.dir/src/serialPort.cpp.o"
-	cd /home/sanghongrui/catkin_ws/build/serialport && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/serialport.dir/src/serialPort.cpp.o -c /home/sanghongrui/catkin_ws/src/serialport/src/serialPort.cpp
+serialport/CMakeFiles/serialport.dir/src/serialPort.cpp.o: /home/aibar/catkin_ws/src/serialport/src/serialPort.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aibar/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object serialport/CMakeFiles/serialport.dir/src/serialPort.cpp.o"
+	cd /home/aibar/catkin_ws/build/serialport && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/serialport.dir/src/serialPort.cpp.o -c /home/aibar/catkin_ws/src/serialport/src/serialPort.cpp
 
 serialport/CMakeFiles/serialport.dir/src/serialPort.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/serialport.dir/src/serialPort.cpp.i"
-	cd /home/sanghongrui/catkin_ws/build/serialport && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/sanghongrui/catkin_ws/src/serialport/src/serialPort.cpp > CMakeFiles/serialport.dir/src/serialPort.cpp.i
+	cd /home/aibar/catkin_ws/build/serialport && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/aibar/catkin_ws/src/serialport/src/serialPort.cpp > CMakeFiles/serialport.dir/src/serialPort.cpp.i
 
 serialport/CMakeFiles/serialport.dir/src/serialPort.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/serialport.dir/src/serialPort.cpp.s"
-	cd /home/sanghongrui/catkin_ws/build/serialport && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sanghongrui/catkin_ws/src/serialport/src/serialPort.cpp -o CMakeFiles/serialport.dir/src/serialPort.cpp.s
+	cd /home/aibar/catkin_ws/build/serialport && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/aibar/catkin_ws/src/serialport/src/serialPort.cpp -o CMakeFiles/serialport.dir/src/serialPort.cpp.s
 
 serialport/CMakeFiles/serialport.dir/src/serialPort.cpp.o.requires:
 
@@ -88,35 +88,35 @@ serialport_OBJECTS = \
 # External object files for target serialport
 serialport_EXTERNAL_OBJECTS =
 
-/home/sanghongrui/catkin_ws/devel/lib/serialport/serialport: serialport/CMakeFiles/serialport.dir/src/serialPort.cpp.o
-/home/sanghongrui/catkin_ws/devel/lib/serialport/serialport: serialport/CMakeFiles/serialport.dir/build.make
-/home/sanghongrui/catkin_ws/devel/lib/serialport/serialport: /home/sanghongrui/catkin_ws/devel/lib/libscservo.so
-/home/sanghongrui/catkin_ws/devel/lib/serialport/serialport: /opt/ros/kinetic/lib/libroscpp.so
-/home/sanghongrui/catkin_ws/devel/lib/serialport/serialport: /usr/lib/x86_64-linux-gnu/libboost_signals.so
-/home/sanghongrui/catkin_ws/devel/lib/serialport/serialport: /usr/lib/x86_64-linux-gnu/libboost_filesystem.so
-/home/sanghongrui/catkin_ws/devel/lib/serialport/serialport: /opt/ros/kinetic/lib/librosconsole.so
-/home/sanghongrui/catkin_ws/devel/lib/serialport/serialport: /opt/ros/kinetic/lib/librosconsole_log4cxx.so
-/home/sanghongrui/catkin_ws/devel/lib/serialport/serialport: /opt/ros/kinetic/lib/librosconsole_backend_interface.so
-/home/sanghongrui/catkin_ws/devel/lib/serialport/serialport: /usr/lib/x86_64-linux-gnu/liblog4cxx.so
-/home/sanghongrui/catkin_ws/devel/lib/serialport/serialport: /usr/lib/x86_64-linux-gnu/libboost_regex.so
-/home/sanghongrui/catkin_ws/devel/lib/serialport/serialport: /opt/ros/kinetic/lib/libxmlrpcpp.so
-/home/sanghongrui/catkin_ws/devel/lib/serialport/serialport: /opt/ros/kinetic/lib/libserial.so
-/home/sanghongrui/catkin_ws/devel/lib/serialport/serialport: /opt/ros/kinetic/lib/libroscpp_serialization.so
-/home/sanghongrui/catkin_ws/devel/lib/serialport/serialport: /opt/ros/kinetic/lib/librostime.so
-/home/sanghongrui/catkin_ws/devel/lib/serialport/serialport: /opt/ros/kinetic/lib/libcpp_common.so
-/home/sanghongrui/catkin_ws/devel/lib/serialport/serialport: /usr/lib/x86_64-linux-gnu/libboost_system.so
-/home/sanghongrui/catkin_ws/devel/lib/serialport/serialport: /usr/lib/x86_64-linux-gnu/libboost_thread.so
-/home/sanghongrui/catkin_ws/devel/lib/serialport/serialport: /usr/lib/x86_64-linux-gnu/libboost_chrono.so
-/home/sanghongrui/catkin_ws/devel/lib/serialport/serialport: /usr/lib/x86_64-linux-gnu/libboost_date_time.so
-/home/sanghongrui/catkin_ws/devel/lib/serialport/serialport: /usr/lib/x86_64-linux-gnu/libboost_atomic.so
-/home/sanghongrui/catkin_ws/devel/lib/serialport/serialport: /usr/lib/x86_64-linux-gnu/libpthread.so
-/home/sanghongrui/catkin_ws/devel/lib/serialport/serialport: /usr/lib/x86_64-linux-gnu/libconsole_bridge.so
-/home/sanghongrui/catkin_ws/devel/lib/serialport/serialport: serialport/CMakeFiles/serialport.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/sanghongrui/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable /home/sanghongrui/catkin_ws/devel/lib/serialport/serialport"
-	cd /home/sanghongrui/catkin_ws/build/serialport && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/serialport.dir/link.txt --verbose=$(VERBOSE)
+/home/aibar/catkin_ws/devel/lib/serialport/serialport: serialport/CMakeFiles/serialport.dir/src/serialPort.cpp.o
+/home/aibar/catkin_ws/devel/lib/serialport/serialport: serialport/CMakeFiles/serialport.dir/build.make
+/home/aibar/catkin_ws/devel/lib/serialport/serialport: /home/aibar/catkin_ws/devel/lib/libscservo.so
+/home/aibar/catkin_ws/devel/lib/serialport/serialport: /opt/ros/kinetic/lib/libroscpp.so
+/home/aibar/catkin_ws/devel/lib/serialport/serialport: /usr/lib/x86_64-linux-gnu/libboost_filesystem.so
+/home/aibar/catkin_ws/devel/lib/serialport/serialport: /usr/lib/x86_64-linux-gnu/libboost_signals.so
+/home/aibar/catkin_ws/devel/lib/serialport/serialport: /opt/ros/kinetic/lib/librosconsole.so
+/home/aibar/catkin_ws/devel/lib/serialport/serialport: /opt/ros/kinetic/lib/librosconsole_log4cxx.so
+/home/aibar/catkin_ws/devel/lib/serialport/serialport: /opt/ros/kinetic/lib/librosconsole_backend_interface.so
+/home/aibar/catkin_ws/devel/lib/serialport/serialport: /usr/lib/x86_64-linux-gnu/liblog4cxx.so
+/home/aibar/catkin_ws/devel/lib/serialport/serialport: /usr/lib/x86_64-linux-gnu/libboost_regex.so
+/home/aibar/catkin_ws/devel/lib/serialport/serialport: /opt/ros/kinetic/lib/libxmlrpcpp.so
+/home/aibar/catkin_ws/devel/lib/serialport/serialport: /opt/ros/kinetic/lib/libserial.so
+/home/aibar/catkin_ws/devel/lib/serialport/serialport: /opt/ros/kinetic/lib/libroscpp_serialization.so
+/home/aibar/catkin_ws/devel/lib/serialport/serialport: /opt/ros/kinetic/lib/librostime.so
+/home/aibar/catkin_ws/devel/lib/serialport/serialport: /opt/ros/kinetic/lib/libcpp_common.so
+/home/aibar/catkin_ws/devel/lib/serialport/serialport: /usr/lib/x86_64-linux-gnu/libboost_system.so
+/home/aibar/catkin_ws/devel/lib/serialport/serialport: /usr/lib/x86_64-linux-gnu/libboost_thread.so
+/home/aibar/catkin_ws/devel/lib/serialport/serialport: /usr/lib/x86_64-linux-gnu/libboost_chrono.so
+/home/aibar/catkin_ws/devel/lib/serialport/serialport: /usr/lib/x86_64-linux-gnu/libboost_date_time.so
+/home/aibar/catkin_ws/devel/lib/serialport/serialport: /usr/lib/x86_64-linux-gnu/libboost_atomic.so
+/home/aibar/catkin_ws/devel/lib/serialport/serialport: /usr/lib/x86_64-linux-gnu/libpthread.so
+/home/aibar/catkin_ws/devel/lib/serialport/serialport: /usr/lib/x86_64-linux-gnu/libconsole_bridge.so
+/home/aibar/catkin_ws/devel/lib/serialport/serialport: serialport/CMakeFiles/serialport.dir/link.txt
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/aibar/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable /home/aibar/catkin_ws/devel/lib/serialport/serialport"
+	cd /home/aibar/catkin_ws/build/serialport && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/serialport.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
-serialport/CMakeFiles/serialport.dir/build: /home/sanghongrui/catkin_ws/devel/lib/serialport/serialport
+serialport/CMakeFiles/serialport.dir/build: /home/aibar/catkin_ws/devel/lib/serialport/serialport
 
 .PHONY : serialport/CMakeFiles/serialport.dir/build
 
@@ -125,10 +125,10 @@ serialport/CMakeFiles/serialport.dir/requires: serialport/CMakeFiles/serialport.
 .PHONY : serialport/CMakeFiles/serialport.dir/requires
 
 serialport/CMakeFiles/serialport.dir/clean:
-	cd /home/sanghongrui/catkin_ws/build/serialport && $(CMAKE_COMMAND) -P CMakeFiles/serialport.dir/cmake_clean.cmake
+	cd /home/aibar/catkin_ws/build/serialport && $(CMAKE_COMMAND) -P CMakeFiles/serialport.dir/cmake_clean.cmake
 .PHONY : serialport/CMakeFiles/serialport.dir/clean
 
 serialport/CMakeFiles/serialport.dir/depend:
-	cd /home/sanghongrui/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/sanghongrui/catkin_ws/src /home/sanghongrui/catkin_ws/src/serialport /home/sanghongrui/catkin_ws/build /home/sanghongrui/catkin_ws/build/serialport /home/sanghongrui/catkin_ws/build/serialport/CMakeFiles/serialport.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/aibar/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/aibar/catkin_ws/src /home/aibar/catkin_ws/src/serialport /home/aibar/catkin_ws/build /home/aibar/catkin_ws/build/serialport /home/aibar/catkin_ws/build/serialport/CMakeFiles/serialport.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : serialport/CMakeFiles/serialport.dir/depend
 

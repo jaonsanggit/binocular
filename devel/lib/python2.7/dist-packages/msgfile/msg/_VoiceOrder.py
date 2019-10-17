@@ -8,10 +8,11 @@ import struct
 import std_msgs.msg
 
 class VoiceOrder(genpy.Message):
-  _md5sum = "665c610b7c2ad0cdb9e8600f1fe3adc6"
+  _md5sum = "f3495cb493dec155ce56f80a0b3b1959"
   _type = "msgfile/VoiceOrder"
   _has_header = True #flag to mark the presence of a Header object
   _full_text = """Header header
+string  name
 string  emotion
 string  DrinkName
 string  CupNum
@@ -35,8 +36,8 @@ time stamp
 # 1: global frame
 string frame_id
 """
-  __slots__ = ['header','emotion','DrinkName','CupNum','Temp','OrderFinish']
-  _slot_types = ['std_msgs/Header','string','string','string','string','bool']
+  __slots__ = ['header','name','emotion','DrinkName','CupNum','Temp','OrderFinish']
+  _slot_types = ['std_msgs/Header','string','string','string','string','string','bool']
 
   def __init__(self, *args, **kwds):
     """
@@ -46,7 +47,7 @@ string frame_id
     changes.  You cannot mix in-order arguments and keyword arguments.
 
     The available fields are:
-       header,emotion,DrinkName,CupNum,Temp,OrderFinish
+       header,name,emotion,DrinkName,CupNum,Temp,OrderFinish
 
     :param args: complete set of field values, in .msg order
     :param kwds: use keyword arguments corresponding to message field names
@@ -57,6 +58,8 @@ string frame_id
       #message fields cannot be None, assign default values for those that are
       if self.header is None:
         self.header = std_msgs.msg.Header()
+      if self.name is None:
+        self.name = ''
       if self.emotion is None:
         self.emotion = ''
       if self.DrinkName is None:
@@ -69,6 +72,7 @@ string frame_id
         self.OrderFinish = False
     else:
       self.header = std_msgs.msg.Header()
+      self.name = ''
       self.emotion = ''
       self.DrinkName = ''
       self.CupNum = ''
@@ -90,6 +94,12 @@ string frame_id
       _x = self
       buff.write(_get_struct_3I().pack(_x.header.seq, _x.header.stamp.secs, _x.header.stamp.nsecs))
       _x = self.header.frame_id
+      length = len(_x)
+      if python3 or type(_x) == unicode:
+        _x = _x.encode('utf-8')
+        length = len(_x)
+      buff.write(struct.pack('<I%ss'%length, length, _x))
+      _x = self.name
       length = len(_x)
       if python3 or type(_x) == unicode:
         _x = _x.encode('utf-8')
@@ -151,6 +161,15 @@ string frame_id
       start = end
       end += length
       if python3:
+        self.name = str[start:end].decode('utf-8')
+      else:
+        self.name = str[start:end]
+      start = end
+      end += 4
+      (length,) = _struct_I.unpack(str[start:end])
+      start = end
+      end += length
+      if python3:
         self.emotion = str[start:end].decode('utf-8')
       else:
         self.emotion = str[start:end]
@@ -200,6 +219,12 @@ string frame_id
       _x = self
       buff.write(_get_struct_3I().pack(_x.header.seq, _x.header.stamp.secs, _x.header.stamp.nsecs))
       _x = self.header.frame_id
+      length = len(_x)
+      if python3 or type(_x) == unicode:
+        _x = _x.encode('utf-8')
+        length = len(_x)
+      buff.write(struct.pack('<I%ss'%length, length, _x))
+      _x = self.name
       length = len(_x)
       if python3 or type(_x) == unicode:
         _x = _x.encode('utf-8')
@@ -256,6 +281,15 @@ string frame_id
         self.header.frame_id = str[start:end].decode('utf-8')
       else:
         self.header.frame_id = str[start:end]
+      start = end
+      end += 4
+      (length,) = _struct_I.unpack(str[start:end])
+      start = end
+      end += length
+      if python3:
+        self.name = str[start:end].decode('utf-8')
+      else:
+        self.name = str[start:end]
       start = end
       end += 4
       (length,) = _struct_I.unpack(str[start:end])

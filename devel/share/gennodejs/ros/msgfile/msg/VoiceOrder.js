@@ -20,6 +20,7 @@ class VoiceOrder {
     if (initObj === null) {
       // initObj === null is a special case for deserialization where we don't initialize fields
       this.header = null;
+      this.name = null;
       this.emotion = null;
       this.DrinkName = null;
       this.CupNum = null;
@@ -32,6 +33,12 @@ class VoiceOrder {
       }
       else {
         this.header = new std_msgs.msg.Header();
+      }
+      if (initObj.hasOwnProperty('name')) {
+        this.name = initObj.name
+      }
+      else {
+        this.name = '';
       }
       if (initObj.hasOwnProperty('emotion')) {
         this.emotion = initObj.emotion
@@ -70,6 +77,8 @@ class VoiceOrder {
     // Serializes a message object of type VoiceOrder
     // Serialize message field [header]
     bufferOffset = std_msgs.msg.Header.serialize(obj.header, buffer, bufferOffset);
+    // Serialize message field [name]
+    bufferOffset = _serializer.string(obj.name, buffer, bufferOffset);
     // Serialize message field [emotion]
     bufferOffset = _serializer.string(obj.emotion, buffer, bufferOffset);
     // Serialize message field [DrinkName]
@@ -89,6 +98,8 @@ class VoiceOrder {
     let data = new VoiceOrder(null);
     // Deserialize message field [header]
     data.header = std_msgs.msg.Header.deserialize(buffer, bufferOffset);
+    // Deserialize message field [name]
+    data.name = _deserializer.string(buffer, bufferOffset);
     // Deserialize message field [emotion]
     data.emotion = _deserializer.string(buffer, bufferOffset);
     // Deserialize message field [DrinkName]
@@ -105,11 +116,12 @@ class VoiceOrder {
   static getMessageSize(object) {
     let length = 0;
     length += std_msgs.msg.Header.getMessageSize(object.header);
+    length += object.name.length;
     length += object.emotion.length;
     length += object.DrinkName.length;
     length += object.CupNum.length;
     length += object.Temp.length;
-    return length + 17;
+    return length + 21;
   }
 
   static datatype() {
@@ -119,13 +131,14 @@ class VoiceOrder {
 
   static md5sum() {
     //Returns md5sum for a message object
-    return '665c610b7c2ad0cdb9e8600f1fe3adc6';
+    return 'f3495cb493dec155ce56f80a0b3b1959';
   }
 
   static messageDefinition() {
     // Returns full string definition for message
     return `
     Header header
+    string  name
     string  emotion
     string  DrinkName
     string  CupNum
@@ -163,6 +176,13 @@ class VoiceOrder {
     }
     else {
       resolved.header = new std_msgs.msg.Header()
+    }
+
+    if (msg.name !== undefined) {
+      resolved.name = msg.name;
+    }
+    else {
+      resolved.name = ''
     }
 
     if (msg.emotion !== undefined) {

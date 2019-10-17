@@ -1,8 +1,8 @@
-# Install script for directory: /home/sanghongrui/catkin_ws/src/serialport
+# Install script for directory: /home/aibar/catkin_ws/src/serialport
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/sanghongrui/catkin_ws/install")
+  set(CMAKE_INSTALL_PREFIX "/home/aibar/catkin_ws/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -33,17 +33,17 @@ if(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/sanghongrui/catkin_ws/build/serialport/catkin_generated/installspace/serialport.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/aibar/catkin_ws/build/serialport/catkin_generated/installspace/serialport.pc")
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/serialport/cmake" TYPE FILE FILES
-    "/home/sanghongrui/catkin_ws/build/serialport/catkin_generated/installspace/serialportConfig.cmake"
-    "/home/sanghongrui/catkin_ws/build/serialport/catkin_generated/installspace/serialportConfig-version.cmake"
+    "/home/aibar/catkin_ws/build/serialport/catkin_generated/installspace/serialportConfig.cmake"
+    "/home/aibar/catkin_ws/build/serialport/catkin_generated/installspace/serialportConfig-version.cmake"
     )
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/serialport" TYPE FILE FILES "/home/sanghongrui/catkin_ws/src/serialport/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/serialport" TYPE FILE FILES "/home/aibar/catkin_ws/src/serialport/package.xml")
 endif()
 

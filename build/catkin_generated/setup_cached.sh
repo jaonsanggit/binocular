@@ -7,4 +7,5 @@
 # new environment variables
 
 # modified environment variables
-export PWD="/home/sanghongrui/catkin_ws/build"
+export PATH="/opt/ros/kinetic/bin:/home/aibar/.venv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
+export PWD="/home/aibar/catkin_ws/build"

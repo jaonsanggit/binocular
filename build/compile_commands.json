@@ -1,0 +1,82 @@
+[
+{
+  "directory": "/home/aibar/catkin_ws/build/gtest",
+  "command": "/usr/bin/c++   -DGTEST_CREATE_SHARED_LIBRARY=1 -Dgmock_EXPORTS -I/usr/src/gmock/include -I/usr/src/gmock -I/usr/src/gtest/include -I/usr/src/gtest  -fPIC    -Wall -Wshadow -DGTEST_HAS_PTHREAD=1 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -o CMakeFiles/gmock.dir/usr/src/gtest/src/gtest-all.cc.o -c /usr/src/gtest/src/gtest-all.cc",
+  "file": "/usr/src/gtest/src/gtest-all.cc"
+},
+{
+  "directory": "/home/aibar/catkin_ws/build/gtest",
+  "command": "/usr/bin/c++   -DGTEST_CREATE_SHARED_LIBRARY=1 -Dgmock_EXPORTS -I/usr/src/gmock/include -I/usr/src/gmock -I/usr/src/gtest/include -I/usr/src/gtest  -fPIC    -Wall -Wshadow -DGTEST_HAS_PTHREAD=1 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -o CMakeFiles/gmock.dir/src/gmock-all.cc.o -c /usr/src/gmock/src/gmock-all.cc",
+  "file": "/usr/src/gmock/src/gmock-all.cc"
+},
+{
+  "directory": "/home/aibar/catkin_ws/build/gtest",
+  "command": "/usr/bin/c++   -DGTEST_CREATE_SHARED_LIBRARY=1 -Dgmock_main_EXPORTS -I/usr/src/gmock/include -I/usr/src/gmock -I/usr/src/gtest/include -I/usr/src/gtest  -fPIC    -Wall -Wshadow -DGTEST_HAS_PTHREAD=1 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -o CMakeFiles/gmock_main.dir/usr/src/gtest/src/gtest-all.cc.o -c /usr/src/gtest/src/gtest-all.cc",
+  "file": "/usr/src/gtest/src/gtest-all.cc"
+},
+{
+  "directory": "/home/aibar/catkin_ws/build/gtest",
+  "command": "/usr/bin/c++   -DGTEST_CREATE_SHARED_LIBRARY=1 -Dgmock_main_EXPORTS -I/usr/src/gmock/include -I/usr/src/gmock -I/usr/src/gtest/include -I/usr/src/gtest  -fPIC    -Wall -Wshadow -DGTEST_HAS_PTHREAD=1 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -o CMakeFiles/gmock_main.dir/src/gmock-all.cc.o -c /usr/src/gmock/src/gmock-all.cc",
+  "file": "/usr/src/gmock/src/gmock-all.cc"
+},
+{
+  "directory": "/home/aibar/catkin_ws/build/gtest",
+  "command": "/usr/bin/c++   -DGTEST_CREATE_SHARED_LIBRARY=1 -Dgmock_main_EXPORTS -I/usr/src/gmock/include -I/usr/src/gmock -I/usr/src/gtest/include -I/usr/src/gtest  -fPIC    -Wall -Wshadow -DGTEST_HAS_PTHREAD=1 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -o CMakeFiles/gmock_main.dir/src/gmock_main.cc.o -c /usr/src/gmock/src/gmock_main.cc",
+  "file": "/usr/src/gmock/src/gmock_main.cc"
+},
+{
+  "directory": "/home/aibar/catkin_ws/build/gtest/gtest",
+  "command": "/usr/bin/c++   -DGTEST_CREATE_SHARED_LIBRARY=1 -Dgtest_EXPORTS -I/usr/src/gtest/include -I/usr/src/gtest  -fPIC    -Wall -Wshadow -DGTEST_HAS_PTHREAD=1 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -o CMakeFiles/gtest.dir/src/gtest-all.cc.o -c /usr/src/gtest/src/gtest-all.cc",
+  "file": "/usr/src/gtest/src/gtest-all.cc"
+},
+{
+  "directory": "/home/aibar/catkin_ws/build/gtest/gtest",
+  "command": "/usr/bin/c++   -DGTEST_CREATE_SHARED_LIBRARY=1 -Dgtest_main_EXPORTS -I/usr/src/gtest/include -I/usr/src/gtest  -fPIC    -Wall -Wshadow -DGTEST_HAS_PTHREAD=1 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -o CMakeFiles/gtest_main.dir/src/gtest_main.cc.o -c /usr/src/gtest/src/gtest_main.cc",
+  "file": "/usr/src/gtest/src/gtest_main.cc"
+},
+{
+  "directory": "/home/aibar/catkin_ws/build/serialport",
+  "command": "/usr/bin/c++   -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\\\"serialport\\\" -Dscservo_EXPORTS -I/home/aibar/catkin_ws/src/serialport/include -I/home/aibar/catkin_ws/devel/include -I/opt/ros/kinetic/include -I/opt/ros/kinetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp  -fPIC   -std=c++11 -o CMakeFiles/scservo.dir/src/SCS.cpp.o -c /home/aibar/catkin_ws/src/serialport/src/SCS.cpp",
+  "file": "/home/aibar/catkin_ws/src/serialport/src/SCS.cpp"
+},
+{
+  "directory": "/home/aibar/catkin_ws/build/serialport",
+  "command": "/usr/bin/c++   -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\\\"serialport\\\" -Dscservo_EXPORTS -I/home/aibar/catkin_ws/src/serialport/include -I/home/aibar/catkin_ws/devel/include -I/opt/ros/kinetic/include -I/opt/ros/kinetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp  -fPIC   -std=c++11 -o CMakeFiles/scservo.dir/src/SCSCL.cpp.o -c /home/aibar/catkin_ws/src/serialport/src/SCSCL.cpp",
+  "file": "/home/aibar/catkin_ws/src/serialport/src/SCSCL.cpp"
+},
+{
+  "directory": "/home/aibar/catkin_ws/build/serialport",
+  "command": "/usr/bin/c++   -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\\\"serialport\\\" -Dscservo_EXPORTS -I/home/aibar/catkin_ws/src/serialport/include -I/home/aibar/catkin_ws/devel/include -I/opt/ros/kinetic/include -I/opt/ros/kinetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp  -fPIC   -std=c++11 -o CMakeFiles/scservo.dir/src/SCSerail.cpp.o -c /home/aibar/catkin_ws/src/serialport/src/SCSerail.cpp",
+  "file": "/home/aibar/catkin_ws/src/serialport/src/SCSerail.cpp"
+},
+{
+  "directory": "/home/aibar/catkin_ws/build/serialport",
+  "command": "/usr/bin/c++   -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\\\"serialport\\\" -Dscservo_EXPORTS -I/home/aibar/catkin_ws/src/serialport/include -I/home/aibar/catkin_ws/devel/include -I/opt/ros/kinetic/include -I/opt/ros/kinetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp  -fPIC   -std=c++11 -o CMakeFiles/scservo.dir/src/SMSCL.cpp.o -c /home/aibar/catkin_ws/src/serialport/src/SMSCL.cpp",
+  "file": "/home/aibar/catkin_ws/src/serialport/src/SMSCL.cpp"
+},
+{
+  "directory": "/home/aibar/catkin_ws/build/serialport",
+  "command": "/usr/bin/cc  -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\\\"serialport\\\" -Dscservo_EXPORTS -I/home/aibar/catkin_ws/src/serialport/include -I/home/aibar/catkin_ws/devel/include -I/opt/ros/kinetic/include -I/opt/ros/kinetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp  -fPIC   -std=c++11 -o CMakeFiles/scservo.dir/src/cJSON.c.o   -c /home/aibar/catkin_ws/src/serialport/src/cJSON.c",
+  "file": "/home/aibar/catkin_ws/src/serialport/src/cJSON.c"
+},
+{
+  "directory": "/home/aibar/catkin_ws/build/serialport",
+  "command": "/usr/bin/c++   -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\\\"serialport\\\" -Dscservo_EXPORTS -I/home/aibar/catkin_ws/src/serialport/include -I/home/aibar/catkin_ws/devel/include -I/opt/ros/kinetic/include -I/opt/ros/kinetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp  -fPIC   -std=c++11 -o CMakeFiles/scservo.dir/src/CJsonObject.cpp.o -c /home/aibar/catkin_ws/src/serialport/src/CJsonObject.cpp",
+  "file": "/home/aibar/catkin_ws/src/serialport/src/CJsonObject.cpp"
+},
+{
+  "directory": "/home/aibar/catkin_ws/build/serialport",
+  "command": "/usr/bin/c++   -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\\\"serialport\\\" -Dscservo_EXPORTS -I/home/aibar/catkin_ws/src/serialport/include -I/home/aibar/catkin_ws/devel/include -I/opt/ros/kinetic/include -I/opt/ros/kinetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp  -fPIC   -std=c++11 -o CMakeFiles/scservo.dir/src/robot.cpp.o -c /home/aibar/catkin_ws/src/serialport/src/robot.cpp",
+  "file": "/home/aibar/catkin_ws/src/serialport/src/robot.cpp"
+},
+{
+  "directory": "/home/aibar/catkin_ws/build/serialport",
+  "command": "/usr/bin/c++   -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\\\"serialport\\\" -I/home/aibar/catkin_ws/src/serialport/include -I/home/aibar/catkin_ws/devel/include -I/opt/ros/kinetic/include -I/opt/ros/kinetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp    -std=c++11 -o CMakeFiles/serialport.dir/src/serialPort.cpp.o -c /home/aibar/catkin_ws/src/serialport/src/serialPort.cpp",
+  "file": "/home/aibar/catkin_ws/src/serialport/src/serialPort.cpp"
+},
+{
+  "directory": "/home/aibar/catkin_ws/build/serialport",
+  "command": "/usr/bin/c++   -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\\\"serialport\\\" -I/home/aibar/catkin_ws/src/serialport/include -I/home/aibar/catkin_ws/devel/include -I/opt/ros/kinetic/include -I/opt/ros/kinetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp    -std=c++11 -o CMakeFiles/eyes.dir/src/eyes.cpp.o -c /home/aibar/catkin_ws/src/serialport/src/eyes.cpp",
+  "file": "/home/aibar/catkin_ws/src/serialport/src/eyes.cpp"
+}
+]

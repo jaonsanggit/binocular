@@ -7,7 +7,7 @@
             },
             "includePath": [
                 "/opt/ros/kinetic/include",
-                "/home/sanghongrui/catkin_ws/src/serialport/include",
+                "/home/aibar//catkin_ws/src/serialport/include",
                 "/usr/include"
             ],
             "name": "Linux",

@@ -19,7 +19,7 @@ const std::map<u8, std::pair<std::string, uint32_t>> servo_init_vec = {
       {4, {"SCS", 785}},
       {5, {"SCS", 500}},
       {6, {"SMCL", 2030}},
-      {7, {"SMCL", 3150}}     //2075
+      {7, {"SMCL", 2075}}     //2075 3150
 };
 const std::string port("/dev/ttyUSB0");
 const uint32_t baudrate = 115200;

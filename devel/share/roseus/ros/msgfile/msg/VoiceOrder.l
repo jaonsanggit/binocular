@@ -16,12 +16,13 @@
 
 (defclass msgfile::VoiceOrder
   :super ros::object
-  :slots (_header _emotion _DrinkName _CupNum _Temp _OrderFinish ))
+  :slots (_header _name _emotion _DrinkName _CupNum _Temp _OrderFinish ))
 
 (defmethod msgfile::VoiceOrder
   (:init
    (&key
     ((:header __header) (instance std_msgs::Header :init))
+    ((:name __name) "")
     ((:emotion __emotion) "")
     ((:DrinkName __DrinkName) "")
     ((:CupNum __CupNum) "")
@@ -30,6 +31,7 @@
     )
    (send-super :init)
    (setq _header __header)
+   (setq _name (string __name))
    (setq _emotion (string __emotion))
    (setq _DrinkName (string __DrinkName))
    (setq _CupNum (string __CupNum))
@@ -43,6 +45,9 @@
      (progn
        (if __header (setq _header (car __header)))
        _header)))
+  (:name
+   (&optional __name)
+   (if __name (setq _name __name)) _name)
   (:emotion
    (&optional __emotion)
    (if __emotion (setq _emotion __emotion)) _emotion)
@@ -63,6 +68,8 @@
    (+
     ;; std_msgs/Header _header
     (send _header :serialization-length)
+    ;; string _name
+    4 (length _name)
     ;; string _emotion
     4 (length _emotion)
     ;; string _DrinkName
@@ -80,6 +87,8 @@
               (make-string-output-stream (send self :serialization-length)))))
      ;; std_msgs/Header _header
        (send _header :serialize s)
+     ;; string _name
+       (write-long (length _name) s) (princ _name s)
      ;; string _emotion
        (write-long (length _emotion) s) (princ _emotion s)
      ;; string _DrinkName
@@ -96,6 +105,8 @@
    (buf &optional (ptr- 0))
    ;; std_msgs/Header _header
      (send _header :deserialize buf ptr-) (incf ptr- (send _header :serialization-length))
+   ;; string _name
+     (let (n) (setq n (sys::peek buf ptr- :integer)) (incf ptr- 4) (setq _name (subseq buf ptr- (+ ptr- n))) (incf ptr- n))
    ;; string _emotion
      (let (n) (setq n (sys::peek buf ptr- :integer)) (incf ptr- 4) (setq _emotion (subseq buf ptr- (+ ptr- n))) (incf ptr- n))
    ;; string _DrinkName
@@ -110,10 +121,11 @@
    self)
   )
 
-(setf (get msgfile::VoiceOrder :md5sum-) "665c610b7c2ad0cdb9e8600f1fe3adc6")
+(setf (get msgfile::VoiceOrder :md5sum-) "f3495cb493dec155ce56f80a0b3b1959")
 (setf (get msgfile::VoiceOrder :datatype-) "msgfile/VoiceOrder")
 (setf (get msgfile::VoiceOrder :definition-)
       "Header header
+string  name
 string  emotion
 string  DrinkName
 string  CupNum
@@ -141,6 +153,6 @@ string frame_id
 
 
 
-(provide :msgfile/VoiceOrder "665c610b7c2ad0cdb9e8600f1fe3adc6")
+(provide :msgfile/VoiceOrder "f3495cb493dec155ce56f80a0b3b1959")
 
 
