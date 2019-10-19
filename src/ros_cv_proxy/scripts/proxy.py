@@ -22,7 +22,8 @@ context = {
 
     'user_name': '',
     'ts': time.time(),
-    'name_timer': time.time()
+    'name_timer': time.time(),
+    'working' : time.time()
 }
 face_msg_list = []
 name_list = []
@@ -47,7 +48,8 @@ def fun_timer():
         'mode': 'idle',
         'user_name': '',
         'ts': time.time(),
-        'name_timer': time.time()
+        'name_timer': time.time(),
+        'working' : time.time()
     })
 
     
@@ -81,7 +83,7 @@ def Status_Machine(face_msg):
     context['ts'] = time.time()
 
     #更新服务过的name
-    name_list = list(filter(lambda x: x['ts'] - time.time() < 10, name_list))
+    name_list = list(filter(lambda x: time.time() - x['ts'] < 5, name_list))
 
 #滤除4000以外的目标
     # print(face_msg)
@@ -96,6 +98,8 @@ def Status_Machine(face_msg):
 
     # print('\n\nface_msg_list ', len(face_msg_list))
     # print('face_msg ', len(face_msg))
+
+    print([ f['user_name'] for f in face_msg])
 
     mode = context['mode']
 #语音端识别到完成
@@ -136,40 +140,56 @@ def Status_Machine(face_msg):
                 f = list(filter(lambda x: x['user_name'] is not None, f))
                 for ff in f:
                     name_dict[ff['user_name']] += 1
-    #确定失败,重新确定        
-            if len(name_dict.keys()) == 0:
+    #都是none,确定失败,重新确定        
+            if len(name_dict) == 0:
                 context['target'] = 0
                 context['mode'] = 'init'
                 return
 
             name_dict = sorted(name_dict.items(),key=lambda d : d[1],reverse=True) 
+            # name = name_dict[0][0]
             print(11111111, name_dict)
-            
+
+#语音相关----------------------------      
             done_names = []
             for n in name_list:
                 done_names.append(n['name'])
 
-        #如果有没服务过的 选择, 如果都服务过 执行 depth first tracking
+        # 如果有没服务过的 选择, 如果都服务过 执行 depth first tracking
+            name = 'unknown'
             for n in name_dict:
-                if done_names.count(n[0]) != 0:
-                    name = "unknown"
+                if n[0] == 'unknown':
+                    continue
+                elif done_names.count(n[0]) != 0:
+                    continue
                 else :
                     name = n[0]
                     break
+            
+#语音相关---------------------------
 
-            # name = name_dict[0][0]
 
-            if (name == "unknown"):
+            if (name == 'unknown'):
                 context['user_name'] = ''
             else :
-                # name_list.append(dict(ts=time.time(), name=name))
                 context['user_name'] = name
 
             context['mode'] = 'working'
-            # context['target'] = 0
+            context['working'] = time.time()
             print('状态转移: init -> working')
-#正常跟随最近的face
+#保持working
     else :
+        
+        if time.time() - context['working'] > 5 :
+            if len(context['user_name']) > 0 :
+                name_list.append(dict(ts=time.time(), name=context['user_name']))
+            
+            context['mode'] = 'init'       
+            context['target'] = 4
+            return
+        
+        print(11111111, name_list)
+
         context['mode'] = 'working'       
         # context['target'] = 0
         # print(context['user_name'])
@@ -189,11 +209,10 @@ def Status_Machine(face_msg):
         target = 0
         face_msg.sort(key=lambda x: x['depth'])
     #depth first tracking
-        if name == "":
+        if len(name) == 0:
             target = 0
     #name first tracking    
         else :
-            # name_timer = time.time()
             for f in face_msg:
                 if f['user_name'] == name:
                     context["name_timer"] = time.time()
@@ -201,13 +220,12 @@ def Status_Machine(face_msg):
                 target += 1
 
             if target == len(face_msg):
-                if time.time() - context["name_timer"] > 1:
-                    context['target'] = 0
+                if time.time() - context["name_timer"] > 1.3:
+                    print(context['user_name'], "lost for 1s, init start")
+                    context['target'] = 4
                     context['mode'] = 'init'
-                    print(context['name'], "lost for 1s, init start")
                     return
-
-
+            
     target = min(max(0, int(target)), len(face_msg)-1)
     return face_msg[target]
 
@@ -236,8 +254,8 @@ def talker():
 
     rospy.Subscriber("VoicePub", VoiceOrder, callback)
 
-    qface = RSMQueue('faceDetector', '192.168.31.184')
-    qrect= RSMQueue('faceTarget', '192.168.31.184')
+    qface = RSMQueue('faceDetector', '127.0.0.1')
+    qrect= RSMQueue('faceTarget', '127.0.0.1')
 
     header_eyes = Header(seq=0, stamp=rospy.Time.now(), frame_id='core')
     # header_voice = Header(seq=0, stamp=rospy.Time.now(), frame_id='core')
@@ -270,8 +288,8 @@ def talker():
             voicemsg.age = face['age'] if face['age'] is not None else 0
             # print('age: ', type(face['age']))
             
-            workinginfo = 'name first tracking' if context['user_name'] != '' else  'depth first tracking'
-            rospy.loginfo('\n\n------------------- %s -------------------', workinginfo if context['user_name'] != '' else context['mode'])
+            workinginfo = ('name first tracking' if context['user_name'] != '' else  'depth first tracking')
+            rospy.loginfo('\n\n------------------- %s -------------------', workinginfo)
             if not rospy.is_shutdown():
                 print('frame_id: ', eyesmsg.header.frame_id)
                 print('seq: ', eyesmsg.header.seq)
@@ -294,6 +312,7 @@ def talker():
                 print('\n\n')
                 pub_eyes.publish(eyesmsg)
                 pub_voice.publish(voicemsg)
+                face['fsm'] = json.dumps(name_list)
                 qrect.publish(face)
             return True
         except Exception as e:

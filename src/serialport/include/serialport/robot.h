@@ -21,6 +21,7 @@ public:
   void TurnLR(const std::vector<int> &s, u16 speed);
   void TurnUD(const std::vector<int> &s, u16 speed);
   void TurnShake(const std::vector<int> &s, u16 speed);
+  void TurnBend(int pos, u16 speed);
   void idleActInit(void);
 
   ~ROBOTEYES();
@@ -28,7 +29,7 @@ public:
 private:
     enum DIRATION { Right, Left, UP, Down}; // right, up -> if offset > 0;
     enum {IMAGECenter_W = 960, IMAGECenter_H = 540};
-    enum {SERVO_SPEED = 400, SERVO_TIME = 100};
+    enum {SERVO_SPEED = 200, SERVO_TIME = 100};
   
   serial::Serial ser;  // declare serial obj
   SCSCL sc;   //  declare SCS  servo obj

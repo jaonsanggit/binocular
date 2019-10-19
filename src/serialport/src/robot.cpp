@@ -12,15 +12,26 @@
 #include <queue>
 
 //const std::map<int, pair<std::string,> servo_init_vec = {590, 675, 670, 785, 336};
-const std::map<u8, std::pair<std::string, uint32_t>> servo_init_vec = {
+const std::map<u8, std::pair<std::string, uint32_t>> servo_idle_vec = {
       {1, {"SCS", 590}},
-      {2, {"SCS", 675}},
+      {2, {"SCS", 495}}, // 675
       {3, {"SCS", 670}},
-      {4, {"SCS", 785}},
+      {4, {"SCS", 965}}, // 785
       {5, {"SCS", 500}},
       {6, {"SMCL", 2030}},
       {7, {"SMCL", 2075}}     //2075 3150
 };
+
+const std::map<u8, std::pair<std::string, uint32_t>> servo_init_vec = {
+      {1, {"SCS", 590}},
+      {2, {"SCS", 675}}, // 675
+      {3, {"SCS", 670}},
+      {4, {"SCS", 785}}, // 785
+      {5, {"SCS", 500}},
+      {6, {"SMCL", 2030}},
+      {7, {"SMCL", 2075}}     //2075 3150
+};
+
 const std::string port("/dev/ttyUSB0");
 const uint32_t baudrate = 115200;
 
@@ -31,13 +42,13 @@ ROBOTEYES::ROBOTEYES()
   sm.pSerial = &ser;
   
   ROS_INFO("Eyes Init...");
-  eyes_init(servo_init_vec);
+  eyes_init(servo_idle_vec);
   ROS_INFO("Eyes Init complte.");
 }
 
 ROBOTEYES::~ROBOTEYES()
 {
-  eyes_init(servo_init_vec);
+  eyes_init(servo_idle_vec);
   ROS_INFO("Eyes Shut Down...");
 
   ser.close();
@@ -46,7 +57,7 @@ ROBOTEYES::~ROBOTEYES()
 
 void ROBOTEYES::idleActInit(void)
 {
-  eyes_init(servo_init_vec);
+  eyes_init(servo_idle_vec);
 }
 
 void ROBOTEYES::Turn(int w, int h, u16 speed)
@@ -75,19 +86,25 @@ void ROBOTEYES::TurnLR(const std::vector<int> &s, u16 speed )
 {
   spinServo(1, s[1], speed);
   spinServo(3, s[3], speed);
-  spinServo(5, s[5], speed);
+  // spinServo(5, s[5], speed);
 }
 
 void ROBOTEYES::TurnUD(const std::vector<int> &s, u16 speed)
 {
   spinServo(2, s[2], speed);
   spinServo(4, s[4], speed);
-  spinServo(7, s[7], speed);
+  // spinServo(7, s[7], speed);
 }
 
 void ROBOTEYES::TurnShake(const std::vector<int> &s, u16 speed)
 {
   spinServo(6, s[6], speed);
+}
+
+void ROBOTEYES::TurnBend(int pos, u16 speed)
+{
+  spinServo(7, pos, speed);
+  TurnAction();
 }
 
 void ROBOTEYES::openSerial(const std::string & port, uint32_t  baudrate, uint32_t timeout)
@@ -155,19 +172,29 @@ void ROBOTEYES::tranform(int w, int h, std::vector<int> & s)
   int delta_max_1_3 = 120;  // <= 160
   int delta_max_5 = 80;     // <= 75
 
-  float ratio = 1.5f;
+  auto w1 = w - 300;
+  if (w1 < 0)
+     w1 = 0;
+  
+  auto w3 = w - 200;
+  if (w3 < 0)
+    w3 = 0;
+
+
+  float ratio_w = 1.3f;
+  float ratio_h = 1.5f;
   // if (std::abs(w - IMAGECenter_W) < 200)
   //   ratio = 1.5f;
 
-  s[1] = int(delta_max_1_3*w/IMAGECenter_W*ratio) + servo_init_vec.at(1).second-delta_max_1_3;
-  s[3] = int(delta_max_1_3*w/IMAGECenter_W*ratio) + servo_init_vec.at(3).second-delta_max_1_3;
+  s[1] = int(delta_max_1_3*w1/IMAGECenter_W*ratio_w) + servo_init_vec.at(1).second-delta_max_1_3;
+  s[3] = int(delta_max_1_3*w3/IMAGECenter_W*ratio_w) + servo_init_vec.at(3).second-delta_max_1_3;
   // s[5] = int(delta_max_5*w/IMAGECenter_W) + servo_init_vec.at(5).second-delta_max_5;
   s[5] = servo_init_vec.at(5).second;
 
   int delta_max_2_4 = 50;       // d:105 U:170
   int delta_max_7 = 0;  // to do
-  s[2] = int(-delta_max_2_4*h/IMAGECenter_H) + servo_init_vec.at(2).second+delta_max_2_4;
-  s[4] = int(delta_max_2_4*h/IMAGECenter_H) + servo_init_vec.at(4).second-delta_max_2_4;
+  s[2] = int(-delta_max_2_4*h/IMAGECenter_H*ratio_h) + servo_init_vec.at(2).second+delta_max_2_4;
+  s[4] = int(delta_max_2_4*h/IMAGECenter_H*ratio_h) + servo_init_vec.at(4).second-delta_max_2_4;
   s[7] = servo_init_vec.at(7).second;
 
   s[6] = servo_init_vec.at(6).second;
