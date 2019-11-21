@@ -7,14 +7,10 @@ from msgfile.msg import Core2Voice
 from std_msgs.msg import String, Header
 from collections import defaultdict
 
-from sys import getsizeof
-
 from mqutil import RSMQueue
-from queue import Queue
 import time
 import threading
 import json
-from pprint import pprint
 
 context = {
     'target': -1,
@@ -23,45 +19,80 @@ context = {
 }
 face_msg_list = []
 
+# def fun_timer():
+#     print('Hello Timer!')
+#     global timer
+#     global context
+#     global pub
 
-def fun_timer():
-    print('Hello Timer!')
-    global timer
+#     if time.time() - context['ts'] < 3: return
+
+#     context.update({
+#         'target': -1,
+#         'mode': 'idle',
+#         'ts': time.time(),
+#     })
+
+#     print('=============>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Hello Timer!')
+
+#     msg = FaceTarget()
+#     msg.cmd = context['mode']
+#     if not rospy.is_shutdown():
+#         rospy.loginfo(msg)
+#         pub.publish(msg)
+
+def beatCheck(time_pre, timeval):
+
     global context
+    global timer
     global pub
 
-    if time.time() - context['ts'] < 3: return
+    if time.time() - time_pre < timeval:
+	    return
+    else:
+        print('==========>>>>>>>>>>>>>>>> Hello Timer!')
+        print('==========>>>>>>>>>>>>>>>> HeatBeat Stop!\n\n')
 
-    context.update({
-        'target': -1,
-        'mode': 'idle',
-        'ts': time.time(),
-    })
+		# reset context
+        context.update({
+            'target': -1,
+            'mode': 'idle',
+            'ts': time.time(),
+        })
 
-    print('=============>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Hello Timer!')
+        msg = FaceTarget()
+        msg.cmd = context['mode']
+        if not rospy.is_shutdown():
+            rospy.loginfo(msg)
+            pub.publish(msg)
 
-    msg = FaceTarget()
-    msg.cmd = context['mode']
-    if not rospy.is_shutdown():
-        rospy.loginfo(msg)
-        pub.publish(msg)
+        context['ts'] = time.time()
+        timer = threading.Timer(timeval, beatCheck, [context['ts'], timeval])
+        timer.start()
 
-def Status_Machine():
-    
-    global context
-    global face_msg
+
+def heartBeat(timeval):
     global timer
-    global face_msg_list
+    global context
 
+    context['ts'] = time.time()
 # 超过3s没有消息 置为 idle
     try:
         timer.cancel()
     except Exception as e:
         pass
-    timer = threading.Timer(3, fun_timer)
+    timer = threading.Timer(timeval, beatCheck, [context['ts'], timeval])
     timer.start()
 
-    context['ts'] = time.time()
+def Status_Machine():
+    
+    global context
+    global face_msg
+    global face_msg_list
+
+# 超过3s没有消息 置为 idle
+#cheak alive, reset to idle after 3s inactive time
+    heartBeat(3)
     
     mode = context['mode']
 
@@ -100,7 +131,7 @@ def Status_Machine():
 
 
 def talker():
-
+    global pub
     pub = rospy.Publisher('core_eyes', FaceTarget, queue_size=10)
     
     rospy.init_node('core', anonymous=True)

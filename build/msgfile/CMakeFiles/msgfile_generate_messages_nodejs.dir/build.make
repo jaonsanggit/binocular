@@ -43,44 +43,44 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/aibar/catkin_ws/src
+CMAKE_SOURCE_DIR = /home/sanghongrui/catkin_ws/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/aibar/catkin_ws/build
+CMAKE_BINARY_DIR = /home/sanghongrui/catkin_ws/build
 
 # Utility rule file for msgfile_generate_messages_nodejs.
 
 # Include the progress variables for this target.
 include msgfile/CMakeFiles/msgfile_generate_messages_nodejs.dir/progress.make
 
-msgfile/CMakeFiles/msgfile_generate_messages_nodejs: /home/aibar/catkin_ws/devel/share/gennodejs/ros/msgfile/msg/Core2Voice.js
-msgfile/CMakeFiles/msgfile_generate_messages_nodejs: /home/aibar/catkin_ws/devel/share/gennodejs/ros/msgfile/msg/FaceTarget.js
-msgfile/CMakeFiles/msgfile_generate_messages_nodejs: /home/aibar/catkin_ws/devel/share/gennodejs/ros/msgfile/msg/VoiceOrder.js
+msgfile/CMakeFiles/msgfile_generate_messages_nodejs: /home/sanghongrui/catkin_ws/devel/share/gennodejs/ros/msgfile/msg/VoiceOrder.js
+msgfile/CMakeFiles/msgfile_generate_messages_nodejs: /home/sanghongrui/catkin_ws/devel/share/gennodejs/ros/msgfile/msg/Core2Voice.js
+msgfile/CMakeFiles/msgfile_generate_messages_nodejs: /home/sanghongrui/catkin_ws/devel/share/gennodejs/ros/msgfile/msg/FaceTarget.js
 
 
-/home/aibar/catkin_ws/devel/share/gennodejs/ros/msgfile/msg/Core2Voice.js: /opt/ros/kinetic/lib/gennodejs/gen_nodejs.py
-/home/aibar/catkin_ws/devel/share/gennodejs/ros/msgfile/msg/Core2Voice.js: /home/aibar/catkin_ws/src/msgfile/msg/Core2Voice.msg
-/home/aibar/catkin_ws/devel/share/gennodejs/ros/msgfile/msg/Core2Voice.js: /opt/ros/kinetic/share/std_msgs/msg/Header.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/aibar/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating Javascript code from msgfile/Core2Voice.msg"
-	cd /home/aibar/catkin_ws/build/msgfile && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/aibar/catkin_ws/src/msgfile/msg/Core2Voice.msg -Imsgfile:/home/aibar/catkin_ws/src/msgfile/msg -Igeometry_msgs:/opt/ros/kinetic/share/geometry_msgs/cmake/../msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p msgfile -o /home/aibar/catkin_ws/devel/share/gennodejs/ros/msgfile/msg
+/home/sanghongrui/catkin_ws/devel/share/gennodejs/ros/msgfile/msg/VoiceOrder.js: /opt/ros/kinetic/lib/gennodejs/gen_nodejs.py
+/home/sanghongrui/catkin_ws/devel/share/gennodejs/ros/msgfile/msg/VoiceOrder.js: /home/sanghongrui/catkin_ws/src/msgfile/msg/VoiceOrder.msg
+/home/sanghongrui/catkin_ws/devel/share/gennodejs/ros/msgfile/msg/VoiceOrder.js: /opt/ros/kinetic/share/std_msgs/msg/Header.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/sanghongrui/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating Javascript code from msgfile/VoiceOrder.msg"
+	cd /home/sanghongrui/catkin_ws/build/msgfile && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/sanghongrui/catkin_ws/src/msgfile/msg/VoiceOrder.msg -Imsgfile:/home/sanghongrui/catkin_ws/src/msgfile/msg -Igeometry_msgs:/opt/ros/kinetic/share/geometry_msgs/cmake/../msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p msgfile -o /home/sanghongrui/catkin_ws/devel/share/gennodejs/ros/msgfile/msg
 
-/home/aibar/catkin_ws/devel/share/gennodejs/ros/msgfile/msg/FaceTarget.js: /opt/ros/kinetic/lib/gennodejs/gen_nodejs.py
-/home/aibar/catkin_ws/devel/share/gennodejs/ros/msgfile/msg/FaceTarget.js: /home/aibar/catkin_ws/src/msgfile/msg/FaceTarget.msg
-/home/aibar/catkin_ws/devel/share/gennodejs/ros/msgfile/msg/FaceTarget.js: /opt/ros/kinetic/share/std_msgs/msg/Header.msg
-/home/aibar/catkin_ws/devel/share/gennodejs/ros/msgfile/msg/FaceTarget.js: /opt/ros/kinetic/share/geometry_msgs/msg/Point.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/aibar/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating Javascript code from msgfile/FaceTarget.msg"
-	cd /home/aibar/catkin_ws/build/msgfile && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/aibar/catkin_ws/src/msgfile/msg/FaceTarget.msg -Imsgfile:/home/aibar/catkin_ws/src/msgfile/msg -Igeometry_msgs:/opt/ros/kinetic/share/geometry_msgs/cmake/../msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p msgfile -o /home/aibar/catkin_ws/devel/share/gennodejs/ros/msgfile/msg
+/home/sanghongrui/catkin_ws/devel/share/gennodejs/ros/msgfile/msg/Core2Voice.js: /opt/ros/kinetic/lib/gennodejs/gen_nodejs.py
+/home/sanghongrui/catkin_ws/devel/share/gennodejs/ros/msgfile/msg/Core2Voice.js: /home/sanghongrui/catkin_ws/src/msgfile/msg/Core2Voice.msg
+/home/sanghongrui/catkin_ws/devel/share/gennodejs/ros/msgfile/msg/Core2Voice.js: /opt/ros/kinetic/share/std_msgs/msg/Header.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/sanghongrui/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating Javascript code from msgfile/Core2Voice.msg"
+	cd /home/sanghongrui/catkin_ws/build/msgfile && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/sanghongrui/catkin_ws/src/msgfile/msg/Core2Voice.msg -Imsgfile:/home/sanghongrui/catkin_ws/src/msgfile/msg -Igeometry_msgs:/opt/ros/kinetic/share/geometry_msgs/cmake/../msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p msgfile -o /home/sanghongrui/catkin_ws/devel/share/gennodejs/ros/msgfile/msg
 
-/home/aibar/catkin_ws/devel/share/gennodejs/ros/msgfile/msg/VoiceOrder.js: /opt/ros/kinetic/lib/gennodejs/gen_nodejs.py
-/home/aibar/catkin_ws/devel/share/gennodejs/ros/msgfile/msg/VoiceOrder.js: /home/aibar/catkin_ws/src/msgfile/msg/VoiceOrder.msg
-/home/aibar/catkin_ws/devel/share/gennodejs/ros/msgfile/msg/VoiceOrder.js: /opt/ros/kinetic/share/std_msgs/msg/Header.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/aibar/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating Javascript code from msgfile/VoiceOrder.msg"
-	cd /home/aibar/catkin_ws/build/msgfile && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/aibar/catkin_ws/src/msgfile/msg/VoiceOrder.msg -Imsgfile:/home/aibar/catkin_ws/src/msgfile/msg -Igeometry_msgs:/opt/ros/kinetic/share/geometry_msgs/cmake/../msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p msgfile -o /home/aibar/catkin_ws/devel/share/gennodejs/ros/msgfile/msg
+/home/sanghongrui/catkin_ws/devel/share/gennodejs/ros/msgfile/msg/FaceTarget.js: /opt/ros/kinetic/lib/gennodejs/gen_nodejs.py
+/home/sanghongrui/catkin_ws/devel/share/gennodejs/ros/msgfile/msg/FaceTarget.js: /home/sanghongrui/catkin_ws/src/msgfile/msg/FaceTarget.msg
+/home/sanghongrui/catkin_ws/devel/share/gennodejs/ros/msgfile/msg/FaceTarget.js: /opt/ros/kinetic/share/std_msgs/msg/Header.msg
+/home/sanghongrui/catkin_ws/devel/share/gennodejs/ros/msgfile/msg/FaceTarget.js: /opt/ros/kinetic/share/geometry_msgs/msg/Point.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/sanghongrui/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating Javascript code from msgfile/FaceTarget.msg"
+	cd /home/sanghongrui/catkin_ws/build/msgfile && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/sanghongrui/catkin_ws/src/msgfile/msg/FaceTarget.msg -Imsgfile:/home/sanghongrui/catkin_ws/src/msgfile/msg -Igeometry_msgs:/opt/ros/kinetic/share/geometry_msgs/cmake/../msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p msgfile -o /home/sanghongrui/catkin_ws/devel/share/gennodejs/ros/msgfile/msg
 
 msgfile_generate_messages_nodejs: msgfile/CMakeFiles/msgfile_generate_messages_nodejs
-msgfile_generate_messages_nodejs: /home/aibar/catkin_ws/devel/share/gennodejs/ros/msgfile/msg/Core2Voice.js
-msgfile_generate_messages_nodejs: /home/aibar/catkin_ws/devel/share/gennodejs/ros/msgfile/msg/FaceTarget.js
-msgfile_generate_messages_nodejs: /home/aibar/catkin_ws/devel/share/gennodejs/ros/msgfile/msg/VoiceOrder.js
+msgfile_generate_messages_nodejs: /home/sanghongrui/catkin_ws/devel/share/gennodejs/ros/msgfile/msg/VoiceOrder.js
+msgfile_generate_messages_nodejs: /home/sanghongrui/catkin_ws/devel/share/gennodejs/ros/msgfile/msg/Core2Voice.js
+msgfile_generate_messages_nodejs: /home/sanghongrui/catkin_ws/devel/share/gennodejs/ros/msgfile/msg/FaceTarget.js
 msgfile_generate_messages_nodejs: msgfile/CMakeFiles/msgfile_generate_messages_nodejs.dir/build.make
 
 .PHONY : msgfile_generate_messages_nodejs
@@ -91,10 +91,10 @@ msgfile/CMakeFiles/msgfile_generate_messages_nodejs.dir/build: msgfile_generate_
 .PHONY : msgfile/CMakeFiles/msgfile_generate_messages_nodejs.dir/build
 
 msgfile/CMakeFiles/msgfile_generate_messages_nodejs.dir/clean:
-	cd /home/aibar/catkin_ws/build/msgfile && $(CMAKE_COMMAND) -P CMakeFiles/msgfile_generate_messages_nodejs.dir/cmake_clean.cmake
+	cd /home/sanghongrui/catkin_ws/build/msgfile && $(CMAKE_COMMAND) -P CMakeFiles/msgfile_generate_messages_nodejs.dir/cmake_clean.cmake
 .PHONY : msgfile/CMakeFiles/msgfile_generate_messages_nodejs.dir/clean
 
 msgfile/CMakeFiles/msgfile_generate_messages_nodejs.dir/depend:
-	cd /home/aibar/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/aibar/catkin_ws/src /home/aibar/catkin_ws/src/msgfile /home/aibar/catkin_ws/build /home/aibar/catkin_ws/build/msgfile /home/aibar/catkin_ws/build/msgfile/CMakeFiles/msgfile_generate_messages_nodejs.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/sanghongrui/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/sanghongrui/catkin_ws/src /home/sanghongrui/catkin_ws/src/msgfile /home/sanghongrui/catkin_ws/build /home/sanghongrui/catkin_ws/build/msgfile /home/sanghongrui/catkin_ws/build/msgfile/CMakeFiles/msgfile_generate_messages_nodejs.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : msgfile/CMakeFiles/msgfile_generate_messages_nodejs.dir/depend
 

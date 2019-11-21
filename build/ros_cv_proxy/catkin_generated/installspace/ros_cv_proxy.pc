@@ -1,8 +1,8 @@
-prefix=/home/aibar/catkin_ws/install
+prefix=/home/sanghongrui/catkin_ws/install
 
 Name: ros_cv_proxy
 Description: Description of ros_cv_proxy
 Version: 0.0.0
 Cflags: 
-Libs: -L/home/aibar/catkin_ws/install/lib 
+Libs: -L/home/sanghongrui/catkin_ws/install/lib 
 Requires: 

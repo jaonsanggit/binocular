@@ -6,8 +6,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/scservo.dir/src/cJSON.c.o"
   "CMakeFiles/scservo.dir/src/CJsonObject.cpp.o"
   "CMakeFiles/scservo.dir/src/robot.cpp.o"
-  "/home/aibar/catkin_ws/devel/lib/libscservo.pdb"
-  "/home/aibar/catkin_ws/devel/lib/libscservo.so"
+  "/home/sanghongrui/catkin_ws/devel/lib/libscservo.pdb"
+  "/home/sanghongrui/catkin_ws/devel/lib/libscservo.so"
 )
 
 # Per-language clean rules from dependency scanning.

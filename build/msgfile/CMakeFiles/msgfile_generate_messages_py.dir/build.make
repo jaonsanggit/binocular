@@ -43,53 +43,53 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/aibar/catkin_ws/src
+CMAKE_SOURCE_DIR = /home/sanghongrui/catkin_ws/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/aibar/catkin_ws/build
+CMAKE_BINARY_DIR = /home/sanghongrui/catkin_ws/build
 
 # Utility rule file for msgfile_generate_messages_py.
 
 # Include the progress variables for this target.
 include msgfile/CMakeFiles/msgfile_generate_messages_py.dir/progress.make
 
-msgfile/CMakeFiles/msgfile_generate_messages_py: /home/aibar/catkin_ws/devel/lib/python2.7/dist-packages/msgfile/msg/_Core2Voice.py
-msgfile/CMakeFiles/msgfile_generate_messages_py: /home/aibar/catkin_ws/devel/lib/python2.7/dist-packages/msgfile/msg/_FaceTarget.py
-msgfile/CMakeFiles/msgfile_generate_messages_py: /home/aibar/catkin_ws/devel/lib/python2.7/dist-packages/msgfile/msg/_VoiceOrder.py
-msgfile/CMakeFiles/msgfile_generate_messages_py: /home/aibar/catkin_ws/devel/lib/python2.7/dist-packages/msgfile/msg/__init__.py
+msgfile/CMakeFiles/msgfile_generate_messages_py: /home/sanghongrui/catkin_ws/devel/lib/python2.7/dist-packages/msgfile/msg/_VoiceOrder.py
+msgfile/CMakeFiles/msgfile_generate_messages_py: /home/sanghongrui/catkin_ws/devel/lib/python2.7/dist-packages/msgfile/msg/_Core2Voice.py
+msgfile/CMakeFiles/msgfile_generate_messages_py: /home/sanghongrui/catkin_ws/devel/lib/python2.7/dist-packages/msgfile/msg/_FaceTarget.py
+msgfile/CMakeFiles/msgfile_generate_messages_py: /home/sanghongrui/catkin_ws/devel/lib/python2.7/dist-packages/msgfile/msg/__init__.py
 
 
-/home/aibar/catkin_ws/devel/lib/python2.7/dist-packages/msgfile/msg/_Core2Voice.py: /opt/ros/kinetic/lib/genpy/genmsg_py.py
-/home/aibar/catkin_ws/devel/lib/python2.7/dist-packages/msgfile/msg/_Core2Voice.py: /home/aibar/catkin_ws/src/msgfile/msg/Core2Voice.msg
-/home/aibar/catkin_ws/devel/lib/python2.7/dist-packages/msgfile/msg/_Core2Voice.py: /opt/ros/kinetic/share/std_msgs/msg/Header.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/aibar/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating Python from MSG msgfile/Core2Voice"
-	cd /home/aibar/catkin_ws/build/msgfile && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/aibar/catkin_ws/src/msgfile/msg/Core2Voice.msg -Imsgfile:/home/aibar/catkin_ws/src/msgfile/msg -Igeometry_msgs:/opt/ros/kinetic/share/geometry_msgs/cmake/../msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p msgfile -o /home/aibar/catkin_ws/devel/lib/python2.7/dist-packages/msgfile/msg
+/home/sanghongrui/catkin_ws/devel/lib/python2.7/dist-packages/msgfile/msg/_VoiceOrder.py: /opt/ros/kinetic/lib/genpy/genmsg_py.py
+/home/sanghongrui/catkin_ws/devel/lib/python2.7/dist-packages/msgfile/msg/_VoiceOrder.py: /home/sanghongrui/catkin_ws/src/msgfile/msg/VoiceOrder.msg
+/home/sanghongrui/catkin_ws/devel/lib/python2.7/dist-packages/msgfile/msg/_VoiceOrder.py: /opt/ros/kinetic/share/std_msgs/msg/Header.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/sanghongrui/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating Python from MSG msgfile/VoiceOrder"
+	cd /home/sanghongrui/catkin_ws/build/msgfile && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/sanghongrui/catkin_ws/src/msgfile/msg/VoiceOrder.msg -Imsgfile:/home/sanghongrui/catkin_ws/src/msgfile/msg -Igeometry_msgs:/opt/ros/kinetic/share/geometry_msgs/cmake/../msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p msgfile -o /home/sanghongrui/catkin_ws/devel/lib/python2.7/dist-packages/msgfile/msg
 
-/home/aibar/catkin_ws/devel/lib/python2.7/dist-packages/msgfile/msg/_FaceTarget.py: /opt/ros/kinetic/lib/genpy/genmsg_py.py
-/home/aibar/catkin_ws/devel/lib/python2.7/dist-packages/msgfile/msg/_FaceTarget.py: /home/aibar/catkin_ws/src/msgfile/msg/FaceTarget.msg
-/home/aibar/catkin_ws/devel/lib/python2.7/dist-packages/msgfile/msg/_FaceTarget.py: /opt/ros/kinetic/share/std_msgs/msg/Header.msg
-/home/aibar/catkin_ws/devel/lib/python2.7/dist-packages/msgfile/msg/_FaceTarget.py: /opt/ros/kinetic/share/geometry_msgs/msg/Point.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/aibar/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating Python from MSG msgfile/FaceTarget"
-	cd /home/aibar/catkin_ws/build/msgfile && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/aibar/catkin_ws/src/msgfile/msg/FaceTarget.msg -Imsgfile:/home/aibar/catkin_ws/src/msgfile/msg -Igeometry_msgs:/opt/ros/kinetic/share/geometry_msgs/cmake/../msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p msgfile -o /home/aibar/catkin_ws/devel/lib/python2.7/dist-packages/msgfile/msg
+/home/sanghongrui/catkin_ws/devel/lib/python2.7/dist-packages/msgfile/msg/_Core2Voice.py: /opt/ros/kinetic/lib/genpy/genmsg_py.py
+/home/sanghongrui/catkin_ws/devel/lib/python2.7/dist-packages/msgfile/msg/_Core2Voice.py: /home/sanghongrui/catkin_ws/src/msgfile/msg/Core2Voice.msg
+/home/sanghongrui/catkin_ws/devel/lib/python2.7/dist-packages/msgfile/msg/_Core2Voice.py: /opt/ros/kinetic/share/std_msgs/msg/Header.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/sanghongrui/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating Python from MSG msgfile/Core2Voice"
+	cd /home/sanghongrui/catkin_ws/build/msgfile && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/sanghongrui/catkin_ws/src/msgfile/msg/Core2Voice.msg -Imsgfile:/home/sanghongrui/catkin_ws/src/msgfile/msg -Igeometry_msgs:/opt/ros/kinetic/share/geometry_msgs/cmake/../msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p msgfile -o /home/sanghongrui/catkin_ws/devel/lib/python2.7/dist-packages/msgfile/msg
 
-/home/aibar/catkin_ws/devel/lib/python2.7/dist-packages/msgfile/msg/_VoiceOrder.py: /opt/ros/kinetic/lib/genpy/genmsg_py.py
-/home/aibar/catkin_ws/devel/lib/python2.7/dist-packages/msgfile/msg/_VoiceOrder.py: /home/aibar/catkin_ws/src/msgfile/msg/VoiceOrder.msg
-/home/aibar/catkin_ws/devel/lib/python2.7/dist-packages/msgfile/msg/_VoiceOrder.py: /opt/ros/kinetic/share/std_msgs/msg/Header.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/aibar/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating Python from MSG msgfile/VoiceOrder"
-	cd /home/aibar/catkin_ws/build/msgfile && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/aibar/catkin_ws/src/msgfile/msg/VoiceOrder.msg -Imsgfile:/home/aibar/catkin_ws/src/msgfile/msg -Igeometry_msgs:/opt/ros/kinetic/share/geometry_msgs/cmake/../msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p msgfile -o /home/aibar/catkin_ws/devel/lib/python2.7/dist-packages/msgfile/msg
+/home/sanghongrui/catkin_ws/devel/lib/python2.7/dist-packages/msgfile/msg/_FaceTarget.py: /opt/ros/kinetic/lib/genpy/genmsg_py.py
+/home/sanghongrui/catkin_ws/devel/lib/python2.7/dist-packages/msgfile/msg/_FaceTarget.py: /home/sanghongrui/catkin_ws/src/msgfile/msg/FaceTarget.msg
+/home/sanghongrui/catkin_ws/devel/lib/python2.7/dist-packages/msgfile/msg/_FaceTarget.py: /opt/ros/kinetic/share/std_msgs/msg/Header.msg
+/home/sanghongrui/catkin_ws/devel/lib/python2.7/dist-packages/msgfile/msg/_FaceTarget.py: /opt/ros/kinetic/share/geometry_msgs/msg/Point.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/sanghongrui/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating Python from MSG msgfile/FaceTarget"
+	cd /home/sanghongrui/catkin_ws/build/msgfile && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/sanghongrui/catkin_ws/src/msgfile/msg/FaceTarget.msg -Imsgfile:/home/sanghongrui/catkin_ws/src/msgfile/msg -Igeometry_msgs:/opt/ros/kinetic/share/geometry_msgs/cmake/../msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p msgfile -o /home/sanghongrui/catkin_ws/devel/lib/python2.7/dist-packages/msgfile/msg
 
-/home/aibar/catkin_ws/devel/lib/python2.7/dist-packages/msgfile/msg/__init__.py: /opt/ros/kinetic/lib/genpy/genmsg_py.py
-/home/aibar/catkin_ws/devel/lib/python2.7/dist-packages/msgfile/msg/__init__.py: /home/aibar/catkin_ws/devel/lib/python2.7/dist-packages/msgfile/msg/_Core2Voice.py
-/home/aibar/catkin_ws/devel/lib/python2.7/dist-packages/msgfile/msg/__init__.py: /home/aibar/catkin_ws/devel/lib/python2.7/dist-packages/msgfile/msg/_FaceTarget.py
-/home/aibar/catkin_ws/devel/lib/python2.7/dist-packages/msgfile/msg/__init__.py: /home/aibar/catkin_ws/devel/lib/python2.7/dist-packages/msgfile/msg/_VoiceOrder.py
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/aibar/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Generating Python msg __init__.py for msgfile"
-	cd /home/aibar/catkin_ws/build/msgfile && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py -o /home/aibar/catkin_ws/devel/lib/python2.7/dist-packages/msgfile/msg --initpy
+/home/sanghongrui/catkin_ws/devel/lib/python2.7/dist-packages/msgfile/msg/__init__.py: /opt/ros/kinetic/lib/genpy/genmsg_py.py
+/home/sanghongrui/catkin_ws/devel/lib/python2.7/dist-packages/msgfile/msg/__init__.py: /home/sanghongrui/catkin_ws/devel/lib/python2.7/dist-packages/msgfile/msg/_VoiceOrder.py
+/home/sanghongrui/catkin_ws/devel/lib/python2.7/dist-packages/msgfile/msg/__init__.py: /home/sanghongrui/catkin_ws/devel/lib/python2.7/dist-packages/msgfile/msg/_Core2Voice.py
+/home/sanghongrui/catkin_ws/devel/lib/python2.7/dist-packages/msgfile/msg/__init__.py: /home/sanghongrui/catkin_ws/devel/lib/python2.7/dist-packages/msgfile/msg/_FaceTarget.py
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/sanghongrui/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Generating Python msg __init__.py for msgfile"
+	cd /home/sanghongrui/catkin_ws/build/msgfile && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py -o /home/sanghongrui/catkin_ws/devel/lib/python2.7/dist-packages/msgfile/msg --initpy
 
 msgfile_generate_messages_py: msgfile/CMakeFiles/msgfile_generate_messages_py
-msgfile_generate_messages_py: /home/aibar/catkin_ws/devel/lib/python2.7/dist-packages/msgfile/msg/_Core2Voice.py
-msgfile_generate_messages_py: /home/aibar/catkin_ws/devel/lib/python2.7/dist-packages/msgfile/msg/_FaceTarget.py
-msgfile_generate_messages_py: /home/aibar/catkin_ws/devel/lib/python2.7/dist-packages/msgfile/msg/_VoiceOrder.py
-msgfile_generate_messages_py: /home/aibar/catkin_ws/devel/lib/python2.7/dist-packages/msgfile/msg/__init__.py
+msgfile_generate_messages_py: /home/sanghongrui/catkin_ws/devel/lib/python2.7/dist-packages/msgfile/msg/_VoiceOrder.py
+msgfile_generate_messages_py: /home/sanghongrui/catkin_ws/devel/lib/python2.7/dist-packages/msgfile/msg/_Core2Voice.py
+msgfile_generate_messages_py: /home/sanghongrui/catkin_ws/devel/lib/python2.7/dist-packages/msgfile/msg/_FaceTarget.py
+msgfile_generate_messages_py: /home/sanghongrui/catkin_ws/devel/lib/python2.7/dist-packages/msgfile/msg/__init__.py
 msgfile_generate_messages_py: msgfile/CMakeFiles/msgfile_generate_messages_py.dir/build.make
 
 .PHONY : msgfile_generate_messages_py
@@ -100,10 +100,10 @@ msgfile/CMakeFiles/msgfile_generate_messages_py.dir/build: msgfile_generate_mess
 .PHONY : msgfile/CMakeFiles/msgfile_generate_messages_py.dir/build
 
 msgfile/CMakeFiles/msgfile_generate_messages_py.dir/clean:
-	cd /home/aibar/catkin_ws/build/msgfile && $(CMAKE_COMMAND) -P CMakeFiles/msgfile_generate_messages_py.dir/cmake_clean.cmake
+	cd /home/sanghongrui/catkin_ws/build/msgfile && $(CMAKE_COMMAND) -P CMakeFiles/msgfile_generate_messages_py.dir/cmake_clean.cmake
 .PHONY : msgfile/CMakeFiles/msgfile_generate_messages_py.dir/clean
 
 msgfile/CMakeFiles/msgfile_generate_messages_py.dir/depend:
-	cd /home/aibar/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/aibar/catkin_ws/src /home/aibar/catkin_ws/src/msgfile /home/aibar/catkin_ws/build /home/aibar/catkin_ws/build/msgfile /home/aibar/catkin_ws/build/msgfile/CMakeFiles/msgfile_generate_messages_py.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/sanghongrui/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/sanghongrui/catkin_ws/src /home/sanghongrui/catkin_ws/src/msgfile /home/sanghongrui/catkin_ws/build /home/sanghongrui/catkin_ws/build/msgfile /home/sanghongrui/catkin_ws/build/msgfile/CMakeFiles/msgfile_generate_messages_py.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : msgfile/CMakeFiles/msgfile_generate_messages_py.dir/depend
 

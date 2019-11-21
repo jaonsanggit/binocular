@@ -7,14 +7,15 @@
             },
             "includePath": [
                 "/opt/ros/kinetic/include",
-                "/home/aibar//catkin_ws/src/serialport/include",
+                "/home/sanghongrui//catkin_ws/src/serialport/include",
                 "/usr/include"
             ],
             "name": "Linux",
             "intelliSenseMode": "gcc-x64",
             "compilerPath": "/usr/bin/gcc",
             "cStandard": "c11",
-            "cppStandard": "c++17"
+            "cppStandard": "c++17",
+            "compileCommands": "${workspaceFolder}/build/compile_commands.json"
         }
     ],
     "version": 4

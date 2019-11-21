@@ -5,7 +5,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "/home/aibar/catkin_ws/src/serialport/src/cJSON.c" "/home/aibar/catkin_ws/build/serialport/CMakeFiles/scservo.dir/src/cJSON.c.o"
+  "/home/sanghongrui/catkin_ws/src/serialport/src/cJSON.c" "/home/sanghongrui/catkin_ws/build/serialport/CMakeFiles/scservo.dir/src/cJSON.c.o"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 
@@ -18,18 +18,18 @@ set(CMAKE_TARGET_DEFINITIONS_C
 
 # The include file search paths:
 set(CMAKE_C_TARGET_INCLUDE_PATH
-  "/home/aibar/catkin_ws/src/serialport/include"
-  "/home/aibar/catkin_ws/devel/include"
+  "/home/sanghongrui/catkin_ws/src/serialport/include"
+  "/home/sanghongrui/catkin_ws/devel/include"
   "/opt/ros/kinetic/include"
   "/opt/ros/kinetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp"
   )
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/aibar/catkin_ws/src/serialport/src/CJsonObject.cpp" "/home/aibar/catkin_ws/build/serialport/CMakeFiles/scservo.dir/src/CJsonObject.cpp.o"
-  "/home/aibar/catkin_ws/src/serialport/src/SCS.cpp" "/home/aibar/catkin_ws/build/serialport/CMakeFiles/scservo.dir/src/SCS.cpp.o"
-  "/home/aibar/catkin_ws/src/serialport/src/SCSCL.cpp" "/home/aibar/catkin_ws/build/serialport/CMakeFiles/scservo.dir/src/SCSCL.cpp.o"
-  "/home/aibar/catkin_ws/src/serialport/src/SCSerail.cpp" "/home/aibar/catkin_ws/build/serialport/CMakeFiles/scservo.dir/src/SCSerail.cpp.o"
-  "/home/aibar/catkin_ws/src/serialport/src/SMSCL.cpp" "/home/aibar/catkin_ws/build/serialport/CMakeFiles/scservo.dir/src/SMSCL.cpp.o"
-  "/home/aibar/catkin_ws/src/serialport/src/robot.cpp" "/home/aibar/catkin_ws/build/serialport/CMakeFiles/scservo.dir/src/robot.cpp.o"
+  "/home/sanghongrui/catkin_ws/src/serialport/src/CJsonObject.cpp" "/home/sanghongrui/catkin_ws/build/serialport/CMakeFiles/scservo.dir/src/CJsonObject.cpp.o"
+  "/home/sanghongrui/catkin_ws/src/serialport/src/SCS.cpp" "/home/sanghongrui/catkin_ws/build/serialport/CMakeFiles/scservo.dir/src/SCS.cpp.o"
+  "/home/sanghongrui/catkin_ws/src/serialport/src/SCSCL.cpp" "/home/sanghongrui/catkin_ws/build/serialport/CMakeFiles/scservo.dir/src/SCSCL.cpp.o"
+  "/home/sanghongrui/catkin_ws/src/serialport/src/SCSerail.cpp" "/home/sanghongrui/catkin_ws/build/serialport/CMakeFiles/scservo.dir/src/SCSerail.cpp.o"
+  "/home/sanghongrui/catkin_ws/src/serialport/src/SMSCL.cpp" "/home/sanghongrui/catkin_ws/build/serialport/CMakeFiles/scservo.dir/src/SMSCL.cpp.o"
+  "/home/sanghongrui/catkin_ws/src/serialport/src/robot.cpp" "/home/sanghongrui/catkin_ws/build/serialport/CMakeFiles/scservo.dir/src/robot.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
@@ -42,8 +42,8 @@ set(CMAKE_TARGET_DEFINITIONS_CXX
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
-  "/home/aibar/catkin_ws/src/serialport/include"
-  "/home/aibar/catkin_ws/devel/include"
+  "/home/sanghongrui/catkin_ws/src/serialport/include"
+  "/home/sanghongrui/catkin_ws/devel/include"
   "/opt/ros/kinetic/include"
   "/opt/ros/kinetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp"
   )

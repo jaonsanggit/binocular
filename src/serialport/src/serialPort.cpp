@@ -129,24 +129,7 @@ int main (int argc, char** argv)
       ros::NodeHandle nh; 
 
       ros::Subscriber sub = nh.subscribe("core_eyes", 10, coreCallback1);
-
-      // std::string path("/home/sanghongrui/catkin_ws/src/serialport/src/face.json");
-      // std::ifstream t(path); //读文件ifstream,写文件ofstream，可读可写fstream
-      // if(!t) ROS_ERROR_STREAM("Unable to open JSON file"); 
-      // std::stringstream buffer;
-      // buffer << t.rdbuf();
-      // std::string str_json = buffer.str();
-
-      // neb::CJsonObject oJson(str_json);
-      // int fTestValue = 0;
-      // std::cout << "location: ";
-      // for (int i = 0; i < oJson[0]["location"].GetArraySize(); ++i)
-      // {
-      //       oJson[0]["location"].Get(i, fTestValue);
-      //       std::cout <<  fTestValue << '\t';
-      // }
-      // std::cout << std::endl;
-
+      
       gettimeofday(&start,NULL); 
       ros::Rate loop_rate(10); 
       while(ros::ok()) 

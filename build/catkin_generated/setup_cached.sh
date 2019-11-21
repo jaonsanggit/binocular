@@ -7,5 +7,7 @@
 # new environment variables
 
 # modified environment variables
-export PATH="/opt/ros/kinetic/bin:/home/aibar/.venv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
-export PWD="/home/aibar/catkin_ws/build"
+export LD_LIBRARY_PATH="/home/sanghongrui/AILand/eyesim_ws/devel/lib:/opt/ros/kinetic/lib"
+export PKG_CONFIG_PATH="/home/sanghongrui/AILand/eyesim_ws/devel/lib/pkgconfig:/opt/ros/kinetic/lib/pkgconfig"
+export PWD="/home/sanghongrui/catkin_ws/build"
+export PYTHONPATH="/opt/ros/kinetic/lib/python2.7/dist-packages"

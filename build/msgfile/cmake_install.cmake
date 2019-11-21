@@ -1,8 +1,8 @@
-# Install script for directory: /home/aibar/catkin_ws/src/msgfile
+# Install script for directory: /home/sanghongrui/catkin_ws/src/msgfile
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/aibar/catkin_ws/install")
+  set(CMAKE_INSTALL_PREFIX "/home/sanghongrui/catkin_ws/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -34,56 +34,56 @@ endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/msgfile/msg" TYPE FILE FILES
-    "/home/aibar/catkin_ws/src/msgfile/msg/FaceTarget.msg"
-    "/home/aibar/catkin_ws/src/msgfile/msg/VoiceOrder.msg"
-    "/home/aibar/catkin_ws/src/msgfile/msg/Core2Voice.msg"
+    "/home/sanghongrui/catkin_ws/src/msgfile/msg/FaceTarget.msg"
+    "/home/sanghongrui/catkin_ws/src/msgfile/msg/VoiceOrder.msg"
+    "/home/sanghongrui/catkin_ws/src/msgfile/msg/Core2Voice.msg"
     )
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/msgfile/cmake" TYPE FILE FILES "/home/aibar/catkin_ws/build/msgfile/catkin_generated/installspace/msgfile-msg-paths.cmake")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/msgfile/cmake" TYPE FILE FILES "/home/sanghongrui/catkin_ws/build/msgfile/catkin_generated/installspace/msgfile-msg-paths.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE DIRECTORY FILES "/home/aibar/catkin_ws/devel/include/msgfile")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE DIRECTORY FILES "/home/sanghongrui/catkin_ws/devel/include/msgfile")
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/roseus/ros" TYPE DIRECTORY FILES "/home/aibar/catkin_ws/devel/share/roseus/ros/msgfile")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/roseus/ros" TYPE DIRECTORY FILES "/home/sanghongrui/catkin_ws/devel/share/roseus/ros/msgfile")
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/common-lisp/ros" TYPE DIRECTORY FILES "/home/aibar/catkin_ws/devel/share/common-lisp/ros/msgfile")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/common-lisp/ros" TYPE DIRECTORY FILES "/home/sanghongrui/catkin_ws/devel/share/common-lisp/ros/msgfile")
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/gennodejs/ros" TYPE DIRECTORY FILES "/home/aibar/catkin_ws/devel/share/gennodejs/ros/msgfile")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/gennodejs/ros" TYPE DIRECTORY FILES "/home/sanghongrui/catkin_ws/devel/share/gennodejs/ros/msgfile")
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  execute_process(COMMAND "/usr/bin/python" -m compileall "/home/aibar/catkin_ws/devel/lib/python2.7/dist-packages/msgfile")
+  execute_process(COMMAND "/usr/bin/python" -m compileall "/home/sanghongrui/catkin_ws/devel/lib/python2.7/dist-packages/msgfile")
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/python2.7/dist-packages" TYPE DIRECTORY FILES "/home/aibar/catkin_ws/devel/lib/python2.7/dist-packages/msgfile")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/python2.7/dist-packages" TYPE DIRECTORY FILES "/home/sanghongrui/catkin_ws/devel/lib/python2.7/dist-packages/msgfile")
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/aibar/catkin_ws/build/msgfile/catkin_generated/installspace/msgfile.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/sanghongrui/catkin_ws/build/msgfile/catkin_generated/installspace/msgfile.pc")
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/msgfile/cmake" TYPE FILE FILES "/home/aibar/catkin_ws/build/msgfile/catkin_generated/installspace/msgfile-msg-extras.cmake")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/msgfile/cmake" TYPE FILE FILES "/home/sanghongrui/catkin_ws/build/msgfile/catkin_generated/installspace/msgfile-msg-extras.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/msgfile/cmake" TYPE FILE FILES
-    "/home/aibar/catkin_ws/build/msgfile/catkin_generated/installspace/msgfileConfig.cmake"
-    "/home/aibar/catkin_ws/build/msgfile/catkin_generated/installspace/msgfileConfig-version.cmake"
+    "/home/sanghongrui/catkin_ws/build/msgfile/catkin_generated/installspace/msgfileConfig.cmake"
+    "/home/sanghongrui/catkin_ws/build/msgfile/catkin_generated/installspace/msgfileConfig-version.cmake"
     )
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/msgfile" TYPE FILE FILES "/home/aibar/catkin_ws/src/msgfile/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/msgfile" TYPE FILE FILES "/home/sanghongrui/catkin_ws/src/msgfile/package.xml")
 endif()
 
