@@ -18,7 +18,7 @@ class FaceIO:
   face = []
   trackingFace = []
 
-  mode = 'idle'
+  status = 'idle'
   time = time.time()
   face_list_len = 20
   face_list_timeval = 3
@@ -33,15 +33,21 @@ class FaceIO:
   maxLookAroundNum = 3
 
 #------working-------
-  nameCount = defaultdict(int)
+  namebyFrequency = defaultdict(int)
+  excludeName = []
 
   def __init__(self):
     self.mqInput = self.qface.subscribe(self.run, 100)
     self.mqInput.join()
 
   def run(self, message):
-    self.Getface(message)
-    self.FSM()
+    try:
+      self.Getface(message)
+      self.FSM()
+      self.mqPub()
+      return True
+    except Exception as e:
+      print("[Exception] faceIO run()", e)
 
   def Getface(self, message):
     face_msg = json.loads(message)
@@ -74,14 +80,20 @@ class FaceIO:
     
     self.nameCount = name_dict
 
-  def setFSM(self, mode):
-    self.mode = mode
+  def mqPub(self): 
+    if self.trackingFace is not None:
+      self.qrect.publish(self.trackingFace)
+    else:
+      print("trackingFace is None")
+
+  def setFSM(self, status):
+    self.status = status
     self.face.clear()
     self.face_list.clear()
     self.time = time.time()
 
   def FSM(self):
-    if self.mode == 'idle':
+    if self.status == 'idle':
       self.time = time.time()
       self.face = list(filter(lambda x: x['depth'] < self.activateDis, self.face))
       if len(self.face) == 0:
@@ -90,7 +102,7 @@ class FaceIO:
         self.setFSM('activating')
         print('idle -> activating')
 
-    elif self.mode == 'activating':
+    elif self.status == 'activating':
       self.face = list(filter(lambda x: x['depth'] < self.activateDis, self.face))
       self.face_list[-1]['msg'] = self.face
 
@@ -103,7 +115,7 @@ class FaceIO:
       else:
         self.setFSM('init')
         print('激活成功, 状态转移: idle -> init')
-    elif self.mode == 'init':
+    elif self.status == 'init':
         target = 0
         tval = time.time() - self.time
         for i in range(0,self.maxLookAroundNum):
@@ -116,15 +128,15 @@ class FaceIO:
             self.trackingFace = self.face[target]
             print('环顾中%d'%target)
           else:
-            if len(self.nameCount) == 0:
+            self.nameCount()
+            if len(self.namebyFrequency) == 0:
               print('所有user_name都是none, 确定失败,重新确定 --> init')
               self.setFSM('init')
             else:
-              self.nameCount()
               self.setFSM('working')
               print('状态转移: init -> working')
-    #self.mode == working
+    #self.status == working
     else :
-      print('working frequency: ', \
-        len(self.face_list) / (self.face_list[-1].get('ts') - self.face_list[-1].get('ts')), \
-        ' Hz')
+      self.trackingFace = self.face[0]
+      print('working frequency: %f Hz'
+        %len(self.face_list) / (self.face_list[-1].get('ts') - self.face_list[-1].get('ts')))
