@@ -30,7 +30,7 @@ class FaceIO():
     activateTime = 1.5
 
 # ------init-------
-    lookAroundTime = 0.5
+    lookAroundTime = 1
     maxLookAroundNum = 3
 
 # ------working-------
@@ -100,6 +100,11 @@ class FaceIO():
 
     def faceCheck(self):
 
+
+        if len(self.face) == 0 or len(self.face_list) == 0:
+            print('ignore frame')
+            return False
+
         for f in self.face:
             if f['user_name'] is None:
                 f['user_name'] = 'unknown_d'
@@ -110,10 +115,6 @@ class FaceIO():
         #     self.status = 'working'
         #     print('user_name is none, depth only')
         #     return False
-
-        if len(self.face) == 0 or len(self.face_list) == 0:
-            print('ignore frame')
-            return False
 
         return True
 
@@ -180,12 +181,12 @@ class FaceIO():
                 print('环顾中%d' % target)
             else:
                 self.nameCount()
-                print('namebyFrequency: ' ,self.namebyFrequency)
                 if len(self.namebyFrequency) == 0:
                     print('所有user_name都是none, 确定失败,重新确定 --> init')
                     self.setFSM('init')
                 else:
                     self.trackingName = ''
+
                     for n in self.namebyFrequency:
                     # if n[0] == 'unknown':
                         if n[0] is None:
@@ -203,6 +204,7 @@ class FaceIO():
             # self.trackingFace = self.face[0]
             # print('working frequency: %f Hz'
                 #   % len(self.face_list) / (self.face_list[-1].get('ts') - self.face_list[0].get('ts')))
+
             if (self.excludeNames.count(self.trackingName) != 0):
                 print('------ working : all tracked -------')
                 self.setFSM('init')
@@ -221,3 +223,5 @@ class FaceIO():
 
             self.time = time.time()
             self.trackingFace = self.face[target]
+            # print('trackingFace: ', self.trackingFace)
+            print('trackingName: ', self.trackingName)
