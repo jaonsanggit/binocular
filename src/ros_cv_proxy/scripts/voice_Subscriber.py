@@ -1,3 +1,11 @@
+'''
+@Description: voice msg sbuscriber, wrap voice as a voice module 
+@version: 2.0
+@Author: sanghongrui
+@Date: 2019-12-02 19:15:50
+@LastEditors: sanghongrui
+@LastEditTime: 2019-12-02 19:17:10
+'''
 #!/usr/bin/env python
 # -*- coding:UTF-8 -*-
 
@@ -5,9 +13,11 @@ import rospy
 from msgfile.msg import VoiceOrder
 import time
 
+
 class VoiceIO:
 
     name = ''
+    # dict{name: finishTime}
     doneNames = dict()
     releaseTime = 10
     startFlag = False
@@ -20,7 +30,7 @@ class VoiceIO:
         self.startFlag = True
         print('VoiceIO start...')
         return self.startFlag
-    
+
     def stop(self):
         self.startFlag = False
         return self.startFlag
@@ -34,27 +44,27 @@ class VoiceIO:
         self.releaseName()
         if data.OrderFinish is True:
             print('\n', time.time(), ': ')
-            print(' Complete_True: ' + rospy.get_caller_id() + '\n' + "I heard :", data.name)
+            print(' Complete_True: ' + rospy.get_caller_id() +
+                  '\n' + "I heard :", data.name)
             self.finish = True
-            if  self.name is not None and self.name != '' : 
+            if self.name is not None and self.name != '':
                 self.doneNames[self.name] = time.time()
 
             print(self.doneNames)
-        else :
+        else:
             self.finish = False
-            print('\n', time.time(), ': ')            
-            print(' Complete_False: ' + rospy.get_caller_id() + '\n' + "I heard :", data.name)
+            print('\n', time.time(), ': ')
+            print(' Complete_False: ' + rospy.get_caller_id() +
+                  '\n' + "I heard :", data.name)
 
-
-    def run(self):  
+    def run(self):
         def callback(data, obj):
             if obj.startFlag is True:
                 obj.voiceback(data)
             else:
                 rospy.logwarn('\n\nvoiceIO in voice_Subscirber.py stoped.\n\n')
-            
+
         rospy.Subscriber("VoicePub", VoiceOrder, callback, (self))
-            
 
 
 # def callback(data):

@@ -18,6 +18,8 @@ class FaceIO():
     face_list = []
     face = []
     trackingFace = []
+    #dict{name: [appearTimes=1, disappearTimes=1]}
+    leaveNames = {}
 
     status = 'idle'
     time = time.time()
@@ -77,6 +79,26 @@ class FaceIO():
         face = list(filter(lambda x: x['depth'] < distance, face))
         return face
 
+    def leaveNamesCount(self):
+        names = []
+        for f in self.face:
+            names.append(f['user_name'])
+        
+        #uodate leaveNames
+        e_l = list(set(self.excludeNames).difference(set(self.leaveNames.keys())))
+        l_e = list(set(self.leaveNames.keys()).difference(set(self.excludeNames)))
+        for e in e_l:
+            self.leaveNames.setdefault(e, []).append(1)
+            self.leaveNames.setdefault(e, []).append(1)
+        for l in l_e:
+            self.leaveNames.pop(l)
+
+        for l in self.leaveNames.keys():
+            if names.count(l) > 0:
+                self.leaveNames[l][0] += 1
+            else:
+                self.leaveNames[l][1] += 1
+
     def nameCount(self):
         name_dict = defaultdict(int)
         for f in self.face_list:
@@ -132,7 +154,9 @@ class FaceIO():
 
         if self.faceCheck() is False:
             return
-        
+
+        self.leaveNamesCount()
+
         if self.status == 'idle':
             self.time = time.time()
             self.face = list(
@@ -192,22 +216,23 @@ class FaceIO():
                         if n[0] is None:
                             continue
                         elif self.excludeNames.count(n[0]) != 0:
+                            self.trackingName = n[0]
                             continue
                         else :
                             self.trackingName = n[0]
                             break
 
-                    self.setFSM('working')
-                    print('状态转移: init -> working')
+                    if (self.excludeNames.count(self.trackingName) != 0):
+                        print('\n\n------ Init : all tracked -------\n\n')
+                        self.setFSM('init')
+                    else :
+                        self.setFSM('working')
+                        print('状态转移: init -> working')
         #self.status == working
         else:
             # self.trackingFace = self.face[0]
             # print('working frequency: %f Hz'
                 #   % len(self.face_list) / (self.face_list[-1].get('ts') - self.face_list[0].get('ts')))
-
-            if (self.excludeNames.count(self.trackingName) != 0):
-                print('------ working : all tracked -------')
-                self.setFSM('init')
 
             target = 0
             if self.trackingName != '':

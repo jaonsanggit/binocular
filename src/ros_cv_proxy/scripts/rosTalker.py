@@ -20,7 +20,7 @@ def faceIOAliveCheck(f):
     return True
 
 def faceIOWorkingCheck(f):
-    if f.status == 'working' and time.time() - f.time > 1.3:
+    if f.status == 'working' and time.time() - f.time > 2:
         return False
     return True
 
@@ -38,8 +38,13 @@ def FacemodeSwitch(f, mode='depth'):
     #     else:
     #         print('voice is a INVALID handler')
 
-def VoiceFinishCheck(v):
-    v.releaseName()
+def VoiceFinishCheck(f, v):
+    f.excludeNames = list(v.doneNames.keys())
+
+    for l in f.leaveNames.keys():
+        if f.leaveNames[l][1] - f.leaveNames[l][0] > 300:
+            v.doneNames.pop(l)
+
     if v.finish is True:
         v.finish = False
         return True
@@ -58,12 +63,10 @@ def Check(f, v):
         v.name = ''
         return False        
 
-    elif VoiceFinishCheck(v):
+    elif VoiceFinishCheck(f, v):
         rospy.logwarn('rosTalker: VoiceIOFinishCheck True, set FaceIO: init')
         rospy.logwarn('\n\n\t\t---------%s finish-----------', v.name)
         f.setFSM('init')
-        f.excludeNames = list(v.doneNames.keys())
-        print('00000000000', f.excludeNames)
         v.name = ''
         return False    
     else:
@@ -115,7 +118,7 @@ def talker():
             eyesmsg.target.x = (face['location'][0] + face['location'][2])/2
             eyesmsg.target.y = (face['location'][1] + face['location'][3])/2
 
-            voicemsg.name = face['user_name'] if face['user_name'] is not None else ""
+            voicemsg.name = faceIO.trackingName
             voicemsg.gender = face['gender'] if face['gender'] is not None else ""
         # print('age: ', face['age'])
             if voicemsg.gender != '':
