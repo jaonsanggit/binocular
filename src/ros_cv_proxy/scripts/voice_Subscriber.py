@@ -1,11 +1,3 @@
-'''
-@Description: voice msg sbuscriber, wrap voice as a voice module 
-@version: 2.0
-@Author: sanghongrui
-@Date: 2019-12-02 19:15:50
-@LastEditors: sanghongrui
-@LastEditTime: 2019-12-02 19:17:10
-'''
 #!/usr/bin/env python
 # -*- coding:UTF-8 -*-
 

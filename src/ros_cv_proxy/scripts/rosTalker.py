@@ -40,7 +40,6 @@ def FacemodeSwitch(f, mode='depth'):
 
 def VoiceFinishCheck(f, v):
     f.excludeNames = list(v.doneNames.keys())
-
     for l in f.leaveNames.keys():
         if f.leaveNames[l][1] - f.leaveNames[l][0] > 300:
             v.doneNames.pop(l)
@@ -54,6 +53,7 @@ def Check(f, v):
     if not faceIOAliveCheck(f):
         f.setFSM('idle')
         v.name = ''
+        v.doneNames.clear()
         rospy.logwarn('\n\nrosTalker: faceIOAliveCheck Fail, set FaceIO: idle')
         return False
 
