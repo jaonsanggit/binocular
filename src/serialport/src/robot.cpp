@@ -13,23 +13,23 @@
 
 //const std::map<int, pair<std::string,> servo_init_vec = {590, 675, 670, 785, 336};
 const std::map<u8, std::pair<std::string, uint32_t>> servo_init_vec = {
-      {1, {"SCS", 514}},
-      {2, {"SCS", 430}},
-      {3, {"SCS", 529}},
-      {4, {"SCS", 512}},
+      {1, {"SCS", 521}},
+      {2, {"SCS", 439}},
+      {3, {"SCS", 486}},
+      {4, {"SCS", 520}},
       {5, {"SCS", 800}},
       {6, {"SMCL", 772}},
-      {7, {"SMCL", 3000}}     //2075
+      {7, {"SMCL", 2980}}     //2075
 };
 
 const std::map<u8, std::pair<std::string, uint32_t>> servo_idle_vec = {
-      {1, {"SCS", 514}},
-      {2, {"SCS", 612}},
-      {3, {"SCS", 529}},
-      {4, {"SCS", 372}},
+      {1, {"SCS", 521}},
+      {2, {"SCS", 617}},
+      {3, {"SCS", 486}},
+      {4, {"SCS", 357}},
       {5, {"SCS", 800}},
       {6, {"SMCL", 772}},
-      {7, {"SMCL", 3000}}     //2075
+      {7, {"SMCL", 2980}}     //2075
 };
 
 const std::string port("/dev/ttyUSB0");
@@ -168,22 +168,28 @@ void ROBOTEYES::TurnAction(void)
 
 void ROBOTEYES::tranform(int w, int h, std::vector<int> & s)
 {
-  int delta_max_1_3 = 120;  // <= 160
-  int delta_max_5 = 80;     // <= 75
+  int delta_max_1_3 = 140;  // <= 160
+  // int delta_max_5 = 80;     // <= 75
 
   float ratio = 1.5f;
   // if (std::abs(w - IMAGECenter_W) < 200)
   //   ratio = 1.5f;
 
-  s[1] = int(delta_max_1_3*w/IMAGECenter_W*ratio) + servo_init_vec.at(1).second-delta_max_1_3;
-  s[3] = int(delta_max_1_3*w/IMAGECenter_W*ratio) + servo_init_vec.at(3).second-delta_max_1_3;
+  // s[1] = int(-delta_max_1_3*w) + servo_init_vec.at(1).second-delta_max_1_3;
+  // s[3] = int(-delta_max_1_3*w) + servo_init_vec.at(3).second-delta_max_1_3;
   // s[5] = int(delta_max_5*w/IMAGECenter_W) + servo_init_vec.at(5).second-delta_max_5;
+
+  s[1] = -delta_max_1_3*w/50 + servo_init_vec.at(1).second+delta_max_1_3;
+  s[3] = -delta_max_1_3*w/50 + servo_init_vec.at(3).second+delta_max_1_3;
   s[5] = servo_init_vec.at(5).second;
 
-  int delta_max_2_4 = 50;       // d:105 U:170
-  int delta_max_7 = 0;  // to do
-  s[2] = int(-delta_max_2_4*h/IMAGECenter_H) + servo_init_vec.at(2).second+delta_max_2_4;
-  s[4] = int(delta_max_2_4*h/IMAGECenter_H) + servo_init_vec.at(4).second-delta_max_2_4;
+  int delta_max_2_4 = 150;       // d:105 U:170
+  // int delta_max_7 = 0;  // to do
+
+  // s[2] = int(delta_max_2_4*h) + servo_init_vec.at(2).second+delta_max_2_4;
+  // s[4] = int(delta_max_2_4*h) + servo_init_vec.at(4).second-delta_max_2_4;
+  s[2] = delta_max_2_4*h/50 + servo_init_vec.at(2).second-delta_max_2_4;
+  s[4] = -delta_max_2_4*h/50 + servo_init_vec.at(4).second+delta_max_2_4;
   s[7] = servo_init_vec.at(7).second;
 
   s[6] = servo_init_vec.at(6).second;

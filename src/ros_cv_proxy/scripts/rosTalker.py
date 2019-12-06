@@ -39,10 +39,21 @@ def FacemodeSwitch(f, mode='depth'):
     #         print('voice is a INVALID handler')
 
 def VoiceFinishCheck(f, v):
-    f.excludeNames = list(v.doneNames.keys())
-    for l in f.leaveNames.keys():
-        if f.leaveNames[l][1] - f.leaveNames[l][0] > 300:
-            v.doneNames.pop(l)
+
+#update f.excludeNames key:name
+    d_e = list(set(v.doneNames.keys()).difference(set(f.excludeNames.keys())))
+    e_d = list(set(f.excludeNames.keys()).difference(set(v.doneNames.keys())))
+    for d in d_e:
+        f.excludeNames[d] = v.doneNames[d]
+    for e in e_d:
+        f.excludeNames.pop(e)
+
+#update v.doneNames value :last appear time
+    for e in f.excludeNames.keys():
+        v.doneNames[e] = f.excludeNames[e]
+        
+    v.releaseName()
+    # print('\n\n\n', v.doneNames, '\n\n\n')
 
     if v.finish is True:
         v.finish = False
@@ -53,7 +64,6 @@ def Check(f, v):
     if not faceIOAliveCheck(f):
         f.setFSM('idle')
         v.name = ''
-        v.doneNames.clear()
         rospy.logwarn('\n\nrosTalker: faceIOAliveCheck Fail, set FaceIO: idle')
         return False
 
@@ -106,6 +116,8 @@ def talker():
         eyesmsg = FaceTarget()
         eyesmsg.header = header_eyes
         eyesmsg.cmd = status if status != 'activating' else 'idle'
+        eyesmsg.target.x = 50
+        eyesmsg.target.y = 50
         eyesmsg.target.z = 400 if status == 'working' else 200
 
         voiceIO.name = faceIO.trackingName
@@ -114,9 +126,9 @@ def talker():
         voicemsg.cmd = status
 
         face = faceIO.trackingFace
-        if len(face) > 0 :
-            eyesmsg.target.x = (face['location'][0] + face['location'][2])/2
-            eyesmsg.target.y = (face['location'][1] + face['location'][3])/2
+        if len(face) > 0:
+            eyesmsg.target.x = (face['location'][0] + face['location'][2])*100/2
+            eyesmsg.target.y = (face['location'][1] + face['location'][3])*100/2
 
             voicemsg.name = faceIO.trackingName
             voicemsg.gender = face['gender'] if face['gender'] is not None else ""

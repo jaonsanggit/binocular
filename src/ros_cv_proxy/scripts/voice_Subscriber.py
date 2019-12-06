@@ -33,7 +33,6 @@ class VoiceIO:
                 filter(lambda x: time.time() - x[1] < self.releaseTime, self.doneNames.items()))
 
     def voiceback(self, data):
-        self.releaseName()
         if data.OrderFinish is True:
             print('\n', time.time(), ': ')
             print(' Complete_True: ' + rospy.get_caller_id() +

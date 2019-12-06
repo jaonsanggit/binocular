@@ -18,9 +18,7 @@ class FaceIO():
     face_list = []
     face = []
     trackingFace = []
-    #dict{name: [appearTimes=1, disappearTimes=1]}
-    leaveNames = {}
-
+    
     status = 'idle'
     time = time.time()
     face_list_len = 20
@@ -37,7 +35,8 @@ class FaceIO():
 
 # ------working-------
     namebyFrequency = []
-    excludeNames = []
+    #dict{name: LastAppearTime=time.time()}
+    excludeNames = {}
     trackingName = ''
 
     def __init__(self):
@@ -84,20 +83,10 @@ class FaceIO():
         for f in self.face:
             names.append(f['user_name'])
         
-        #uodate leaveNames
-        e_l = list(set(self.excludeNames).difference(set(self.leaveNames.keys())))
-        l_e = list(set(self.leaveNames.keys()).difference(set(self.excludeNames)))
-        for e in e_l:
-            self.leaveNames.setdefault(e, []).append(1)
-            self.leaveNames.setdefault(e, []).append(1)
-        for l in l_e:
-            self.leaveNames.pop(l)
-
-        for l in self.leaveNames.keys():
+        #update excludeNames last appear time
+        for l in self.excludeNames.keys():
             if names.count(l) > 0:
-                self.leaveNames[l][0] += 1
-            else:
-                self.leaveNames[l][1] += 1
+                self.excludeNames[l] = time.time()
 
     def nameCount(self):
         name_dict = defaultdict(int)
@@ -215,14 +204,14 @@ class FaceIO():
                     # if n[0] == 'unknown':
                         if n[0] is None:
                             continue
-                        elif self.excludeNames.count(n[0]) != 0:
+                        elif list(self.excludeNames.keys()).count(n[0]) != 0:
                             self.trackingName = n[0]
                             continue
                         else :
                             self.trackingName = n[0]
                             break
 
-                    if (self.excludeNames.count(self.trackingName) != 0):
+                    if (list(self.excludeNames.keys()).count(self.trackingName) != 0):
                         print('\n\n------ Init : all tracked -------\n\n')
                         self.setFSM('init')
                     else :
