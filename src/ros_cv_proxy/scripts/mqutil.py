@@ -67,7 +67,7 @@ class RSMQueue(object):
         except Exception as e:
             print('[Exception] receivemessage', e)
 
-    def subscribe(self, callback, freq=10):
+    def subscribe(self, callback, obj, freq=10):
         queue = self.queue
 
         def f(callback):
@@ -76,7 +76,7 @@ class RSMQueue(object):
                     rt = queue.popMessage().execute()
                     # print(rt)
                     if rt['id'] and callback and callable(callback):
-                        callback(rt['message'])
+                        callback(rt['message'], obj)
                 except Exception as e:
                     # print('[Exception] receivemessage', e)
                     pass

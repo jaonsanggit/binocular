@@ -7,14 +7,10 @@ from msgfile.msg import Core2Voice
 from std_msgs.msg import String, Header
 from collections import defaultdict
 
-from sys import getsizeof
-
 from mqutil import RSMQueue
-from queue import Queue
 import time
 import threading
 import json
-from pprint import pprint
 
 context = {
     'target': -1,
@@ -62,6 +58,51 @@ def fun_timer():
         pub_eyes.publish(msg)
     
     timer = threading.Timer(3, fun_timer)
+    timer.start()
+
+def beatCheck(time_pre, timeval):
+
+    global context
+    global timer
+
+    if time.time() - time_pre < timeval:
+	    return
+    else:
+        print('==========>>>>>>>>>>>>>>>> Hello Timer!')
+        print('==========>>>>>>>>>>>>>>>> HeatBeat Stop!\n\n')
+
+        context.update({
+            'target': -1,
+            'mode': 'idle',
+            'user_name': '',
+            'ts': time.time(),
+            'name_timer': time.time(),
+            'working' : time.time()
+        })
+
+        msg = FaceTarget()
+        msg.cmd = context['mode']
+        # if not rospy.is_shutdown():
+        #     rospy.loginfo(msg)
+        #     pub.publish(msg)
+
+        # context['ts'] = time.time()
+        # timer = threading.Timer(timeval, beatCheck, [context['ts'], timeval])
+        # timer.start()
+
+
+
+def heartBeat(timeval):
+    global timer
+    global context
+
+    context['ts'] = time.time()
+# 超过3s没有消息 置为 idle
+    try:
+        timer.cancel()
+    except Exception as e:
+        pass
+    timer = threading.Timer(timeval, beatCheck, [context['ts'], timeval])
     timer.start()
 
 def Status_Machine(face_msg):
@@ -197,6 +238,7 @@ def Status_Machine(face_msg):
 #Status_Machine Handler
     mode = context['mode']
     name = context['user_name']
+    speed = 200
 #idle
     if mode == 'idle':
         return
@@ -206,6 +248,7 @@ def Status_Machine(face_msg):
         target = context['target']
 #working
     else: 
+        speed = 400
         target = 0
         face_msg.sort(key=lambda x: x['depth'])
     #depth first tracking
@@ -227,7 +270,7 @@ def Status_Machine(face_msg):
                     return
             
     target = min(max(0, int(target)), len(face_msg)-1)
-    return face_msg[target]
+    return face_msg[target], speed
 
 
 #VoiceOrder Callback
@@ -242,6 +285,35 @@ def callback(data):
             name_list.append(dict(ts=time.time(), name=context['user_name']))
         OrderFinish = True
         
+
+def eyes_pub_wrapper(msg, context, face, speed, header):
+    header.stamp=rospy.Time.now()
+    msg = FaceTarget()
+    msg.header = header_eyes
+    msg.cmd = context['mode']
+    msg.target.x = (face['location'][0] + face['location'][2])/2
+    msg.target.y = (face['location'][1] + face['location'][3])/2
+    msg.target.z = speed
+
+#回显信息
+    workinginfo = ('name first tracking' if context['user_name'] != '' else  'depth first tracking')
+    rospy.loginfo('\n\n------------------- %s -------------------', workinginfo)
+    if not rospy.is_shutdown():
+        print('frame_id: ', msg.header.frame_id)
+        print('seq: ', msg.header.seq)
+        print('cmd: ', msg.cmd)
+        
+        print()
+        print('  ----------eyesmsg----------')
+        print('  core2eyes/FaceTarget')
+        print('    target: ')
+        print('    x: ', msg.target.x)
+        print('    y: ', msg.target.y)
+        print('    z: ', msg.target.z)
+
+        pub.publish(msg)
+
+
 
 #talker main()
 def talker():
@@ -268,7 +340,7 @@ def talker():
 
             face_msg = json.loads(message)
 
-            face = Status_Machine(face_msg)
+            face, speed = Status_Machine(face_msg)
             if face is None: return
 
             header_eyes.stamp=rospy.Time.now()
@@ -320,7 +392,6 @@ def talker():
 
     t = qface.subscribe(ros_talker, 100)
     t.join()
-
 
 if __name__ == '__main__':
     try:

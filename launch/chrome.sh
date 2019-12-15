@@ -1,3 +1,3 @@
 #!/bin/zsh
 
-google-chrome http://localhost:3001 --start-fullscreen --incognito
+google-chrome http://localhost:3002 --start-fullscreen --incognito

@@ -1,2 +1,2 @@
-msgfile:ros_cv_proxy:serialport
+communication:msgfile:ros_cv_proxy:serialport
 -DCATKIN_DEVEL_PREFIX=/home/aibar/catkin_ws/devel -DCMAKE_INSTALL_PREFIX=/home/aibar/catkin_ws/install -G Unix Makefiles

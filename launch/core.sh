@@ -1,5 +1,7 @@
 #!/bin/zsh
 
-cd
+source /opt/ros/kinetic/setup.zsh
+source ~/catkin_ws/devel/setup.zsh
+
 roscore
 

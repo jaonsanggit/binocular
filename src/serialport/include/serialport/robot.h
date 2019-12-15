@@ -41,6 +41,7 @@ private:
   void TurnAction(void);
   void tranform(int w, int h, std::vector<int> & s);
   void Filter(int &w, int &h);
+  // void emtionAction(std::string emotion);
 };
 
 #endif
