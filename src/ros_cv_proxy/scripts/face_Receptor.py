@@ -221,6 +221,8 @@ class FaceIO():
         else:
             target = 0
             if self.trackingName != 'unknown':
+            # print('----1111', self.trackingFace)
+            # if self.trackingName != '':
                 for f in self.face:
                     if f['user_name'] == self.trackingName:
                         break
@@ -231,6 +233,7 @@ class FaceIO():
                     print('Fail to track on: ', self.trackingName)
                     return
             else :
+                self.trackingFace = self.face[target]
                 target_candidate = []
                 for i in range(0, len(self.face)):
                     if self.face[i]['depth'] - self.face[0]['depth'] > 100:
@@ -242,7 +245,7 @@ class FaceIO():
                     if dr < min_dr:
                         min_dr = dr
                         target = t
-                    
+
             self.time = time.time()
             self.trackingFace = self.face[target]
             # print('trackingFace: ', self.trackingFace)

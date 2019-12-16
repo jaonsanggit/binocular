@@ -5,6 +5,7 @@ import rospy
 from msgfile.msg import FaceTarget
 from msgfile.msg import Core2Voice
 from msgfile.msg import VoiceOrder
+
 from std_msgs.msg import String, Header
 import time
 
@@ -107,6 +108,10 @@ def talker():
     faceIO.run()
     faceMode = 'name'
     lastFaceTime = faceIO.time
+    lastTarget = FaceTarget(header=header_eyes,cmd = faceIO.status)
+    lastTarget.target.x = 50
+    lastTarget.target.y = 50
+    lastTarget.target.z = 100
     # FacemodeSwitch(faceIO, faceMode)
 
     # start VoiceIO
@@ -125,9 +130,7 @@ def talker():
         eyesmsg = FaceTarget()
         eyesmsg.header = header_eyes
         eyesmsg.cmd = status if status != 'activating' else 'idle'
-        eyesmsg.target.x = 50
-        eyesmsg.target.y = 50
-        eyesmsg.target.z = 100
+        eyesmsg.target = lastTarget.target
 
 
         voiceIO.name = faceIO.trackingName
@@ -140,6 +143,7 @@ def talker():
             eyesmsg.target.x = (face['location'][0] + face['location'][2])*100/2
             eyesmsg.target.y = (face['location'][1] + face['location'][3])*100/2
             eyesmsg.target.z = speedControl(faceIO)
+            lastTarget.target = eyesmsg.target
 
             voicemsg.name = faceIO.trackingName
             voicemsg.gender = face['gender'] if face['gender'] is not None else ""
