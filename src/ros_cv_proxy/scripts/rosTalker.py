@@ -79,7 +79,7 @@ def Check(f, v):
         rospy.logwarn('\n\n\t\t---------%s finish-----------', v.name)
         f.setFSM('init')
         v.name = ''
-        return False    
+        return False
     else:
         return True
 
@@ -92,7 +92,7 @@ def speedControl(f):
     else :
         speed = 200
     return speed
-        
+
 def talker():
     pub_eyes = rospy.Publisher('core_eyes', FaceTarget, queue_size=10)
     pub_voice = rospy.Publisher('core_voice', Core2Voice, queue_size=10)
@@ -131,7 +131,6 @@ def talker():
         eyesmsg.header = header_eyes
         eyesmsg.cmd = status if status != 'activating' else 'idle'
         eyesmsg.target = lastTarget.target
-
 
         voiceIO.name = faceIO.trackingName
         voicemsg = Core2Voice()

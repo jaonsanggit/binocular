@@ -169,8 +169,6 @@ void ROBOTEYES::TurnAction(void)
 void ROBOTEYES::tranform(int w, int h, std::vector<int> & s)
 {
   int delta_max_1_3 = 80;  // <= 160
-  // int delta_max_5 = 80;     // <= 75
-
   float ratio = 1.5f;
   // if (std::abs(w - IMAGECenter_W) < 200)
   //   ratio = 1.5f;
@@ -214,6 +212,3 @@ void ROBOTEYES::Filter(int &w, int &h)
 //     TurnUD(vec, 200);
 //     TurnAction();
 //   }
-
-
- 

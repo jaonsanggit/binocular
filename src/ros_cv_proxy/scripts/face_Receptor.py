@@ -221,8 +221,6 @@ class FaceIO():
         else:
             target = 0
             if self.trackingName != 'unknown':
-            # print('----1111', self.trackingFace)
-            # if self.trackingName != '':
                 for f in self.face:
                     if f['user_name'] == self.trackingName:
                         break
