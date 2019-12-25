@@ -25,8 +25,8 @@ class FaceIO():
     face_list_timeval = 3
 
 # ------activating-------
-    effective_face_distance = 4000
-    activateDis = 3000
+    effective_face_distance = 1500
+    activateDis = 1200
     activateTime = 1.5
 
 # ------init-------
@@ -101,7 +101,7 @@ class FaceIO():
         # sort by frequency
         name_dict = sorted(name_dict.items(), key=lambda d: d[1], reverse=True)
 
-        self.namebyFrequency = name_dict
+        self.namebyFrequency = list(filter(lambda d: d[1] > 6, name_dict))
 
     def mqPub(self):
         if len(self.trackingFace) > 0 :
@@ -137,9 +137,12 @@ class FaceIO():
         self.face_list.clear()
         self.time = time.time()
 
+    def printlog(self):
+        print(self.face)
+
     def FSM(self):
 
-        # print(self.face)
+        # self.printlog()
 
         if self.faceCheck() is False:
             return
@@ -200,19 +203,39 @@ class FaceIO():
                 else:
                     self.trackingName = ''
 
+                    print('namebyFrequency', self.namebyFrequency)
+                    # for n in self.namebyFrequency:
+                        # if n[0] == 'unknown' and self.trackingName == '':
+                        #     self.trackingName = 'unknown'
+                        #     print(1111)
+                        # elif list(self.excludeNames.keys()).count(n[0]) != 0:
+                        #     self.trackingName = n[0]
+                        #     print(222222)
+                        # else :
+                        #     self.trackingName = n[0]
+                        #     print(33333)
+                        #     break
+                    Working = -1
                     for n in self.namebyFrequency:
-                        if n[0] is None or n[0] == 'unknown':
-                            self.trackingName = n[0]
-                            continue
-                        elif list(self.excludeNames.keys()).count(n[0]) != 0:
-                            self.trackingName = n[0]
-                            continue
-                        else :
-                            self.trackingName = n[0]
-                            break
+                        if n[0] != 'unknown':
+                            if list(self.excludeNames.keys()).count(n[0]) == 0:
+                                self.trackingName = n[0]
+                                Working = 0
+                                break
+                            else:
+                                self.trackingName = n[0]
+                                Working = 1
 
-                    if (list(self.excludeNames.keys()).count(self.trackingName) != 0):
-                        print('\n\n------ Init : all tracked -------\n\n')
+                    # if (list(self.excludeNames.keys()).count(self.trackingName) != 0) 
+                    #     print('\n\n------ Init : all tracked -------\n\n')
+                    #     self.setFSM('init')
+                    # else :
+                    #     self.setFSM('working')
+                    #     print('状态转移: init -> working')
+
+                    if Working  != 0:
+                        if Working == 1:
+                            print('\n\n------ Init : all tracked -------\n\n')
                         self.setFSM('init')
                     else :
                         self.setFSM('working')
@@ -220,29 +243,32 @@ class FaceIO():
         #self.status == working
         else:
             target = 0
-            if self.trackingName != 'unknown':
-                for f in self.face:
-                    if f['user_name'] == self.trackingName:
-                        break
-                    target += 1
+            # if self.trackingName != 'unknown':
+            # if self.trackingName != '':
+            for f in self.face:
+                if f['user_name'] == self.trackingName:
+                    break
+                target += 1
 
-                if target >= len(self.face):
-                    self.trackingFace = []
-                    print('Fail to track on: ', self.trackingName)
-                    return
-            else :
-                self.trackingFace = self.face[target]
-                target_candidate = []
-                for i in range(0, len(self.face)):
-                    if self.face[i]['depth'] - self.face[0]['depth'] > 100:
-                        break
-                    target_candidate.append(i)
-                min_dr = 1000
-                for t in target_candidate:
-                    dr = abs(sum(self.face[t]['location']) - sum(self.trackingFace['location']))
-                    if dr < min_dr:
-                        min_dr = dr
-                        target = t
+            if target >= len(self.face):
+                self.trackingFace = []
+                print('Fail to track on: ', self.trackingName)
+                return
+
+            # if self.trackingName == 'unknown':
+            #     target = 0
+            #     self.trackingFace = self.face[target]
+            #     target_candidate = []
+            #     for i in range(0, len(self.face)):
+            #         if self.face[i]['depth'] - self.face[0]['depth'] > 100:
+            #             break
+            #         target_candidate.append(i)
+            #     min_dr = 1000
+            #     for t in target_candidate:
+            #         dr = abs(sum(self.face[t]['location']) - sum(self.trackingFace['location']))
+            #         if dr < min_dr:
+            #             min_dr = dr
+            #             target = t
 
             self.time = time.time()
             self.trackingFace = self.face[target]

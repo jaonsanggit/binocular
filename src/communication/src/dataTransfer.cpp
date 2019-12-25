@@ -53,7 +53,7 @@ void chatterCallback(const msgfile::Core2Voice::ConstPtr& msg){
 
 	msgToiFLytek.generate_Json(msgToiFLytek.cmd, msgToiFLytek.name, msgToiFLytek.gender, msgToiFLytek.age, msgToiFLytek.Json);
 
-	cout << "============================================================================================" << endl;
+	cout << "================================================================================" << endl;
 	cout << "[ CHATTER_CALLBACK ] " << msgToiFLytek.Json << endl << endl;
 
 	/** write()当FIFO写满时才阻塞，否则不阻塞并且返回错误！ */
@@ -398,7 +398,7 @@ void* _readFromiFLytek(void* arg){
 		else
 			;
 
-		cout << "============================================================================================" << endl;
+		cout << "================================================================================" << endl;
 		cout << "[ READ_FROM_IFLYTEK ] " << msgFromiFlytek.Json << endl << endl;
 
 		/** 解析iFlytek的数据 */

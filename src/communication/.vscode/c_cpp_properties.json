@@ -1,0 +1,24 @@
+{
+    "configurations": [
+        {
+            "browse": {
+                "databaseFilename": "",
+                "limitSymbolsToIncludedHeaders": true
+            },
+            "includePath": [
+                "/home/aibar/catkin_ws/devel/include",
+                "/opt/ros/kinetic/include",
+                "/home/aibar/catkin_ws/src/communication/include",
+                "/home/aibar/catkin_ws/src/msgfile/include",
+                "/home/aibar/catkin_ws/src/serialport/include",
+                "/usr/include"
+            ],
+            "name": "Linux",
+            "intelliSenseMode": "gcc-x64",
+            "compilerPath": "/usr/bin/gcc",
+            "cStandard": "c11",
+            "cppStandard": "c++17"
+        }
+    ],
+    "version": 4
+}

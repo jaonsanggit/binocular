@@ -26,4 +26,4 @@ gnome-terminal -x bash -c "zsh ./firefox.sh; exec bash;"
 sleep 20
 
 echo "starting voice all ..."
-#gnome-terminal -x bash -c "zsh ./voice.sh; exec bash;"
+gnome-terminal -x bash -c "zsh ./voice.sh; exec bash;"

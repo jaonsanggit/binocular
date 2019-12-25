@@ -144,7 +144,7 @@ def talker():
             eyesmsg.target.z = speedControl(faceIO)
             lastTarget.target = eyesmsg.target
 
-            voicemsg.name = faceIO.trackingName
+            voicemsg.name = faceIO.trackingName if 'unknown' not in faceIO.trackingName else 'unknown'
             voicemsg.gender = face['gender'] if face['gender'] is not None else ""
         # print('age: ', face['age'])
             if voicemsg.gender != '':
@@ -162,6 +162,7 @@ def talker():
             print('frame_id: ', eyesmsg.header.frame_id)
             print('seq: ', eyesmsg.header.seq)
             print('cmd: ', eyesmsg.cmd)
+
 
             print()
             print('  ----------eyesmsg----------')
