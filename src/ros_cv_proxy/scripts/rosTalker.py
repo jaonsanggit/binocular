@@ -145,6 +145,9 @@ def talker():
             lastTarget.target = eyesmsg.target
 
             voicemsg.name = faceIO.trackingName if 'unknown' not in faceIO.trackingName else 'unknown'
+            voicemsg.name += '--'
+            voicemsg.name += face['user_id'] if face['user_id'] is not None else "None"
+
             voicemsg.gender = face['gender'] if face['gender'] is not None else ""
         # print('age: ', face['age'])
             if voicemsg.gender != '':

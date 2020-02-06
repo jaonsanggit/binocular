@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-sleep 10 
+sleep 5 
 echo "starting computer..."
 
 cd ~/catkin_ws/launch
@@ -23,7 +23,7 @@ sleep 20
 
 echo "starting  chrome ..."
 gnome-terminal -x bash -c "zsh ./firefox.sh; exec bash;"
-sleep 20
+sleep 5
 
 echo "starting voice all ..."
 gnome-terminal -x bash -c "zsh ./voice.sh; exec bash;"
