@@ -17,6 +17,7 @@ import json
 from pprint import pprint
 
 #talker main()
+
 def talker():
 
     pub_eyes = rospy.Publisher('core_eyes', FaceTarget, queue_size=10)
@@ -33,6 +34,7 @@ def talker():
         try:
 
             face_msg = json.loads(message)
+            print(face_msg)
 
             header_eyes.stamp=rospy.Time.now()
             face = face_msg[0]

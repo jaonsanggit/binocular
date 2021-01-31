@@ -25,8 +25,8 @@ class FaceIO():
     face_list_timeval = 3
 
 # ------activating-------
-    effective_face_distance = 1500
-    activateDis = 1200
+    effective_face_distance = 1000
+    activateDis = 700
     activateTime = 1.5
 
 # ------init-------
@@ -101,7 +101,7 @@ class FaceIO():
         # sort by frequency
         name_dict = sorted(name_dict.items(), key=lambda d: d[1], reverse=True)
 
-        self.namebyFrequency = list(filter(lambda d: d[1] > 6, name_dict))
+        self.namebyFrequency = list(filter(lambda d: d[1] > 0, name_dict))
 
     def mqPub(self):
         if len(self.trackingFace) > 0 :
@@ -120,7 +120,7 @@ class FaceIO():
             print('ignore frame')
             return False
 
-        # if self.face[0]['user_name'] is None:
+        #if self.face[0]['user_name'] is None:
         #     self.time = time.time()
         #     self.trackingFace = self.face[0]
         #     self.status = 'working'
@@ -215,6 +215,7 @@ class FaceIO():
                         #     self.trackingName = n[0]
                         #     print(33333)
                         #     break
+
                     Working = -1
                     for n in self.namebyFrequency:
                         if n[0] != 'unknown':
@@ -222,16 +223,16 @@ class FaceIO():
                                 self.trackingName = n[0]
                                 Working = 0
                                 break
-                            else:
-                                self.trackingName = n[0]
-                                Working = 1
+                        else:
+                             self.trackingName = n[0]
+                             Working = 1
 
-                    # if (list(self.excludeNames.keys()).count(self.trackingName) != 0) 
-                    #     print('\n\n------ Init : all tracked -------\n\n')
-                    #     self.setFSM('init')
+                    # if (list(self.excludeNames.keys()).count(self.trackingName) != 0): 
+                    #      print('\n\n------ Init : all tracked -------\n\n')
+                    #      self.setFSM('init')
                     # else :
-                    #     self.setFSM('working')
-                    #     print('状态转移: init -> working')
+                    #      self.setFSM('working')
+                    #      print('状态转移: init -> working')
 
                     if Working  != 0:
                         if Working == 1:
